@@ -12,6 +12,8 @@
   <modules>
     <module>publisher</module>
     <module>subscriber</module>
+    <module>common</module>
+    <module>broker</module>
   </modules>
 
   <properties>

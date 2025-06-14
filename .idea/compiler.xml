@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="publisher" />
         <module name="subscriber" />
+        <module name="common" />
+        <module name="broker" />
       </profile>
     </annotationProcessing>
   </component>

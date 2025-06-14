@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_outer_classname = "PublicationProto";
+
+message Publication {
+  string date = 1;
+  int32 temp = 2;
+  string direction = 3;
+  int32 wind = 4;
+  float rain = 5;
+  int32 station = 6;
+  string city = 7;
+}
