@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_outer_classname = "AdminProto";
+import "proto/subscription.proto";
+
+enum SourceType {
+  BROKER = 0;
+  SUBSCRIBER = 1;
+}
+message AdminMessage {
+  string source = 1;
+  SourceType source_type = 2;
+
+  repeated Subscription subscriptions = 3;
+  repeated Subscription unsubscriptions = 4;
+}

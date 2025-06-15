@@ -8,6 +8,7 @@ public class SubRecord {
     public FieldCondition rain;
     public FieldCondition station;
     public FieldCondition city;
+    public FieldCondition avg_temp;
 
     public static class FieldCondition {
         public String operator;

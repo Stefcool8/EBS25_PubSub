@@ -62,6 +62,8 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
                 subscriptionBuilder.setStation(toIntCondition(subRecord.station));
             if (subRecord.city != null)
                 subscriptionBuilder.setCity(toStringCondition(subRecord.city));
+            if (subRecord.avg_temp != null)
+                subscriptionBuilder.setAvgTemp(toFloatCondition(subRecord.avg_temp));
 
             collector.emit(new Values(subscriptionBuilder.build()));
 

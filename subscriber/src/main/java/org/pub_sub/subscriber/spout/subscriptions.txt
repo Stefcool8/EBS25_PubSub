@@ -1,4 +1,4 @@
-{"date": { "operator": "==", "value": "07.08.2025" },"temp": { "operator": "==", "value": "-18" },"direction": { "operator": ">=", "value": "NW" },"station": { "operator": "<=", "value": "89" }}
+{"date": { "operator": "==", "value": "07.08.2025" },"temp": { "operator": "==", "value": "-18" },"direction": { "operator": ">=", "value": "NW" },"station": { "operator": "<=", "value": "89" }, "avg_temp": { "operator": "<", "value": "5" }}
 {"date": { "operator": "<=", "value": "20.10.2025" },"temp": { "operator": "<", "value": "-13" },"direction": { "operator": ">=", "value": "SE" },"rain": { "operator": "==", "value": "21.3" },"station": { "operator": "==", "value": "26" }}
 {"date": { "operator": "<=", "value": "17.12.2025" },"temp": { "operator": "!=", "value": "15" },"direction": { "operator": "<", "value": "NE" },"rain": { "operator": "<", "value": "62.95" },"station": { "operator": "<", "value": "66" }}
 {"date": { "operator": "!=", "value": "18.01.2025" },"temp": { "operator": ">=", "value": "14" },"direction": { "operator": "<=", "value": "S" },"station": { "operator": ">", "value": "47" }}
