@@ -36,3 +36,5 @@ Thumbs.db
 
 # IntelliJ run/debug configs (optional)
 .idea/runConfigurations/
+
+.idea
