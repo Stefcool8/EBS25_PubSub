@@ -9,6 +9,7 @@ import org.apache.storm.topology.BasicOutputCollector;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseBasicBolt;
 import org.apache.storm.tuple.Tuple;
+import org.pub_sub.common.generated.AdminProto;
 import org.pub_sub.common.generated.SubscriptionProto;
 
 import java.util.Map;
@@ -17,9 +18,11 @@ import java.util.Properties;
 public class KafkaSubscriberBolt extends BaseBasicBolt {
     private transient KafkaProducer<byte[], byte[]> producer;
     private final String topic;
+    private final String subscriberId;
 
-    public KafkaSubscriberBolt(String topic) {
+    public KafkaSubscriberBolt(String topic, String subscriberId) {
         this.topic = topic;
+        this.subscriberId = subscriberId;
     }
 
     @Override
@@ -34,7 +37,14 @@ public class KafkaSubscriberBolt extends BaseBasicBolt {
     @Override
     public void execute(Tuple tuple, BasicOutputCollector basicOutputCollector) {
         SubscriptionProto.Subscription subscription = (SubscriptionProto.Subscription) tuple.getValueByField("subscription");
-        byte[] data = subscription.toByteArray();
+
+        AdminProto.AdminMessage adminMessage = AdminProto.AdminMessage.newBuilder()
+                .setSource(subscriberId)
+                .setSourceType(AdminProto.SourceType.SUBSCRIBER)
+                .addSubscriptions(subscription)
+                .build();
+
+        byte[] data = adminMessage.toByteArray();
 
         ProducerRecord<byte[], byte[]> record = new ProducerRecord<>(topic, null, data);
         producer.send(record);
