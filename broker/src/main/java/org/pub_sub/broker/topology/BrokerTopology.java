@@ -21,7 +21,7 @@ public class BrokerTopology {
                 .shuffleGrouping("kafka-subscription-spout");
 
         Config config = new Config();
-        config.setDebug(true);
+        config.setDebug(false);
 
         try (LocalCluster cluster = new LocalCluster()) {
             cluster.submitTopology("broker-topology", config, builder.createTopology());

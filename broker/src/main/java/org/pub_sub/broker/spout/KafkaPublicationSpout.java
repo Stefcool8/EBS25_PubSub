@@ -11,8 +11,8 @@ import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseRichSpout;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
-import org.pub_sub.common.generated.PublicationProto;
-import org.pub_sub.common.deserializers.PublicationDeserializer;
+import org.pub_sub.common.deserializers.ForwardDeserializer;
+import org.pub_sub.common.generated.ForwardProto;
 
 import java.time.Duration;
 import java.util.Collections;
@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Properties;
 
 public class KafkaPublicationSpout extends BaseRichSpout {
-    private KafkaConsumer<String, PublicationProto.Publication> consumer;
+    private KafkaConsumer<String, ForwardProto.ForwardMessage> consumer;
     private SpoutOutputCollector collector;
 
     @Override
@@ -30,7 +30,7 @@ public class KafkaPublicationSpout extends BaseRichSpout {
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "publication-consumer-group");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, PublicationDeserializer.class.getName());
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ForwardDeserializer.class.getName());
 
         consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Collections.singletonList("pub-to-broker-1"));
@@ -38,9 +38,10 @@ public class KafkaPublicationSpout extends BaseRichSpout {
 
     @Override
     public void nextTuple() {
-        ConsumerRecords<String, PublicationProto.Publication> records = consumer.poll(Duration.ofMillis(100));
-        for (ConsumerRecord<String, PublicationProto.Publication> record : records) {
-            collector.emit(new Values(record.key(), record.value()));
+        ConsumerRecords<String, ForwardProto.ForwardMessage> records = consumer.poll(Duration.ofMillis(100));
+        for (ConsumerRecord<String, ForwardProto.ForwardMessage> record : records) {
+            ForwardProto.ForwardMessage forwardMessage = record.value();
+            collector.emit(new Values(record.key(), forwardMessage.getPublication()));
         }
     }
 

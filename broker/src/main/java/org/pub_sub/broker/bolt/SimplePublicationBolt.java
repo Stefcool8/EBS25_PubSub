@@ -8,8 +8,10 @@ import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 import org.pub_sub.broker.notify.SubscriberNotifier;
 import org.pub_sub.common.generated.PublicationProto;
+import org.pub_sub.common.generated.SubscriptionProto;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 public class SimplePublicationBolt extends BaseRichBolt {
@@ -26,15 +28,22 @@ public class SimplePublicationBolt extends BaseRichBolt {
         PublicationProto.Publication pub = (PublicationProto.Publication) tuple.getValueByField("publication");
 
         System.out.println("Received publication: " + pub.toString());
-        try {
-            SubscriberNotifier.notify("localhost:8082", pub.toString());
-        } catch (IOException e) {
-            System.err.println("Error notifying subscribers: " + e.getMessage());
-            e.printStackTrace();
+        
+        // Get matching subscriptions
+        List<SubscriptionProto.Subscription> matchingSubscriptions = SubscriptionManager.getMatchingSubscriptions(pub);
+        
+        // Notify subscribers for each matching subscription
+        for (SubscriptionProto.Subscription subscription : matchingSubscriptions) {
+            try {
+                System.out.println("Notifying subscriber for matching subscription: " + subscription.toString());
+                SubscriberNotifier.notify("localhost:8082", pub.toString());
+            } catch (IOException e) {
+                System.err.println("Error notifying subscribers: " + e.getMessage());
+                e.printStackTrace();
+            }
         }
 
         collector.emit(new Values(pub));
-
         collector.ack(tuple);
     }
 

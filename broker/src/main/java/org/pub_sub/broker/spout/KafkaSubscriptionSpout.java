@@ -11,7 +11,8 @@ import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseRichSpout;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
-import org.pub_sub.common.deserializers.SubscriptionDeserializer;
+import org.pub_sub.common.deserializers.AdminDeserializer;
+import org.pub_sub.common.generated.AdminProto;
 import org.pub_sub.common.generated.SubscriptionProto;
 
 import java.time.Duration;
@@ -20,9 +21,8 @@ import java.util.Map;
 import java.util.Properties;
 
 public class KafkaSubscriptionSpout extends BaseRichSpout {
-    private KafkaConsumer<String, SubscriptionProto.Subscription> consumer;
+    private KafkaConsumer<String, AdminProto.AdminMessage> consumer;
     private SpoutOutputCollector collector;
-
 
     @Override
     public void open(Map<String, Object> map, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector) {
@@ -31,7 +31,7 @@ public class KafkaSubscriptionSpout extends BaseRichSpout {
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "subscription-consumer-group");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, SubscriptionDeserializer.class.getName());
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, AdminDeserializer.class.getName());
 
         consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Collections.singletonList("sub-to-broker-1"));
@@ -39,9 +39,13 @@ public class KafkaSubscriptionSpout extends BaseRichSpout {
 
     @Override
     public void nextTuple() {
-        ConsumerRecords<String, SubscriptionProto.Subscription> records = consumer.poll(Duration.ofMillis(100));
-        for (ConsumerRecord<String, SubscriptionProto.Subscription> record : records) {
-            collector.emit(new Values(record.key(), record.value()));
+        ConsumerRecords<String, AdminProto.AdminMessage> records = consumer.poll(Duration.ofMillis(100));
+        for (ConsumerRecord<String, AdminProto.AdminMessage> record : records) {
+            AdminProto.AdminMessage adminMessage = record.value();
+            // Emit each subscription from the admin message
+            for (SubscriptionProto.Subscription subscription : adminMessage.getSubscriptionsList()) {
+                collector.emit(new Values(record.key(), subscription));
+            }
         }
     }
 
