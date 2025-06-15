@@ -11,9 +11,7 @@ import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseRichSpout;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
-import org.pub_sub.common.deserializers.PublicationDeserializer;
 import org.pub_sub.common.deserializers.SubscriptionDeserializer;
-import org.pub_sub.common.generated.PublicationProto;
 import org.pub_sub.common.generated.SubscriptionProto;
 
 import java.time.Duration;

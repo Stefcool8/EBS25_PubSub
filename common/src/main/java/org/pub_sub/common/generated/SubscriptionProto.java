@@ -2022,6 +2022,21 @@ public final class SubscriptionProto {
      * <code>.StringFieldCondition city = 7;</code>
      */
     SubscriptionProto.StringFieldConditionOrBuilder getCityOrBuilder();
+
+    /**
+     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     * @return Whether the avgTemp field is set.
+     */
+    boolean hasAvgTemp();
+    /**
+     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     * @return The avgTemp.
+     */
+    SubscriptionProto.FloatFieldCondition getAvgTemp();
+    /**
+     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     */
+    SubscriptionProto.FloatFieldConditionOrBuilder getAvgTempOrBuilder();
   }
   /**
    * Protobuf type {@code Subscription}
@@ -2243,6 +2258,32 @@ public final class SubscriptionProto {
       return city_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : city_;
     }
 
+    public static final int AVG_TEMP_FIELD_NUMBER = 8;
+    private SubscriptionProto.FloatFieldCondition avgTemp_;
+    /**
+     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     * @return Whether the avgTemp field is set.
+     */
+    @java.lang.Override
+    public boolean hasAvgTemp() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     * @return The avgTemp.
+     */
+    @java.lang.Override
+    public SubscriptionProto.FloatFieldCondition getAvgTemp() {
+      return avgTemp_ == null ? SubscriptionProto.FloatFieldCondition.getDefaultInstance() : avgTemp_;
+    }
+    /**
+     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     */
+    @java.lang.Override
+    public SubscriptionProto.FloatFieldConditionOrBuilder getAvgTempOrBuilder() {
+      return avgTemp_ == null ? SubscriptionProto.FloatFieldCondition.getDefaultInstance() : avgTemp_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2277,6 +2318,9 @@ public final class SubscriptionProto {
       }
       if (((bitField0_ & 0x00000040) != 0)) {
         output.writeMessage(7, getCity());
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        output.writeMessage(8, getAvgTemp());
       }
       getUnknownFields().writeTo(output);
     }
@@ -2314,6 +2358,10 @@ public final class SubscriptionProto {
       if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getCity());
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getAvgTemp());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -2365,6 +2413,11 @@ public final class SubscriptionProto {
         if (!getCity()
             .equals(other.getCity())) return false;
       }
+      if (hasAvgTemp() != other.hasAvgTemp()) return false;
+      if (hasAvgTemp()) {
+        if (!getAvgTemp()
+            .equals(other.getAvgTemp())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -2403,6 +2456,10 @@ public final class SubscriptionProto {
       if (hasCity()) {
         hash = (37 * hash) + CITY_FIELD_NUMBER;
         hash = (53 * hash) + getCity().hashCode();
+      }
+      if (hasAvgTemp()) {
+        hash = (37 * hash) + AVG_TEMP_FIELD_NUMBER;
+        hash = (53 * hash) + getAvgTemp().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -2541,6 +2598,7 @@ public final class SubscriptionProto {
           internalGetRainFieldBuilder();
           internalGetStationFieldBuilder();
           internalGetCityFieldBuilder();
+          internalGetAvgTempFieldBuilder();
         }
       }
       @java.lang.Override
@@ -2581,6 +2639,11 @@ public final class SubscriptionProto {
         if (cityBuilder_ != null) {
           cityBuilder_.dispose();
           cityBuilder_ = null;
+        }
+        avgTemp_ = null;
+        if (avgTempBuilder_ != null) {
+          avgTempBuilder_.dispose();
+          avgTempBuilder_ = null;
         }
         return this;
       }
@@ -2658,6 +2721,12 @@ public final class SubscriptionProto {
               : cityBuilder_.build();
           to_bitField0_ |= 0x00000040;
         }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.avgTemp_ = avgTempBuilder_ == null
+              ? avgTemp_
+              : avgTempBuilder_.build();
+          to_bitField0_ |= 0x00000080;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -2693,6 +2762,9 @@ public final class SubscriptionProto {
         }
         if (other.hasCity()) {
           mergeCity(other.getCity());
+        }
+        if (other.hasAvgTemp()) {
+          mergeAvgTemp(other.getAvgTemp());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -2769,6 +2841,13 @@ public final class SubscriptionProto {
                 bitField0_ |= 0x00000040;
                 break;
               } // case 58
+              case 66: {
+                input.readMessage(
+                    internalGetAvgTempFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -3633,6 +3712,127 @@ public final class SubscriptionProto {
         return cityBuilder_;
       }
 
+      private SubscriptionProto.FloatFieldCondition avgTemp_;
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.FloatFieldCondition, SubscriptionProto.FloatFieldCondition.Builder, SubscriptionProto.FloatFieldConditionOrBuilder> avgTempBuilder_;
+      /**
+       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * @return Whether the avgTemp field is set.
+       */
+      public boolean hasAvgTemp() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * @return The avgTemp.
+       */
+      public SubscriptionProto.FloatFieldCondition getAvgTemp() {
+        if (avgTempBuilder_ == null) {
+          return avgTemp_ == null ? SubscriptionProto.FloatFieldCondition.getDefaultInstance() : avgTemp_;
+        } else {
+          return avgTempBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       */
+      public Builder setAvgTemp(SubscriptionProto.FloatFieldCondition value) {
+        if (avgTempBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          avgTemp_ = value;
+        } else {
+          avgTempBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       */
+      public Builder setAvgTemp(
+          SubscriptionProto.FloatFieldCondition.Builder builderForValue) {
+        if (avgTempBuilder_ == null) {
+          avgTemp_ = builderForValue.build();
+        } else {
+          avgTempBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       */
+      public Builder mergeAvgTemp(SubscriptionProto.FloatFieldCondition value) {
+        if (avgTempBuilder_ == null) {
+          if (((bitField0_ & 0x00000080) != 0) &&
+            avgTemp_ != null &&
+            avgTemp_ != SubscriptionProto.FloatFieldCondition.getDefaultInstance()) {
+            getAvgTempBuilder().mergeFrom(value);
+          } else {
+            avgTemp_ = value;
+          }
+        } else {
+          avgTempBuilder_.mergeFrom(value);
+        }
+        if (avgTemp_ != null) {
+          bitField0_ |= 0x00000080;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       */
+      public Builder clearAvgTemp() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        avgTemp_ = null;
+        if (avgTempBuilder_ != null) {
+          avgTempBuilder_.dispose();
+          avgTempBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       */
+      public SubscriptionProto.FloatFieldCondition.Builder getAvgTempBuilder() {
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return internalGetAvgTempFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       */
+      public SubscriptionProto.FloatFieldConditionOrBuilder getAvgTempOrBuilder() {
+        if (avgTempBuilder_ != null) {
+          return avgTempBuilder_.getMessageOrBuilder();
+        } else {
+          return avgTemp_ == null ?
+              SubscriptionProto.FloatFieldCondition.getDefaultInstance() : avgTemp_;
+        }
+      }
+      /**
+       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.FloatFieldCondition, SubscriptionProto.FloatFieldCondition.Builder, SubscriptionProto.FloatFieldConditionOrBuilder> 
+          internalGetAvgTempFieldBuilder() {
+        if (avgTempBuilder_ == null) {
+          avgTempBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              SubscriptionProto.FloatFieldCondition, SubscriptionProto.FloatFieldCondition.Builder, SubscriptionProto.FloatFieldConditionOrBuilder>(
+                  getAvgTemp(),
+                  getParentForChildren(),
+                  isClean());
+          avgTemp_ = null;
+        }
+        return avgTempBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:Subscription)
     }
 
@@ -3718,14 +3918,15 @@ public final class SubscriptionProto {
       "\r\n\005value\030\002 \001(\t\"?\n\021IntFieldCondition\022\033\n\010o" +
       "perator\030\001 \001(\0162\t.Operator\022\r\n\005value\030\002 \001(\005\"" +
       "A\n\023FloatFieldCondition\022\033\n\010operator\030\001 \001(\016" +
-      "2\t.Operator\022\r\n\005value\030\002 \001(\002\"\217\002\n\014Subscript" +
+      "2\t.Operator\022\r\n\005value\030\002 \001(\002\"\267\002\n\014Subscript" +
       "ion\022#\n\004date\030\001 \001(\0132\025.StringFieldCondition" +
       "\022 \n\004temp\030\002 \001(\0132\022.IntFieldCondition\022(\n\tdi" +
       "rection\030\003 \001(\0132\025.StringFieldCondition\022 \n\004" +
       "wind\030\004 \001(\0132\022.IntFieldCondition\022\"\n\004rain\030\005" +
       " \001(\0132\024.FloatFieldCondition\022#\n\007station\030\006 " +
       "\001(\0132\022.IntFieldCondition\022#\n\004city\030\007 \001(\0132\025." +
-      "StringFieldCondition*:\n\010Operator\022\006\n\002EQ\020\000" +
+      "StringFieldCondition\022&\n\010avg_temp\030\010 \001(\0132\024" +
+      ".FloatFieldCondition*:\n\010Operator\022\006\n\002EQ\020\000" +
       "\022\006\n\002NE\020\001\022\006\n\002LT\020\002\022\006\n\002LE\020\003\022\006\n\002GT\020\004\022\006\n\002GE\020\005" +
       "B\023B\021SubscriptionProtob\006proto3"
     };
@@ -3756,7 +3957,7 @@ public final class SubscriptionProto {
     internal_static_Subscription_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Subscription_descriptor,
-        new java.lang.String[] { "Date", "Temp", "Direction", "Wind", "Rain", "Station", "City", });
+        new java.lang.String[] { "Date", "Temp", "Direction", "Wind", "Rain", "Station", "City", "AvgTemp", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

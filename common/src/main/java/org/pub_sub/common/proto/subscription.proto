@@ -34,4 +34,6 @@ message Subscription {
   FloatFieldCondition rain = 5;
   IntFieldCondition station = 6;
   StringFieldCondition city = 7;
+
+  FloatFieldCondition avg_temp = 8;
 }

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_outer_classname = "ForwardProto";
+import "proto/publication.proto";
+
+enum SourceType {
+  BROKER = 0;
+  PUBLISHER = 1;
+}
+message ForwardMessage {
+  string source = 1;
+  SourceType source_type = 2;
+  Publication publication = 3;
+}
