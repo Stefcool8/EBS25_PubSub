@@ -9,6 +9,7 @@ import org.apache.storm.topology.BasicOutputCollector;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseBasicBolt;
 import org.apache.storm.tuple.Tuple;
+import org.pub_sub.common.generated.ForwardProto;
 import org.pub_sub.common.generated.PublicationProto;
 
 import java.util.Map;
@@ -17,6 +18,7 @@ import java.util.Properties;
 public class KafkaPublisherBolt extends BaseBasicBolt {
     private transient KafkaProducer<byte[], byte[]> producer;
     private final String topic;
+    private final String publisherId = "publisher-1";
 
     public KafkaPublisherBolt(String topic) {
         this.topic = topic;
@@ -34,7 +36,14 @@ public class KafkaPublisherBolt extends BaseBasicBolt {
     @Override
     public void execute(Tuple tuple, BasicOutputCollector basicOutputCollector) {
         PublicationProto.Publication publication = (PublicationProto.Publication) tuple.getValueByField("publication");
-        byte[] data = publication.toByteArray();
+
+        ForwardProto.ForwardMessage forwardMessage = ForwardProto.ForwardMessage.newBuilder()
+                .setSource(publisherId)
+                .setSourceType(ForwardProto.SourceType.PUBLISHER)
+                .setPublication(publication)
+                .build();
+
+        byte[] data = forwardMessage.toByteArray();
 
         ProducerRecord<byte[], byte[]> record = new ProducerRecord<>(topic, null, data);
         producer.send(record);

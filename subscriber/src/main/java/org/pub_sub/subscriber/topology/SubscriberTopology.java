@@ -11,11 +11,12 @@ public class SubscriberTopology {
     public static void run() throws Exception {
         String brokerId = System.getenv().getOrDefault("BROKER_ID", "1");
         String topic = "sub-to-broker-" + brokerId;
+        String subscriberId = "localhost:8082";
 
         TopologyBuilder builder = new TopologyBuilder();
 
         builder.setSpout("subscriptions-spout", new SubscriptionsGeneratorSpout());
-        builder.setBolt("kafka-subscriber", new KafkaSubscriberBolt(topic)).shuffleGrouping("subscriptions-spout");
+        builder.setBolt("kafka-subscriber", new KafkaSubscriberBolt(topic, subscriberId)).shuffleGrouping("subscriptions-spout");
 
         Config config = new Config();
         config.setDebug(false);
