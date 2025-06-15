@@ -10,8 +10,8 @@ import org.apache.storm.tuple.Values;
 import org.pub_sub.common.generated.PublicationProto;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Map;
 
 public class PublicationsGeneratorSpout extends BaseRichSpout {
@@ -25,12 +25,15 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
     public void open(Map<String, Object> map, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector) {
         this.collector = spoutOutputCollector;
         this.mapper = new ObjectMapper();
-        String filePath = "D:\\Master\\Anul1Sem2\\EBS\\EBS25_PubSub\\publisher\\src\\main\\java\\org\\pub_sub\\publisher\\spout\\publications.txt";
         try {
-            this.reader = new BufferedReader(new FileReader(filePath));
+            var inputStream = getClass().getResourceAsStream("publications.txt");
+            if (inputStream == null) {
+                throw new RuntimeException("Could not find publications.txt in the same directory as " + getClass().getName());
+            }
+            this.reader = new BufferedReader(new InputStreamReader(inputStream));
             this.nextLine = reader.readLine();
         } catch (IOException e) {
-            throw new RuntimeException("Could not open file: " + filePath, e);
+            throw new RuntimeException("Could not open publications.txt", e);
         }
     }
 

@@ -10,8 +10,8 @@ import org.apache.storm.tuple.Values;
 import org.pub_sub.common.generated.SubscriptionProto;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Map;
 
 public class SubscriptionsGeneratorSpout extends BaseRichSpout {
@@ -25,12 +25,15 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
     public void open(Map<String, Object> conf, TopologyContext context, SpoutOutputCollector spoutOutputCollector) {
         this.collector = spoutOutputCollector;
         this.mapper = new ObjectMapper();
-        String filePath = "D:\\Master\\Anul1Sem2\\EBS\\EBS25_PubSub\\subscriber\\src\\main\\java\\org\\pub_sub\\subscriber\\spout\\subscriptions.txt";
         try {
-            this.reader = new BufferedReader(new FileReader(filePath));
+            var inputStream = getClass().getResourceAsStream("subscriptions.txt");
+            if (inputStream == null) {
+                throw new RuntimeException("Could not find subscriptions.txt in the same directory as " + getClass().getName());
+            }
+            this.reader = new BufferedReader(new InputStreamReader(inputStream));
             this.nextLine = reader.readLine();
         } catch (IOException e) {
-            throw new RuntimeException("Could not open file: " + filePath, e);
+            throw new RuntimeException("Could not open subscriptions.txt", e);
         }
     }
 

@@ -23,9 +23,11 @@ public class SimpleSubscriptionBolt extends BaseRichBolt {
         SubscriptionProto.Subscription sub = (SubscriptionProto.Subscription) tuple.getValueByField("subscription");
 
         System.out.println("Received subscription: " + sub.toString());
+        
+        // Store the subscription
+        SubscriptionManager.addSubscription(sub);
 
         collector.emit(new Values(sub));
-
         collector.ack(tuple);
     }
 
