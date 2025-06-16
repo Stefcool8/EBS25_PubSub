@@ -21,9 +21,9 @@ message IntFieldCondition {
   int32 value = 2;
 }
 
-message FloatFieldCondition {
+message DoubleFieldCondition {
   Operator operator = 1;
-  float value = 2;
+  double value = 2;
 }
 
 message Subscription {
@@ -31,9 +31,9 @@ message Subscription {
   IntFieldCondition temp = 2;
   StringFieldCondition direction = 3;
   IntFieldCondition wind = 4;
-  FloatFieldCondition rain = 5;
+  DoubleFieldCondition rain = 5;
   IntFieldCondition station = 6;
   StringFieldCondition city = 7;
 
-  FloatFieldCondition avg_temp = 8;
+  DoubleFieldCondition avg_temp = 8;
 }

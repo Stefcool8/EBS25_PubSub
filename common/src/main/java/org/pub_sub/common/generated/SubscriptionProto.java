@@ -1375,8 +1375,8 @@ public final class SubscriptionProto {
 
   }
 
-  public interface FloatFieldConditionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:FloatFieldCondition)
+  public interface DoubleFieldConditionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DoubleFieldCondition)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1391,18 +1391,18 @@ public final class SubscriptionProto {
     SubscriptionProto.Operator getOperator();
 
     /**
-     * <code>float value = 2;</code>
+     * <code>double value = 2;</code>
      * @return The value.
      */
-    float getValue();
+    double getValue();
   }
   /**
-   * Protobuf type {@code FloatFieldCondition}
+   * Protobuf type {@code DoubleFieldCondition}
    */
-  public static final class FloatFieldCondition extends
+  public static final class DoubleFieldCondition extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:FloatFieldCondition)
-      FloatFieldConditionOrBuilder {
+      // @@protoc_insertion_point(message_implements:DoubleFieldCondition)
+      DoubleFieldConditionOrBuilder {
   private static final long serialVersionUID = 0L;
     static {
       com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -1411,27 +1411,27 @@ public final class SubscriptionProto {
         /* minor= */ 31,
         /* patch= */ 1,
         /* suffix= */ "",
-        FloatFieldCondition.class.getName());
+        DoubleFieldCondition.class.getName());
     }
-    // Use FloatFieldCondition.newBuilder() to construct.
-    private FloatFieldCondition(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    // Use DoubleFieldCondition.newBuilder() to construct.
+    private DoubleFieldCondition(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private FloatFieldCondition() {
+    private DoubleFieldCondition() {
       operator_ = 0;
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return SubscriptionProto.internal_static_FloatFieldCondition_descriptor;
+      return SubscriptionProto.internal_static_DoubleFieldCondition_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return SubscriptionProto.internal_static_FloatFieldCondition_fieldAccessorTable
+      return SubscriptionProto.internal_static_DoubleFieldCondition_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              SubscriptionProto.FloatFieldCondition.class, SubscriptionProto.FloatFieldCondition.Builder.class);
+              SubscriptionProto.DoubleFieldCondition.class, SubscriptionProto.DoubleFieldCondition.Builder.class);
     }
 
     public static final int OPERATOR_FIELD_NUMBER = 1;
@@ -1453,13 +1453,13 @@ public final class SubscriptionProto {
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
-    private float value_ = 0F;
+    private double value_ = 0D;
     /**
-     * <code>float value = 2;</code>
+     * <code>double value = 2;</code>
      * @return The value.
      */
     @java.lang.Override
-    public float getValue() {
+    public double getValue() {
       return value_;
     }
 
@@ -1480,8 +1480,8 @@ public final class SubscriptionProto {
       if (operator_ != SubscriptionProto.Operator.EQ.getNumber()) {
         output.writeEnum(1, operator_);
       }
-      if (java.lang.Float.floatToRawIntBits(value_) != 0) {
-        output.writeFloat(2, value_);
+      if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
+        output.writeDouble(2, value_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1496,9 +1496,9 @@ public final class SubscriptionProto {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, operator_);
       }
-      if (java.lang.Float.floatToRawIntBits(value_) != 0) {
+      if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(2, value_);
+          .computeDoubleSize(2, value_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1510,14 +1510,14 @@ public final class SubscriptionProto {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof SubscriptionProto.FloatFieldCondition)) {
+      if (!(obj instanceof SubscriptionProto.DoubleFieldCondition)) {
         return super.equals(obj);
       }
-      SubscriptionProto.FloatFieldCondition other = (SubscriptionProto.FloatFieldCondition) obj;
+      SubscriptionProto.DoubleFieldCondition other = (SubscriptionProto.DoubleFieldCondition) obj;
 
       if (operator_ != other.operator_) return false;
-      if (java.lang.Float.floatToIntBits(getValue())
-          != java.lang.Float.floatToIntBits(
+      if (java.lang.Double.doubleToLongBits(getValue())
+          != java.lang.Double.doubleToLongBits(
               other.getValue())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -1533,51 +1533,51 @@ public final class SubscriptionProto {
       hash = (37 * hash) + OPERATOR_FIELD_NUMBER;
       hash = (53 * hash) + operator_;
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getValue());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getValue()));
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static SubscriptionProto.FloatFieldCondition parseFrom(
+    public static SubscriptionProto.DoubleFieldCondition parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SubscriptionProto.FloatFieldCondition parseFrom(
+    public static SubscriptionProto.DoubleFieldCondition parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SubscriptionProto.FloatFieldCondition parseFrom(
+    public static SubscriptionProto.DoubleFieldCondition parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SubscriptionProto.FloatFieldCondition parseFrom(
+    public static SubscriptionProto.DoubleFieldCondition parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SubscriptionProto.FloatFieldCondition parseFrom(byte[] data)
+    public static SubscriptionProto.DoubleFieldCondition parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SubscriptionProto.FloatFieldCondition parseFrom(
+    public static SubscriptionProto.DoubleFieldCondition parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SubscriptionProto.FloatFieldCondition parseFrom(java.io.InputStream input)
+    public static SubscriptionProto.DoubleFieldCondition parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static SubscriptionProto.FloatFieldCondition parseFrom(
+    public static SubscriptionProto.DoubleFieldCondition parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1585,26 +1585,26 @@ public final class SubscriptionProto {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static SubscriptionProto.FloatFieldCondition parseDelimitedFrom(java.io.InputStream input)
+    public static SubscriptionProto.DoubleFieldCondition parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static SubscriptionProto.FloatFieldCondition parseDelimitedFrom(
+    public static SubscriptionProto.DoubleFieldCondition parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static SubscriptionProto.FloatFieldCondition parseFrom(
+    public static SubscriptionProto.DoubleFieldCondition parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static SubscriptionProto.FloatFieldCondition parseFrom(
+    public static SubscriptionProto.DoubleFieldCondition parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1617,7 +1617,7 @@ public final class SubscriptionProto {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(SubscriptionProto.FloatFieldCondition prototype) {
+    public static Builder newBuilder(SubscriptionProto.DoubleFieldCondition prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -1633,26 +1633,26 @@ public final class SubscriptionProto {
       return builder;
     }
     /**
-     * Protobuf type {@code FloatFieldCondition}
+     * Protobuf type {@code DoubleFieldCondition}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:FloatFieldCondition)
-        SubscriptionProto.FloatFieldConditionOrBuilder {
+        // @@protoc_insertion_point(builder_implements:DoubleFieldCondition)
+        SubscriptionProto.DoubleFieldConditionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return SubscriptionProto.internal_static_FloatFieldCondition_descriptor;
+        return SubscriptionProto.internal_static_DoubleFieldCondition_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return SubscriptionProto.internal_static_FloatFieldCondition_fieldAccessorTable
+        return SubscriptionProto.internal_static_DoubleFieldCondition_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                SubscriptionProto.FloatFieldCondition.class, SubscriptionProto.FloatFieldCondition.Builder.class);
+                SubscriptionProto.DoubleFieldCondition.class, SubscriptionProto.DoubleFieldCondition.Builder.class);
       }
 
-      // Construct using SubscriptionProto.FloatFieldCondition.newBuilder()
+      // Construct using SubscriptionProto.DoubleFieldCondition.newBuilder()
       private Builder() {
 
       }
@@ -1667,24 +1667,24 @@ public final class SubscriptionProto {
         super.clear();
         bitField0_ = 0;
         operator_ = 0;
-        value_ = 0F;
+        value_ = 0D;
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return SubscriptionProto.internal_static_FloatFieldCondition_descriptor;
+        return SubscriptionProto.internal_static_DoubleFieldCondition_descriptor;
       }
 
       @java.lang.Override
-      public SubscriptionProto.FloatFieldCondition getDefaultInstanceForType() {
-        return SubscriptionProto.FloatFieldCondition.getDefaultInstance();
+      public SubscriptionProto.DoubleFieldCondition getDefaultInstanceForType() {
+        return SubscriptionProto.DoubleFieldCondition.getDefaultInstance();
       }
 
       @java.lang.Override
-      public SubscriptionProto.FloatFieldCondition build() {
-        SubscriptionProto.FloatFieldCondition result = buildPartial();
+      public SubscriptionProto.DoubleFieldCondition build() {
+        SubscriptionProto.DoubleFieldCondition result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -1692,14 +1692,14 @@ public final class SubscriptionProto {
       }
 
       @java.lang.Override
-      public SubscriptionProto.FloatFieldCondition buildPartial() {
-        SubscriptionProto.FloatFieldCondition result = new SubscriptionProto.FloatFieldCondition(this);
+      public SubscriptionProto.DoubleFieldCondition buildPartial() {
+        SubscriptionProto.DoubleFieldCondition result = new SubscriptionProto.DoubleFieldCondition(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(SubscriptionProto.FloatFieldCondition result) {
+      private void buildPartial0(SubscriptionProto.DoubleFieldCondition result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.operator_ = operator_;
@@ -1711,20 +1711,20 @@ public final class SubscriptionProto {
 
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof SubscriptionProto.FloatFieldCondition) {
-          return mergeFrom((SubscriptionProto.FloatFieldCondition)other);
+        if (other instanceof SubscriptionProto.DoubleFieldCondition) {
+          return mergeFrom((SubscriptionProto.DoubleFieldCondition)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(SubscriptionProto.FloatFieldCondition other) {
-        if (other == SubscriptionProto.FloatFieldCondition.getDefaultInstance()) return this;
+      public Builder mergeFrom(SubscriptionProto.DoubleFieldCondition other) {
+        if (other == SubscriptionProto.DoubleFieldCondition.getDefaultInstance()) return this;
         if (other.operator_ != 0) {
           setOperatorValue(other.getOperatorValue());
         }
-        if (java.lang.Float.floatToRawIntBits(other.getValue()) != 0) {
+        if (java.lang.Double.doubleToRawLongBits(other.getValue()) != 0) {
           setValue(other.getValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -1758,11 +1758,11 @@ public final class SubscriptionProto {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
-              case 21: {
-                value_ = input.readFloat();
+              case 17: {
+                value_ = input.readDouble();
                 bitField0_ |= 0x00000002;
                 break;
-              } // case 21
+              } // case 17
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1831,21 +1831,21 @@ public final class SubscriptionProto {
         return this;
       }
 
-      private float value_ ;
+      private double value_ ;
       /**
-       * <code>float value = 2;</code>
+       * <code>double value = 2;</code>
        * @return The value.
        */
       @java.lang.Override
-      public float getValue() {
+      public double getValue() {
         return value_;
       }
       /**
-       * <code>float value = 2;</code>
+       * <code>double value = 2;</code>
        * @param value The value to set.
        * @return This builder for chaining.
        */
-      public Builder setValue(float value) {
+      public Builder setValue(double value) {
 
         value_ = value;
         bitField0_ |= 0x00000002;
@@ -1853,33 +1853,33 @@ public final class SubscriptionProto {
         return this;
       }
       /**
-       * <code>float value = 2;</code>
+       * <code>double value = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearValue() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        value_ = 0F;
+        value_ = 0D;
         onChanged();
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:FloatFieldCondition)
+      // @@protoc_insertion_point(builder_scope:DoubleFieldCondition)
     }
 
-    // @@protoc_insertion_point(class_scope:FloatFieldCondition)
-    private static final SubscriptionProto.FloatFieldCondition DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:DoubleFieldCondition)
+    private static final SubscriptionProto.DoubleFieldCondition DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new SubscriptionProto.FloatFieldCondition();
+      DEFAULT_INSTANCE = new SubscriptionProto.DoubleFieldCondition();
     }
 
-    public static SubscriptionProto.FloatFieldCondition getDefaultInstance() {
+    public static SubscriptionProto.DoubleFieldCondition getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<FloatFieldCondition>
-        PARSER = new com.google.protobuf.AbstractParser<FloatFieldCondition>() {
+    private static final com.google.protobuf.Parser<DoubleFieldCondition>
+        PARSER = new com.google.protobuf.AbstractParser<DoubleFieldCondition>() {
       @java.lang.Override
-      public FloatFieldCondition parsePartialFrom(
+      public DoubleFieldCondition parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1898,17 +1898,17 @@ public final class SubscriptionProto {
       }
     };
 
-    public static com.google.protobuf.Parser<FloatFieldCondition> parser() {
+    public static com.google.protobuf.Parser<DoubleFieldCondition> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<FloatFieldCondition> getParserForType() {
+    public com.google.protobuf.Parser<DoubleFieldCondition> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public SubscriptionProto.FloatFieldCondition getDefaultInstanceForType() {
+    public SubscriptionProto.DoubleFieldCondition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1979,19 +1979,19 @@ public final class SubscriptionProto {
     SubscriptionProto.IntFieldConditionOrBuilder getWindOrBuilder();
 
     /**
-     * <code>.FloatFieldCondition rain = 5;</code>
+     * <code>.DoubleFieldCondition rain = 5;</code>
      * @return Whether the rain field is set.
      */
     boolean hasRain();
     /**
-     * <code>.FloatFieldCondition rain = 5;</code>
+     * <code>.DoubleFieldCondition rain = 5;</code>
      * @return The rain.
      */
-    SubscriptionProto.FloatFieldCondition getRain();
+    SubscriptionProto.DoubleFieldCondition getRain();
     /**
-     * <code>.FloatFieldCondition rain = 5;</code>
+     * <code>.DoubleFieldCondition rain = 5;</code>
      */
-    SubscriptionProto.FloatFieldConditionOrBuilder getRainOrBuilder();
+    SubscriptionProto.DoubleFieldConditionOrBuilder getRainOrBuilder();
 
     /**
      * <code>.IntFieldCondition station = 6;</code>
@@ -2024,19 +2024,19 @@ public final class SubscriptionProto {
     SubscriptionProto.StringFieldConditionOrBuilder getCityOrBuilder();
 
     /**
-     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     * <code>.DoubleFieldCondition avg_temp = 8;</code>
      * @return Whether the avgTemp field is set.
      */
     boolean hasAvgTemp();
     /**
-     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     * <code>.DoubleFieldCondition avg_temp = 8;</code>
      * @return The avgTemp.
      */
-    SubscriptionProto.FloatFieldCondition getAvgTemp();
+    SubscriptionProto.DoubleFieldCondition getAvgTemp();
     /**
-     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     * <code>.DoubleFieldCondition avg_temp = 8;</code>
      */
-    SubscriptionProto.FloatFieldConditionOrBuilder getAvgTempOrBuilder();
+    SubscriptionProto.DoubleFieldConditionOrBuilder getAvgTempOrBuilder();
   }
   /**
    * Protobuf type {@code Subscription}
@@ -2181,9 +2181,9 @@ public final class SubscriptionProto {
     }
 
     public static final int RAIN_FIELD_NUMBER = 5;
-    private SubscriptionProto.FloatFieldCondition rain_;
+    private SubscriptionProto.DoubleFieldCondition rain_;
     /**
-     * <code>.FloatFieldCondition rain = 5;</code>
+     * <code>.DoubleFieldCondition rain = 5;</code>
      * @return Whether the rain field is set.
      */
     @java.lang.Override
@@ -2191,19 +2191,19 @@ public final class SubscriptionProto {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>.FloatFieldCondition rain = 5;</code>
+     * <code>.DoubleFieldCondition rain = 5;</code>
      * @return The rain.
      */
     @java.lang.Override
-    public SubscriptionProto.FloatFieldCondition getRain() {
-      return rain_ == null ? SubscriptionProto.FloatFieldCondition.getDefaultInstance() : rain_;
+    public SubscriptionProto.DoubleFieldCondition getRain() {
+      return rain_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : rain_;
     }
     /**
-     * <code>.FloatFieldCondition rain = 5;</code>
+     * <code>.DoubleFieldCondition rain = 5;</code>
      */
     @java.lang.Override
-    public SubscriptionProto.FloatFieldConditionOrBuilder getRainOrBuilder() {
-      return rain_ == null ? SubscriptionProto.FloatFieldCondition.getDefaultInstance() : rain_;
+    public SubscriptionProto.DoubleFieldConditionOrBuilder getRainOrBuilder() {
+      return rain_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : rain_;
     }
 
     public static final int STATION_FIELD_NUMBER = 6;
@@ -2259,9 +2259,9 @@ public final class SubscriptionProto {
     }
 
     public static final int AVG_TEMP_FIELD_NUMBER = 8;
-    private SubscriptionProto.FloatFieldCondition avgTemp_;
+    private SubscriptionProto.DoubleFieldCondition avgTemp_;
     /**
-     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     * <code>.DoubleFieldCondition avg_temp = 8;</code>
      * @return Whether the avgTemp field is set.
      */
     @java.lang.Override
@@ -2269,19 +2269,19 @@ public final class SubscriptionProto {
       return ((bitField0_ & 0x00000080) != 0);
     }
     /**
-     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     * <code>.DoubleFieldCondition avg_temp = 8;</code>
      * @return The avgTemp.
      */
     @java.lang.Override
-    public SubscriptionProto.FloatFieldCondition getAvgTemp() {
-      return avgTemp_ == null ? SubscriptionProto.FloatFieldCondition.getDefaultInstance() : avgTemp_;
+    public SubscriptionProto.DoubleFieldCondition getAvgTemp() {
+      return avgTemp_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgTemp_;
     }
     /**
-     * <code>.FloatFieldCondition avg_temp = 8;</code>
+     * <code>.DoubleFieldCondition avg_temp = 8;</code>
      */
     @java.lang.Override
-    public SubscriptionProto.FloatFieldConditionOrBuilder getAvgTempOrBuilder() {
-      return avgTemp_ == null ? SubscriptionProto.FloatFieldCondition.getDefaultInstance() : avgTemp_;
+    public SubscriptionProto.DoubleFieldConditionOrBuilder getAvgTempOrBuilder() {
+      return avgTemp_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgTemp_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3349,31 +3349,31 @@ public final class SubscriptionProto {
         return windBuilder_;
       }
 
-      private SubscriptionProto.FloatFieldCondition rain_;
+      private SubscriptionProto.DoubleFieldCondition rain_;
       private com.google.protobuf.SingleFieldBuilder<
-          SubscriptionProto.FloatFieldCondition, SubscriptionProto.FloatFieldCondition.Builder, SubscriptionProto.FloatFieldConditionOrBuilder> rainBuilder_;
+          SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder> rainBuilder_;
       /**
-       * <code>.FloatFieldCondition rain = 5;</code>
+       * <code>.DoubleFieldCondition rain = 5;</code>
        * @return Whether the rain field is set.
        */
       public boolean hasRain() {
         return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>.FloatFieldCondition rain = 5;</code>
+       * <code>.DoubleFieldCondition rain = 5;</code>
        * @return The rain.
        */
-      public SubscriptionProto.FloatFieldCondition getRain() {
+      public SubscriptionProto.DoubleFieldCondition getRain() {
         if (rainBuilder_ == null) {
-          return rain_ == null ? SubscriptionProto.FloatFieldCondition.getDefaultInstance() : rain_;
+          return rain_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : rain_;
         } else {
           return rainBuilder_.getMessage();
         }
       }
       /**
-       * <code>.FloatFieldCondition rain = 5;</code>
+       * <code>.DoubleFieldCondition rain = 5;</code>
        */
-      public Builder setRain(SubscriptionProto.FloatFieldCondition value) {
+      public Builder setRain(SubscriptionProto.DoubleFieldCondition value) {
         if (rainBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3387,10 +3387,10 @@ public final class SubscriptionProto {
         return this;
       }
       /**
-       * <code>.FloatFieldCondition rain = 5;</code>
+       * <code>.DoubleFieldCondition rain = 5;</code>
        */
       public Builder setRain(
-          SubscriptionProto.FloatFieldCondition.Builder builderForValue) {
+          SubscriptionProto.DoubleFieldCondition.Builder builderForValue) {
         if (rainBuilder_ == null) {
           rain_ = builderForValue.build();
         } else {
@@ -3401,13 +3401,13 @@ public final class SubscriptionProto {
         return this;
       }
       /**
-       * <code>.FloatFieldCondition rain = 5;</code>
+       * <code>.DoubleFieldCondition rain = 5;</code>
        */
-      public Builder mergeRain(SubscriptionProto.FloatFieldCondition value) {
+      public Builder mergeRain(SubscriptionProto.DoubleFieldCondition value) {
         if (rainBuilder_ == null) {
           if (((bitField0_ & 0x00000010) != 0) &&
             rain_ != null &&
-            rain_ != SubscriptionProto.FloatFieldCondition.getDefaultInstance()) {
+            rain_ != SubscriptionProto.DoubleFieldCondition.getDefaultInstance()) {
             getRainBuilder().mergeFrom(value);
           } else {
             rain_ = value;
@@ -3422,7 +3422,7 @@ public final class SubscriptionProto {
         return this;
       }
       /**
-       * <code>.FloatFieldCondition rain = 5;</code>
+       * <code>.DoubleFieldCondition rain = 5;</code>
        */
       public Builder clearRain() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -3435,33 +3435,33 @@ public final class SubscriptionProto {
         return this;
       }
       /**
-       * <code>.FloatFieldCondition rain = 5;</code>
+       * <code>.DoubleFieldCondition rain = 5;</code>
        */
-      public SubscriptionProto.FloatFieldCondition.Builder getRainBuilder() {
+      public SubscriptionProto.DoubleFieldCondition.Builder getRainBuilder() {
         bitField0_ |= 0x00000010;
         onChanged();
         return internalGetRainFieldBuilder().getBuilder();
       }
       /**
-       * <code>.FloatFieldCondition rain = 5;</code>
+       * <code>.DoubleFieldCondition rain = 5;</code>
        */
-      public SubscriptionProto.FloatFieldConditionOrBuilder getRainOrBuilder() {
+      public SubscriptionProto.DoubleFieldConditionOrBuilder getRainOrBuilder() {
         if (rainBuilder_ != null) {
           return rainBuilder_.getMessageOrBuilder();
         } else {
           return rain_ == null ?
-              SubscriptionProto.FloatFieldCondition.getDefaultInstance() : rain_;
+              SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : rain_;
         }
       }
       /**
-       * <code>.FloatFieldCondition rain = 5;</code>
+       * <code>.DoubleFieldCondition rain = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          SubscriptionProto.FloatFieldCondition, SubscriptionProto.FloatFieldCondition.Builder, SubscriptionProto.FloatFieldConditionOrBuilder> 
+          SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder> 
           internalGetRainFieldBuilder() {
         if (rainBuilder_ == null) {
           rainBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              SubscriptionProto.FloatFieldCondition, SubscriptionProto.FloatFieldCondition.Builder, SubscriptionProto.FloatFieldConditionOrBuilder>(
+              SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder>(
                   getRain(),
                   getParentForChildren(),
                   isClean());
@@ -3712,31 +3712,31 @@ public final class SubscriptionProto {
         return cityBuilder_;
       }
 
-      private SubscriptionProto.FloatFieldCondition avgTemp_;
+      private SubscriptionProto.DoubleFieldCondition avgTemp_;
       private com.google.protobuf.SingleFieldBuilder<
-          SubscriptionProto.FloatFieldCondition, SubscriptionProto.FloatFieldCondition.Builder, SubscriptionProto.FloatFieldConditionOrBuilder> avgTempBuilder_;
+          SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder> avgTempBuilder_;
       /**
-       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * <code>.DoubleFieldCondition avg_temp = 8;</code>
        * @return Whether the avgTemp field is set.
        */
       public boolean hasAvgTemp() {
         return ((bitField0_ & 0x00000080) != 0);
       }
       /**
-       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * <code>.DoubleFieldCondition avg_temp = 8;</code>
        * @return The avgTemp.
        */
-      public SubscriptionProto.FloatFieldCondition getAvgTemp() {
+      public SubscriptionProto.DoubleFieldCondition getAvgTemp() {
         if (avgTempBuilder_ == null) {
-          return avgTemp_ == null ? SubscriptionProto.FloatFieldCondition.getDefaultInstance() : avgTemp_;
+          return avgTemp_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgTemp_;
         } else {
           return avgTempBuilder_.getMessage();
         }
       }
       /**
-       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * <code>.DoubleFieldCondition avg_temp = 8;</code>
        */
-      public Builder setAvgTemp(SubscriptionProto.FloatFieldCondition value) {
+      public Builder setAvgTemp(SubscriptionProto.DoubleFieldCondition value) {
         if (avgTempBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3750,10 +3750,10 @@ public final class SubscriptionProto {
         return this;
       }
       /**
-       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * <code>.DoubleFieldCondition avg_temp = 8;</code>
        */
       public Builder setAvgTemp(
-          SubscriptionProto.FloatFieldCondition.Builder builderForValue) {
+          SubscriptionProto.DoubleFieldCondition.Builder builderForValue) {
         if (avgTempBuilder_ == null) {
           avgTemp_ = builderForValue.build();
         } else {
@@ -3764,13 +3764,13 @@ public final class SubscriptionProto {
         return this;
       }
       /**
-       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * <code>.DoubleFieldCondition avg_temp = 8;</code>
        */
-      public Builder mergeAvgTemp(SubscriptionProto.FloatFieldCondition value) {
+      public Builder mergeAvgTemp(SubscriptionProto.DoubleFieldCondition value) {
         if (avgTempBuilder_ == null) {
           if (((bitField0_ & 0x00000080) != 0) &&
             avgTemp_ != null &&
-            avgTemp_ != SubscriptionProto.FloatFieldCondition.getDefaultInstance()) {
+            avgTemp_ != SubscriptionProto.DoubleFieldCondition.getDefaultInstance()) {
             getAvgTempBuilder().mergeFrom(value);
           } else {
             avgTemp_ = value;
@@ -3785,7 +3785,7 @@ public final class SubscriptionProto {
         return this;
       }
       /**
-       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * <code>.DoubleFieldCondition avg_temp = 8;</code>
        */
       public Builder clearAvgTemp() {
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -3798,33 +3798,33 @@ public final class SubscriptionProto {
         return this;
       }
       /**
-       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * <code>.DoubleFieldCondition avg_temp = 8;</code>
        */
-      public SubscriptionProto.FloatFieldCondition.Builder getAvgTempBuilder() {
+      public SubscriptionProto.DoubleFieldCondition.Builder getAvgTempBuilder() {
         bitField0_ |= 0x00000080;
         onChanged();
         return internalGetAvgTempFieldBuilder().getBuilder();
       }
       /**
-       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * <code>.DoubleFieldCondition avg_temp = 8;</code>
        */
-      public SubscriptionProto.FloatFieldConditionOrBuilder getAvgTempOrBuilder() {
+      public SubscriptionProto.DoubleFieldConditionOrBuilder getAvgTempOrBuilder() {
         if (avgTempBuilder_ != null) {
           return avgTempBuilder_.getMessageOrBuilder();
         } else {
           return avgTemp_ == null ?
-              SubscriptionProto.FloatFieldCondition.getDefaultInstance() : avgTemp_;
+              SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgTemp_;
         }
       }
       /**
-       * <code>.FloatFieldCondition avg_temp = 8;</code>
+       * <code>.DoubleFieldCondition avg_temp = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          SubscriptionProto.FloatFieldCondition, SubscriptionProto.FloatFieldCondition.Builder, SubscriptionProto.FloatFieldConditionOrBuilder> 
+          SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder> 
           internalGetAvgTempFieldBuilder() {
         if (avgTempBuilder_ == null) {
           avgTempBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              SubscriptionProto.FloatFieldCondition, SubscriptionProto.FloatFieldCondition.Builder, SubscriptionProto.FloatFieldConditionOrBuilder>(
+              SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder>(
                   getAvgTemp(),
                   getParentForChildren(),
                   isClean());
@@ -3895,10 +3895,10 @@ public final class SubscriptionProto {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_IntFieldCondition_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_FloatFieldCondition_descriptor;
+    internal_static_DoubleFieldCondition_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_FloatFieldCondition_fieldAccessorTable;
+      internal_static_DoubleFieldCondition_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Subscription_descriptor;
   private static final 
@@ -3917,18 +3917,18 @@ public final class SubscriptionProto {
       "dCondition\022\033\n\010operator\030\001 \001(\0162\t.Operator\022" +
       "\r\n\005value\030\002 \001(\t\"?\n\021IntFieldCondition\022\033\n\010o" +
       "perator\030\001 \001(\0162\t.Operator\022\r\n\005value\030\002 \001(\005\"" +
-      "A\n\023FloatFieldCondition\022\033\n\010operator\030\001 \001(\016" +
-      "2\t.Operator\022\r\n\005value\030\002 \001(\002\"\267\002\n\014Subscript" +
-      "ion\022#\n\004date\030\001 \001(\0132\025.StringFieldCondition" +
-      "\022 \n\004temp\030\002 \001(\0132\022.IntFieldCondition\022(\n\tdi" +
-      "rection\030\003 \001(\0132\025.StringFieldCondition\022 \n\004" +
-      "wind\030\004 \001(\0132\022.IntFieldCondition\022\"\n\004rain\030\005" +
-      " \001(\0132\024.FloatFieldCondition\022#\n\007station\030\006 " +
-      "\001(\0132\022.IntFieldCondition\022#\n\004city\030\007 \001(\0132\025." +
-      "StringFieldCondition\022&\n\010avg_temp\030\010 \001(\0132\024" +
-      ".FloatFieldCondition*:\n\010Operator\022\006\n\002EQ\020\000" +
-      "\022\006\n\002NE\020\001\022\006\n\002LT\020\002\022\006\n\002LE\020\003\022\006\n\002GT\020\004\022\006\n\002GE\020\005" +
-      "B\023B\021SubscriptionProtob\006proto3"
+      "B\n\024DoubleFieldCondition\022\033\n\010operator\030\001 \001(" +
+      "\0162\t.Operator\022\r\n\005value\030\002 \001(\001\"\271\002\n\014Subscrip" +
+      "tion\022#\n\004date\030\001 \001(\0132\025.StringFieldConditio" +
+      "n\022 \n\004temp\030\002 \001(\0132\022.IntFieldCondition\022(\n\td" +
+      "irection\030\003 \001(\0132\025.StringFieldCondition\022 \n" +
+      "\004wind\030\004 \001(\0132\022.IntFieldCondition\022#\n\004rain\030" +
+      "\005 \001(\0132\025.DoubleFieldCondition\022#\n\007station\030" +
+      "\006 \001(\0132\022.IntFieldCondition\022#\n\004city\030\007 \001(\0132" +
+      "\025.StringFieldCondition\022\'\n\010avg_temp\030\010 \001(\013" +
+      "2\025.DoubleFieldCondition*:\n\010Operator\022\006\n\002E" +
+      "Q\020\000\022\006\n\002NE\020\001\022\006\n\002LT\020\002\022\006\n\002LE\020\003\022\006\n\002GT\020\004\022\006\n\002G" +
+      "E\020\005B\023B\021SubscriptionProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3946,11 +3946,11 @@ public final class SubscriptionProto {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_IntFieldCondition_descriptor,
         new java.lang.String[] { "Operator", "Value", });
-    internal_static_FloatFieldCondition_descriptor =
+    internal_static_DoubleFieldCondition_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_FloatFieldCondition_fieldAccessorTable = new
+    internal_static_DoubleFieldCondition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_FloatFieldCondition_descriptor,
+        internal_static_DoubleFieldCondition_descriptor,
         new java.lang.String[] { "Operator", "Value", });
     internal_static_Subscription_descriptor =
       getDescriptor().getMessageTypes().get(3);

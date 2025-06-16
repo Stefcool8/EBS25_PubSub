@@ -7,14 +7,15 @@ import org.pub_sub.subscriber.bolt.KafkaSubscriberBolt;
 import org.pub_sub.subscriber.spout.SubscriptionsGeneratorSpout;
 
 public class SubscriberTopology {
-    public static void run(String brokerId) throws Exception {
+    public static void run(String brokerId, String port) throws Exception {
         String topic = "broker-" + brokerId + "-admin";
-        String subscriberId = "localhost:8082";
+        String subscriberId = "localhost:" + port;
 
         TopologyBuilder builder = new TopologyBuilder();
 
-        builder.setSpout("subscriptions-spout", new SubscriptionsGeneratorSpout());
-        builder.setBolt("kafka-subscriber", new KafkaSubscriberBolt(topic, subscriberId)).shuffleGrouping("subscriptions-spout");
+        builder.setSpout("subscriptions-spout", new SubscriptionsGeneratorSpout(subscriberId));
+        builder.setBolt("kafka-subscriber", new KafkaSubscriberBolt(topic, subscriberId))
+                .shuffleGrouping("subscriptions-spout");
 
         Config config = new Config();
         config.setDebug(false);
