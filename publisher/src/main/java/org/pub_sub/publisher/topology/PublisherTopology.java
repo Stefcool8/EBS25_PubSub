@@ -7,9 +7,8 @@ import org.pub_sub.publisher.bolt.KafkaPublisherBolt;
 import org.pub_sub.publisher.spout.PublicationsGeneratorSpout;
 
 public class PublisherTopology {
-    public static void run() throws Exception {
-        String brokerId = System.getenv().getOrDefault("BROKER_ID", "1");
-        String topic = "pub-to-broker-" + brokerId;
+    public static void run(String brokerId) throws Exception {
+        String topic = "broker-" + brokerId + "-forward";
 
         TopologyBuilder builder = new TopologyBuilder();
 

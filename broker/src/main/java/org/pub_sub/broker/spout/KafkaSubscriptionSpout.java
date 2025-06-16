@@ -23,6 +23,11 @@ import java.util.Properties;
 public class KafkaSubscriptionSpout extends BaseRichSpout {
     private KafkaConsumer<String, AdminProto.AdminMessage> consumer;
     private SpoutOutputCollector collector;
+    private final String topic;
+
+    public KafkaSubscriptionSpout(String topic) {
+        this.topic = topic;
+    }
 
     @Override
     public void open(Map<String, Object> map, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector) {
@@ -34,7 +39,7 @@ public class KafkaSubscriptionSpout extends BaseRichSpout {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, AdminDeserializer.class.getName());
 
         consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Collections.singletonList("sub-to-broker-1"));
+        consumer.subscribe(Collections.singletonList(topic));
     }
 
     @Override

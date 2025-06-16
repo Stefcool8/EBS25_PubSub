@@ -22,6 +22,11 @@ import java.util.Properties;
 public class KafkaPublicationSpout extends BaseRichSpout {
     private KafkaConsumer<String, ForwardProto.ForwardMessage> consumer;
     private SpoutOutputCollector collector;
+    private final String topic;
+
+    public KafkaPublicationSpout(String topic) {
+        this.topic = topic;
+    }
 
     @Override
     public void open(Map<String, Object> conf, TopologyContext context, SpoutOutputCollector collector) {
@@ -33,7 +38,7 @@ public class KafkaPublicationSpout extends BaseRichSpout {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ForwardDeserializer.class.getName());
 
         consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Collections.singletonList("pub-to-broker-1"));
+        consumer.subscribe(Collections.singletonList(topic));
     }
 
     @Override
