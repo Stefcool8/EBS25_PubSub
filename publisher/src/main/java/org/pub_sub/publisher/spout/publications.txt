@@ -1,6 +1,6 @@
-{"date": "07.08.2025", "temp": 9, "direction": "N", "wind": 10, "rain": 0.0, "station": 1, "city": "Bucharest"}
-{"date": "08.08.2025", "temp": 10, "direction": "NE", "wind": 15, "rain": 2.5, "station": 2, "city": "Cluj"}
-{"date": "09.08.2025", "temp": 11, "direction": "S", "wind": 8, "rain": 0.0, "station": 1, "city": "Bucharest"}
-{"date": "09.08.2025", "temp": 30, "direction": "W", "wind": 12, "rain": 1.0, "station": 3, "city": "Timisoara"}
-{"date": "09.08.2025", "temp": 30, "direction": "W", "wind": 12, "rain": 1.0, "station": 3, "city": "Timisoara"}
-{"date": "09.08.2025", "temp": 30, "direction": "W", "wind": 12, "rain": 1.0, "station": 3, "city": "Timisoara"}
+{"date": "08.08.2025", "temp": 19, "direction": "N", "wind": 8, "rain": 0.0, "station": 1, "city": "Bucharest"}
+{"date": "08.08.2025", "temp": 18, "direction": "NE", "wind": 12, "rain": 1.5, "station": 2, "city": "Cluj"}
+{"date": "09.08.2025", "temp": 15, "direction": "S", "wind": 6, "rain": 0.0, "station": 1, "city": "Bucharest"}
+{"date": "09.08.2025", "temp": 22, "direction": "W", "wind": 10, "rain": 2.0, "station": 1, "city": "Bucharest"}
+{"date": "10.08.2025", "temp": 28, "direction": "E", "wind": 5, "rain": 0.0, "station": 3, "city": "Timisoara"}
+{"date": "10.08.2025", "temp": 30, "direction": "SE", "wind": 8, "rain": 0.5, "station": 1, "city": "Bucharest"}

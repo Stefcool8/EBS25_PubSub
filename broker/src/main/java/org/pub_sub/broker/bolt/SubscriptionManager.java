@@ -32,7 +32,8 @@ public class SubscriptionManager {
         synchronized (window) {
             window.add(publication);
             if (window.size() > WINDOW_SIZE) {
-                window.poll(); // eliminăm cel mai vechi element
+                // goleste complet window-ul
+                window.clear();
             }
             System.out.println("Window updated. Size: " + window.size() + "/" + WINDOW_SIZE);
         }
@@ -79,6 +80,46 @@ public class SubscriptionManager {
     }
 
     private static boolean matchesSubscription(PublicationProto.Publication publication, SubscriptionDto subscription) {
+        // Dacă subscription-ul are avg_temp, verificăm pe întregul window
+        if (subscription.hasAvgTemp()) {
+            synchronized (window) {
+                if (window.size() < WINDOW_SIZE) {
+                    return false; // nu avem suficiente elemente încă
+                }
+                
+                return matchesSubscriptionOnWindow(subscription);
+            }
+        } else {
+            // Pentru subscription-uri fără avg_temp, verificăm doar pe publicația curentă
+            return matchesSubscriptionOnPublication(publication, subscription);
+        }
+    }
+
+    private static boolean matchesSubscriptionOnWindow(SubscriptionDto subscription) {
+        // Verificăm că toate publicațiile din window se potrivesc cu condițiile
+        for (PublicationProto.Publication pub : window) {
+            if (!matchesSubscriptionOnPublication(pub, subscription)) {
+                return false;
+            }
+        }
+        
+        // Verificăm condiția avg_temp
+        if (subscription.hasAvgTemp()) {
+            float sum = 0.0f;
+            for (PublicationProto.Publication pub : window) {
+                sum += pub.getTemp();
+            }
+            float avgTemp = sum / WINDOW_SIZE;
+            
+            if (!matchesFloatField(avgTemp, subscription.getAvgTemp(), subscription.getAvgTempOperator())) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+    private static boolean matchesSubscriptionOnPublication(PublicationProto.Publication publication, SubscriptionDto subscription) {
         // Check date field
         if (subscription.hasDate()) {
             if (!matchesDateField(publication.getDate(), subscription.getDate(), subscription.getDateOperator())) {
@@ -125,27 +166,6 @@ public class SubscriptionManager {
         if (subscription.hasCity()) {
             if (!matchesStringField(publication.getCity(), subscription.getCity(), subscription.getCityOperator())) {
                 return false;
-            }
-        }
-
-        // Check avg_temp field - verificăm pe întregul window
-        if (subscription.hasAvgTemp()) {
-            synchronized (window) {
-                if (window.size() < WINDOW_SIZE) {
-                    return false; // nu avem suficiente elemente încă
-                }
-                
-                // Calculăm media temperaturilor din window
-                float sum = 0.0f;
-                for (PublicationProto.Publication pub : window) {
-                    sum += pub.getTemp();
-                }
-                float avgTemp = sum / WINDOW_SIZE;
-                
-                // Verificăm dacă media se potrivește cu condiția
-                if (!matchesFloatField(avgTemp, subscription.getAvgTemp(), subscription.getAvgTempOperator())) {
-                    return false;
-                }
             }
         }
 

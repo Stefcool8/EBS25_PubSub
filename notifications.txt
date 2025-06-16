@@ -80,3 +80,293 @@ wind: 8
 station: 1
 city: "Bucharest"
 
+date: "07.08.2025"
+temp: 12
+direction: "N"
+wind: 8
+station: 1
+city: "Bucharest"
+
+date: "09.08.2025"
+temp: 15
+direction: "S"
+wind: 6
+station: 1
+city: "Bucharest"
+
+date: "09.08.2025"
+temp: 22
+direction: "W"
+wind: 10
+rain: 2.0
+station: 1
+city: "Bucharest"
+
+date: "10.08.2025"
+temp: 28
+direction: "E"
+wind: 5
+station: 3
+city: "Timisoara"
+
+date: "10.08.2025"
+temp: 30
+direction: "SE"
+wind: 8
+rain: 0.5
+station: 1
+city: "Bucharest"
+
+date: "10.08.2025"
+temp: 30
+direction: "SE"
+wind: 8
+rain: 0.5
+station: 1
+city: "Bucharest"
+
+date: "08.08.2025"
+temp: 19
+direction: "N"
+wind: 8
+station: 1
+city: "Bucharest"
+
+Window Data (3 publications):
+Publication 1: date: "08.08.2025"
+temp: 19
+direction: "N"
+wind: 8
+station: 1
+city: "Bucharest"
+
+Publication 2: date: "08.08.2025"
+temp: 18
+direction: "NE"
+wind: 12
+rain: 1.5
+station: 2
+city: "Cluj"
+
+Publication 3: date: "09.08.2025"
+temp: 15
+direction: "S"
+wind: 6
+station: 1
+city: "Bucharest"
+
+Average Temperature: 17.333334
+
+date: "09.08.2025"
+temp: 15
+direction: "S"
+wind: 6
+station: 1
+city: "Bucharest"
+
+date: "09.08.2025"
+temp: 22
+direction: "W"
+wind: 10
+rain: 2.0
+station: 1
+city: "Bucharest"
+
+date: "10.08.2025"
+temp: 28
+direction: "E"
+wind: 5
+station: 3
+city: "Timisoara"
+
+date: "10.08.2025"
+temp: 30
+direction: "SE"
+wind: 8
+rain: 0.5
+station: 1
+city: "Bucharest"
+
+date: "10.08.2025"
+temp: 30
+direction: "SE"
+wind: 8
+rain: 0.5
+station: 1
+city: "Bucharest"
+
+Window Data (3 publications):
+Publication 1: date: "10.08.2025"
+temp: 28
+direction: "E"
+wind: 5
+station: 3
+city: "Timisoara"
+
+Publication 2: date: "10.08.2025"
+temp: 30
+direction: "SE"
+wind: 8
+rain: 0.5
+station: 1
+city: "Bucharest"
+
+Publication 3: date: "08.08.2025"
+temp: 19
+direction: "N"
+wind: 8
+station: 1
+city: "Bucharest"
+
+Average Temperature: 25.666666
+
+date: "08.08.2025"
+temp: 19
+direction: "N"
+wind: 8
+station: 1
+city: "Bucharest"
+
+date: "09.08.2025"
+temp: 15
+direction: "S"
+wind: 6
+station: 1
+city: "Bucharest"
+
+date: "09.08.2025"
+temp: 22
+direction: "W"
+wind: 10
+rain: 2.0
+station: 1
+city: "Bucharest"
+
+Window Data (3 publications):
+Publication 1: date: "09.08.2025"
+temp: 15
+direction: "S"
+wind: 6
+station: 1
+city: "Bucharest"
+
+Publication 2: date: "09.08.2025"
+temp: 22
+direction: "W"
+wind: 10
+rain: 2.0
+station: 1
+city: "Bucharest"
+
+Publication 3: date: "10.08.2025"
+temp: 28
+direction: "E"
+wind: 5
+station: 3
+city: "Timisoara"
+
+Average Temperature: 21.666666
+
+date: "10.08.2025"
+temp: 28
+direction: "E"
+wind: 5
+station: 3
+city: "Timisoara"
+
+date: "10.08.2025"
+temp: 30
+direction: "SE"
+wind: 8
+rain: 0.5
+station: 1
+city: "Bucharest"
+
+date: "10.08.2025"
+temp: 30
+direction: "SE"
+wind: 8
+rain: 0.5
+station: 1
+city: "Bucharest"
+
+Window Data (3 publications):
+Publication 1: date: "08.08.2025"
+temp: 19
+direction: "N"
+wind: 8
+station: 1
+city: "Bucharest"
+
+Publication 2: date: "08.08.2025"
+temp: 18
+direction: "NE"
+wind: 12
+rain: 1.5
+station: 2
+city: "Cluj"
+
+Publication 3: date: "09.08.2025"
+temp: 15
+direction: "S"
+wind: 6
+station: 1
+city: "Bucharest"
+
+Average Temperature: 17.333334
+
+date: "08.08.2025"
+temp: 19
+direction: "N"
+wind: 8
+station: 1
+city: "Bucharest"
+
+date: "08.08.2025"
+temp: 18
+direction: "NE"
+wind: 12
+rain: 1.5
+station: 2
+city: "Cluj"
+
+Window Data (3 publications):
+Publication 1: date: "08.08.2025"
+temp: 19
+direction: "N"
+wind: 8
+station: 1
+city: "Bucharest"
+
+Publication 2: date: "08.08.2025"
+temp: 18
+direction: "NE"
+wind: 12
+rain: 1.5
+station: 2
+city: "Cluj"
+
+Publication 3: date: "09.08.2025"
+temp: 15
+direction: "S"
+wind: 6
+station: 1
+city: "Bucharest"
+
+Average Temperature: 17.333334
+
+date: "09.08.2025"
+temp: 15
+direction: "S"
+wind: 6
+station: 1
+city: "Bucharest"
+
+date: "09.08.2025"
+temp: 22
+direction: "W"
+wind: 10
+rain: 2.0
+station: 1
+city: "Bucharest"
+
