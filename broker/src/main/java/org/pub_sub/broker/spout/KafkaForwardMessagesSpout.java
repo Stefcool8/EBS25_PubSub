@@ -33,7 +33,7 @@ public class KafkaForwardMessagesSpout extends BaseRichSpout {
         this.collector = collector;
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "publication-consumer-group");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "forward-consumer-group");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ForwardDeserializer.class.getName());
 
