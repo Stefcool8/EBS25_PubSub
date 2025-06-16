@@ -19,12 +19,12 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
 
-public class KafkaPublicationSpout extends BaseRichSpout {
+public class KafkaForwardMessagesSpout extends BaseRichSpout {
     private KafkaConsumer<String, ForwardProto.ForwardMessage> consumer;
     private SpoutOutputCollector collector;
     private final String topic;
 
-    public KafkaPublicationSpout(String topic) {
+    public KafkaForwardMessagesSpout(String topic) {
         this.topic = topic;
     }
 
@@ -33,7 +33,7 @@ public class KafkaPublicationSpout extends BaseRichSpout {
         this.collector = collector;
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "publication-consumer-group");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "forward-consumer-group");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ForwardDeserializer.class.getName());
 
@@ -46,12 +46,12 @@ public class KafkaPublicationSpout extends BaseRichSpout {
         ConsumerRecords<String, ForwardProto.ForwardMessage> records = consumer.poll(Duration.ofMillis(100));
         for (ConsumerRecord<String, ForwardProto.ForwardMessage> record : records) {
             ForwardProto.ForwardMessage forwardMessage = record.value();
-            collector.emit(new Values(record.key(), forwardMessage.getPublication()));
+            collector.emit(new Values(record.key(), forwardMessage));
         }
     }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("key", "publication"));
+        declarer.declare(new Fields("key", "forwardMessage"));
     }
 }

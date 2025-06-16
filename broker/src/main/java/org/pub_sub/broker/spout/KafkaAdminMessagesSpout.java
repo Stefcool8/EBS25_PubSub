@@ -13,19 +13,18 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 import org.pub_sub.common.deserializers.AdminDeserializer;
 import org.pub_sub.common.generated.AdminProto;
-import org.pub_sub.common.generated.SubscriptionProto;
 
 import java.time.Duration;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
 
-public class KafkaSubscriptionSpout extends BaseRichSpout {
+public class KafkaAdminMessagesSpout extends BaseRichSpout {
     private KafkaConsumer<String, AdminProto.AdminMessage> consumer;
     private SpoutOutputCollector collector;
     private final String topic;
 
-    public KafkaSubscriptionSpout(String topic) {
+    public KafkaAdminMessagesSpout(String topic) {
         this.topic = topic;
     }
 
@@ -47,15 +46,12 @@ public class KafkaSubscriptionSpout extends BaseRichSpout {
         ConsumerRecords<String, AdminProto.AdminMessage> records = consumer.poll(Duration.ofMillis(100));
         for (ConsumerRecord<String, AdminProto.AdminMessage> record : records) {
             AdminProto.AdminMessage adminMessage = record.value();
-            // Emit each subscription from the admin message
-            for (SubscriptionProto.Subscription subscription : adminMessage.getSubscriptionsList()) {
-                collector.emit(new Values(record.key(), subscription));
-            }
+            collector.emit(new Values(record.key(), adminMessage));
         }
     }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("key", "subscription"));
+        declarer.declare(new Fields("key", "adminMessage"));
     }
 }

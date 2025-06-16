@@ -36,14 +36,7 @@ public class KafkaSubscriberBolt extends BaseBasicBolt {
 
     @Override
     public void execute(Tuple tuple, BasicOutputCollector basicOutputCollector) {
-        SubscriptionProto.Subscription subscription = (SubscriptionProto.Subscription) tuple.getValueByField("subscription");
-
-        AdminProto.AdminMessage adminMessage = AdminProto.AdminMessage.newBuilder()
-                .setSource(subscriberId)
-                .setSourceType(AdminProto.SourceType.SUBSCRIBER)
-                .addSubscriptions(subscription)
-                .build();
-
+        AdminProto.AdminMessage adminMessage = (AdminProto.AdminMessage) tuple.getValueByField("subscription");
         byte[] data = adminMessage.toByteArray();
 
         ProducerRecord<byte[], byte[]> record = new ProducerRecord<>(topic, null, data);
