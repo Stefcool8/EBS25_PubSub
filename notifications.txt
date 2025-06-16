@@ -96459,3 +96459,1242 @@ rain: 74.7
 station: 8
 city: "Timisoara"
 
+Window Data (3 publications):
+Publication 1: date: "10.07.2025"
+temp: 5
+direction: "NE"
+wind: 40
+rain: 34.61
+station: 51
+city: "Bucharest"
+
+Publication 2: date: "10.07.2025"
+temp: -8
+direction: "E"
+wind: 68
+rain: 74.87
+station: 67
+city: "Constanta"
+
+Publication 3: date: "13.08.2025"
+temp: 33
+direction: "SE"
+wind: 32
+rain: 98.74
+station: 86
+city: "Bucharest"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "13.02.2025"
+temp: 2
+direction: "W"
+wind: 49
+rain: 54.4
+station: 28
+city: "Timisoara"
+
+Publication 2: date: "13.03.2025"
+temp: 45
+direction: "NE"
+wind: 79
+rain: 78.75
+station: 52
+city: "Constanta"
+
+Publication 3: date: "17.09.2025"
+temp: -17
+direction: "NW"
+wind: 12
+rain: 60.4
+station: 97
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "07.10.2025"
+temp: 15
+direction: "NE"
+wind: 72
+rain: 58.34
+station: 31
+city: "Timisoara"
+
+Publication 2: date: "07.10.2025"
+temp: -21
+direction: "NE"
+wind: 27
+rain: 83.27
+station: 87
+city: "Cluj"
+
+Publication 3: date: "31.10.2025"
+temp: 36
+direction: "NE"
+wind: 27
+rain: 87.47
+station: 65
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "29.11.2025"
+temp: 4
+direction: "SE"
+wind: 89
+rain: 46.89
+station: 43
+city: "Iasi"
+
+Publication 2: date: "27.12.2025"
+temp: 28
+direction: "W"
+wind: 47
+rain: 23.6
+station: 9
+city: "Constanta"
+
+Publication 3: date: "24.08.2025"
+temp: -2
+direction: "SW"
+wind: 26
+rain: 78.0
+station: 23
+city: "Bucharest"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "27.12.2025"
+temp: 43
+direction: "SE"
+wind: 41
+rain: 40.72
+station: 17
+city: "Timisoara"
+
+Publication 2: date: "16.10.2025"
+temp: -26
+direction: "NE"
+wind: 85
+rain: 64.31
+station: 12
+city: "Bucharest"
+
+Publication 3: date: "11.10.2025"
+temp: 13
+direction: "S"
+wind: 55
+rain: 94.44
+station: 81
+city: "Iasi"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "15.02.2025"
+temp: -8
+direction: "NE"
+wind: 75
+rain: 47.05
+station: 67
+city: "Timisoara"
+
+Publication 2: date: "15.02.2025"
+temp: -12
+direction: "SW"
+wind: 27
+rain: 41.44
+station: 14
+city: "Cluj"
+
+Publication 3: date: "22.11.2025"
+temp: 50
+direction: "SE"
+wind: 92
+rain: 88.01
+station: 26
+city: "Iasi"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "05.08.2025"
+temp: 43
+direction: "SE"
+wind: 6
+rain: 99.23
+station: 61
+city: "Timisoara"
+
+Publication 2: date: "24.11.2025"
+temp: -11
+direction: "N"
+wind: 10
+rain: 43.08
+station: 50
+city: "Bucharest"
+
+Publication 3: date: "18.10.2025"
+temp: -2
+direction: "NE"
+wind: 29
+rain: 14.86
+station: 20
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "26.11.2025"
+temp: 20
+direction: "S"
+wind: 70
+rain: 57.44
+station: 31
+city: "Constanta"
+
+Publication 2: date: "05.04.2025"
+temp: 37
+direction: "NE"
+wind: 11
+rain: 83.23
+station: 66
+city: "Bucharest"
+
+Publication 3: date: "26.12.2025"
+temp: -27
+direction: "E"
+wind: 88
+rain: 66.71
+station: 57
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "22.04.2025"
+temp: -25
+direction: "NE"
+wind: 14
+rain: 61.62
+station: 46
+city: "Constanta"
+
+Publication 2: date: "25.02.2025"
+temp: 34
+direction: "SW"
+wind: 71
+rain: 66.29
+station: 43
+city: "Bucharest"
+
+Publication 3: date: "15.08.2025"
+temp: 21
+direction: "SW"
+wind: 78
+rain: 45.16
+station: 42
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "08.09.2025"
+temp: 34
+direction: "SW"
+wind: 5
+rain: 2.72
+station: 35
+city: "Constanta"
+
+Publication 2: date: "27.06.2025"
+temp: 9
+direction: "W"
+wind: 7
+rain: 66.92
+station: 77
+city: "Timisoara"
+
+Publication 3: date: "08.08.2025"
+temp: -13
+direction: "E"
+wind: 13
+rain: 69.55
+station: 57
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "09.03.2025"
+temp: 1
+direction: "W"
+wind: 14
+rain: 2.04
+station: 68
+city: "Timisoara"
+
+Publication 2: date: "15.04.2025"
+temp: -2
+direction: "N"
+wind: 19
+rain: 85.8
+station: 88
+city: "Bucharest"
+
+Publication 3: date: "10.09.2025"
+temp: 31
+direction: "N"
+wind: 20
+rain: 49.15
+station: 55
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "30.07.2025"
+temp: 13
+direction: "E"
+wind: 40
+rain: 41.22
+station: 3
+city: "Timisoara"
+
+Publication 2: date: "26.01.2025"
+temp: 11
+direction: "NE"
+wind: 59
+rain: 25.08
+station: 81
+city: "Constanta"
+
+Publication 3: date: "06.09.2025"
+temp: 6
+direction: "SW"
+wind: 44
+rain: 95.68
+station: 7
+city: "Iasi"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "01.02.2025"
+temp: 33
+direction: "SE"
+wind: 96
+rain: 71.77
+station: 44
+city: "Constanta"
+
+Publication 2: date: "22.01.2025"
+temp: -15
+direction: "N"
+wind: 48
+rain: 66.63
+station: 13
+city: "Iasi"
+
+Publication 3: date: "07.12.2025"
+temp: 12
+direction: "N"
+wind: 8
+rain: 79.12
+station: 15
+city: "Iasi"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "23.08.2025"
+temp: -16
+direction: "E"
+wind: 20
+rain: 40.2
+station: 90
+city: "Timisoara"
+
+Publication 2: date: "11.07.2025"
+temp: 42
+direction: "S"
+wind: 36
+rain: 23.88
+station: 98
+city: "Constanta"
+
+Publication 3: date: "16.09.2025"
+temp: 4
+direction: "S"
+wind: 59
+rain: 21.39
+station: 20
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "02.08.2025"
+temp: -15
+direction: "NE"
+wind: 84
+rain: 46.3
+station: 97
+city: "Cluj"
+
+Publication 2: date: "16.08.2025"
+temp: -5
+direction: "NW"
+wind: 80
+rain: 34.77
+station: 2
+city: "Timisoara"
+
+Publication 3: date: "16.08.2025"
+temp: 50
+direction: "E"
+wind: 24
+rain: 90.72
+station: 85
+city: "Timisoara"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "23.05.2025"
+temp: 20
+direction: "SW"
+wind: 74
+rain: 94.04
+station: 41
+city: "Constanta"
+
+Publication 2: date: "06.05.2025"
+temp: 40
+direction: "S"
+wind: 37
+rain: 95.74
+station: 15
+city: "Iasi"
+
+Publication 3: date: "18.11.2025"
+temp: -30
+direction: "N"
+wind: 73
+rain: 87.82
+station: 21
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "24.09.2025"
+temp: -21
+direction: "NE"
+wind: 28
+rain: 77.84
+station: 100
+city: "Bucharest"
+
+Publication 2: date: "20.08.2025"
+temp: 34
+direction: "N"
+rain: 22.32
+station: 79
+city: "Cluj"
+
+Publication 3: date: "22.08.2025"
+temp: 17
+direction: "S"
+wind: 97
+rain: 83.48
+station: 4
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "31.01.2025"
+temp: 35
+direction: "SE"
+wind: 74
+rain: 93.44
+station: 98
+city: "Iasi"
+
+Publication 2: date: "29.05.2025"
+temp: -1
+direction: "NE"
+wind: 23
+rain: 34.6
+station: 90
+city: "Cluj"
+
+Publication 3: date: "26.10.2025"
+temp: -4
+direction: "N"
+wind: 31
+rain: 16.67
+station: 72
+city: "Timisoara"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "04.12.2025"
+temp: -1
+direction: "SE"
+wind: 89
+rain: 62.75
+station: 37
+city: "Bucharest"
+
+Publication 2: date: "28.05.2025"
+temp: -6
+direction: "SW"
+wind: 39
+rain: 84.98
+station: 4
+city: "Bucharest"
+
+Publication 3: date: "25.08.2025"
+temp: 37
+direction: "SW"
+wind: 15
+rain: 36.02
+station: 73
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "25.12.2025"
+temp: -10
+direction: "SE"
+wind: 95
+rain: 18.25
+station: 25
+city: "Cluj"
+
+Publication 2: date: "16.01.2025"
+temp: 46
+direction: "W"
+wind: 76
+rain: 83.07
+station: 62
+city: "Bucharest"
+
+Publication 3: date: "29.11.2025"
+temp: -6
+direction: "S"
+wind: 99
+rain: 48.38
+station: 31
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "21.10.2025"
+temp: -12
+direction: "NW"
+wind: 40
+rain: 78.67
+station: 88
+city: "Timisoara"
+
+Publication 2: date: "03.02.2025"
+temp: 7
+direction: "NW"
+wind: 7
+rain: 50.58
+station: 42
+city: "Timisoara"
+
+Publication 3: date: "08.08.2025"
+temp: 35
+direction: "NW"
+wind: 69
+rain: 98.24
+station: 72
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "16.09.2025"
+temp: 22
+direction: "E"
+wind: 64
+rain: 43.38
+station: 82
+city: "Cluj"
+
+Publication 2: date: "11.10.2025"
+temp: 2
+direction: "E"
+wind: 68
+rain: 29.5
+station: 94
+city: "Timisoara"
+
+Publication 3: date: "03.09.2025"
+temp: 6
+direction: "SW"
+wind: 5
+rain: 89.6
+station: 46
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "26.12.2025"
+temp: -29
+direction: "S"
+wind: 9
+rain: 72.48
+station: 47
+city: "Timisoara"
+
+Publication 2: date: "05.07.2025"
+temp: 17
+direction: "NW"
+wind: 54
+rain: 43.36
+station: 26
+city: "Constanta"
+
+Publication 3: date: "27.10.2025"
+temp: 42
+direction: "NW"
+wind: 8
+rain: 26.64
+station: 92
+city: "Timisoara"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "19.02.2025"
+temp: 4
+direction: "NE"
+wind: 63
+rain: 13.45
+station: 11
+city: "Constanta"
+
+Publication 2: date: "19.02.2025"
+temp: 22
+direction: "S"
+wind: 79
+rain: 68.26
+station: 96
+city: "Timisoara"
+
+Publication 3: date: "27.11.2025"
+temp: 4
+direction: "E"
+wind: 70
+rain: 94.93
+station: 99
+city: "Iasi"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "08.12.2025"
+temp: -11
+direction: "S"
+wind: 25
+rain: 30.95
+station: 50
+city: "Constanta"
+
+Publication 2: date: "28.11.2025"
+temp: 37
+direction: "NW"
+wind: 19
+rain: 11.74
+station: 70
+city: "Iasi"
+
+Publication 3: date: "14.10.2025"
+temp: 4
+direction: "NW"
+wind: 33
+rain: 47.32
+station: 66
+city: "Bucharest"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "05.10.2025"
+temp: 4
+direction: "N"
+wind: 6
+rain: 97.0
+station: 17
+city: "Bucharest"
+
+Publication 2: date: "27.11.2025"
+temp: -22
+direction: "SE"
+wind: 17
+rain: 52.99
+station: 39
+city: "Timisoara"
+
+Publication 3: date: "07.08.2025"
+temp: 48
+direction: "S"
+wind: 69
+rain: 7.48
+station: 36
+city: "Timisoara"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "02.11.2025"
+temp: -6
+direction: "SE"
+wind: 68
+rain: 12.26
+station: 42
+city: "Timisoara"
+
+Publication 2: date: "02.05.2025"
+temp: 26
+direction: "NW"
+wind: 66
+rain: 92.99
+station: 3
+city: "Bucharest"
+
+Publication 3: date: "19.11.2025"
+temp: 10
+direction: "SW"
+wind: 6
+rain: 95.06
+station: 39
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "05.11.2025"
+temp: 30
+direction: "W"
+wind: 46
+rain: 98.9
+station: 79
+city: "Timisoara"
+
+Publication 2: date: "05.11.2025"
+temp: -13
+direction: "S"
+wind: 80
+rain: 87.19
+station: 43
+city: "Timisoara"
+
+Publication 3: date: "10.08.2025"
+temp: 13
+direction: "SE"
+wind: 66
+rain: 29.81
+station: 43
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "24.05.2025"
+temp: -28
+direction: "NW"
+wind: 100
+rain: 46.15
+station: 51
+city: "Timisoara"
+
+Publication 2: date: "11.02.2025"
+temp: 13
+direction: "E"
+wind: 62
+rain: 83.03
+station: 10
+city: "Bucharest"
+
+Publication 3: date: "15.09.2025"
+temp: 45
+direction: "E"
+wind: 36
+rain: 0.46
+station: 33
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "26.11.2025"
+temp: 14
+direction: "N"
+wind: 34
+rain: 68.34
+station: 98
+city: "Cluj"
+
+Publication 2: date: "28.08.2025"
+temp: -15
+direction: "SW"
+wind: 25
+rain: 32.43
+station: 38
+city: "Cluj"
+
+Publication 3: date: "31.08.2025"
+temp: 31
+direction: "E"
+wind: 91
+rain: 33.01
+station: 16
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "10.07.2025"
+temp: -23
+direction: "SE"
+wind: 1
+rain: 54.56
+station: 10
+city: "Constanta"
+
+Publication 2: date: "10.07.2025"
+temp: 26
+direction: "W"
+wind: 51
+rain: 97.38
+station: 34
+city: "Cluj"
+
+Publication 3: date: "24.08.2025"
+temp: 27
+direction: "NE"
+wind: 86
+rain: 66.63
+station: 82
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "11.01.2025"
+temp: 17
+direction: "E"
+wind: 57
+rain: 10.27
+station: 76
+city: "Timisoara"
+
+Publication 2: date: "31.08.2025"
+temp: 40
+direction: "E"
+wind: 3
+rain: 77.53
+station: 14
+city: "Iasi"
+
+Publication 3: date: "17.10.2025"
+temp: -27
+direction: "NW"
+wind: 74
+rain: 2.71
+station: 61
+city: "Timisoara"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "10.01.2025"
+temp: 7
+direction: "NE"
+wind: 72
+rain: 56.94
+station: 63
+city: "Timisoara"
+
+Publication 2: date: "10.01.2025"
+temp: -27
+direction: "W"
+wind: 96
+rain: 76.7
+station: 43
+city: "Timisoara"
+
+Publication 3: date: "29.10.2025"
+temp: 50
+direction: "S"
+wind: 34
+rain: 44.27
+station: 18
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "07.01.2025"
+temp: 6
+direction: "SE"
+wind: 78
+rain: 66.71
+station: 83
+city: "Bucharest"
+
+Publication 2: date: "30.01.2025"
+direction: "E"
+wind: 84
+rain: 3.25
+station: 98
+city: "Constanta"
+
+Publication 3: date: "06.12.2025"
+temp: 24
+direction: "S"
+wind: 72
+rain: 84.33
+station: 22
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "14.06.2025"
+temp: 26
+direction: "SE"
+wind: 54
+rain: 90.7
+station: 61
+city: "Constanta"
+
+Publication 2: date: "20.08.2025"
+temp: 11
+direction: "S"
+wind: 90
+rain: 65.09
+station: 95
+city: "Timisoara"
+
+Publication 3: date: "20.08.2025"
+temp: -7
+direction: "N"
+wind: 63
+rain: 58.25
+station: 14
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "05.03.2025"
+temp: -7
+direction: "N"
+wind: 6
+rain: 73.54
+station: 55
+city: "Constanta"
+
+Publication 2: date: "21.12.2025"
+temp: 17
+direction: "W"
+wind: 58
+rain: 59.14
+station: 4
+city: "Cluj"
+
+Publication 3: date: "03.10.2025"
+temp: 20
+direction: "S"
+wind: 12
+rain: 72.18
+station: 44
+city: "Bucharest"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "10.06.2025"
+temp: -27
+direction: "NE"
+wind: 20
+rain: 56.52
+station: 37
+city: "Bucharest"
+
+Publication 2: date: "10.06.2025"
+temp: 31
+direction: "NW"
+wind: 59
+rain: 85.8
+station: 9
+city: "Iasi"
+
+Publication 3: date: "08.08.2025"
+temp: 26
+direction: "NW"
+wind: 31
+rain: 46.87
+station: 41
+city: "Iasi"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "12.11.2025"
+temp: 2
+direction: "E"
+wind: 19
+rain: 81.88
+station: 6
+city: "Constanta"
+
+Publication 2: date: "27.11.2025"
+temp: 22
+direction: "N"
+wind: 46
+rain: 21.85
+station: 94
+city: "Iasi"
+
+Publication 3: date: "07.09.2025"
+temp: 6
+direction: "SW"
+wind: 64
+rain: 40.52
+station: 38
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "12.11.2025"
+temp: 44
+direction: "NW"
+wind: 34
+rain: 63.27
+station: 77
+city: "Timisoara"
+
+Publication 2: date: "16.11.2025"
+temp: -26
+direction: "E"
+wind: 96
+rain: 24.22
+station: 33
+city: "Cluj"
+
+Publication 3: date: "21.09.2025"
+temp: 12
+direction: "SE"
+wind: 63
+rain: 72.22
+station: 54
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "04.01.2025"
+temp: 45
+direction: "NW"
+wind: 36
+rain: 32.67
+station: 7
+city: "Constanta"
+
+Publication 2: date: "21.10.2025"
+temp: -22
+direction: "E"
+wind: 19
+rain: 20.7
+station: 41
+city: "Constanta"
+
+Publication 3: date: "28.10.2025"
+temp: 7
+direction: "E"
+wind: 67
+rain: 90.6
+station: 9
+city: "Cluj"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "06.02.2025"
+temp: 28
+direction: "SW"
+rain: 79.57
+station: 22
+city: "Cluj"
+
+Publication 2: date: "10.12.2025"
+temp: -9
+direction: "W"
+wind: 6
+rain: 0.87
+station: 36
+city: "Timisoara"
+
+Publication 3: date: "28.11.2025"
+temp: 11
+direction: "SW"
+wind: 5
+rain: 70.26
+station: 50
+city: "Iasi"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "10.03.2025"
+temp: -3
+direction: "SW"
+wind: 65
+rain: 65.48
+station: 23
+city: "Timisoara"
+
+Publication 2: date: "21.04.2025"
+temp: 25
+direction: "SW"
+wind: 37
+rain: 31.26
+station: 84
+city: "Cluj"
+
+Publication 3: date: "26.10.2025"
+temp: 8
+direction: "NE"
+wind: 4
+rain: 42.02
+station: 47
+city: "Bucharest"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "17.01.2025"
+temp: -8
+direction: "S"
+wind: 6
+rain: 77.71
+station: 23
+city: "Timisoara"
+
+Publication 2: date: "30.06.2025"
+temp: 41
+direction: "SE"
+wind: 1
+rain: 43.75
+station: 98
+city: "Timisoara"
+
+Publication 3: date: "23.12.2025"
+temp: -3
+direction: "S"
+wind: 54
+rain: 40.1
+station: 8
+city: "Timisoara"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "01.11.2025"
+temp: 20
+direction: "E"
+wind: 50
+rain: 89.79
+station: 57
+city: "Constanta"
+
+Publication 2: date: "25.06.2025"
+temp: 29
+direction: "E"
+wind: 20
+rain: 30.11
+station: 61
+city: "Cluj"
+
+Publication 3: date: "27.12.2025"
+temp: -19
+direction: "S"
+wind: 43
+rain: 84.93
+station: 2
+city: "Bucharest"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "07.03.2025"
+temp: 13
+direction: "E"
+wind: 53
+rain: 24.8
+station: 72
+city: "Timisoara"
+
+Publication 2: date: "10.03.2025"
+temp: -18
+direction: "E"
+wind: 10
+rain: 84.77
+station: 55
+city: "Constanta"
+
+Publication 3: date: "17.09.2025"
+temp: 35
+direction: "NE"
+wind: 69
+rain: 17.55
+station: 19
+city: "Constanta"
+
+Average Temperature: 10.0
+
+Window Data (3 publications):
+Publication 1: date: "06.05.2025"
+temp: 4
+direction: "SW"
+wind: 42
+rain: 26.4
+station: 31
+city: "Iasi"
+
+Publication 2: date: "05.05.2025"
+temp: 45
+direction: "SW"
+wind: 72
+rain: 30.84
+station: 86
+city: "Constanta"
+
+Publication 3: date: "30.11.2025"
+temp: -19
+direction: "W"
+wind: 89
+rain: 93.43
+station: 61
+city: "Bucharest"
+
+Average Temperature: 10.0
+
