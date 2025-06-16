@@ -25,6 +25,12 @@ public class SubscriptionManager {
         System.out.println("Total subscriptions: " + subscriptions.size());
     }
 
+    public static void removeSubscription(SubscriptionDto subscription) {
+        subscriptions.remove(subscription);
+        System.out.println("Removed subscription: " + subscription.toString());
+        System.out.println("Total subscriptions: " + subscriptions.size());
+    }
+
     public static List<SubscriptionDto> getMatchingSubscriptions(PublicationProto.Publication publication) {
         List<SubscriptionDto> matchingSubscriptions = new ArrayList<>();
         

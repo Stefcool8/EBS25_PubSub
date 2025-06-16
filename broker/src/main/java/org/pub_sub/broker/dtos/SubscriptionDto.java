@@ -1,9 +1,11 @@
 package org.pub_sub.broker.dtos;
 
+import org.pub_sub.common.generated.AdminProto;
 import org.pub_sub.common.generated.SubscriptionProto;
 
 public class SubscriptionDto {
     private String source;
+    private AdminProto.SourceType sourceType;
     
     // Date field
     private String date;
@@ -38,9 +40,10 @@ public class SubscriptionDto {
     private SubscriptionProto.Operator avgTempOperator;
 
     // Constructor
-    public SubscriptionDto(String source, SubscriptionProto.Subscription subscription) {
+    public SubscriptionDto(String source, AdminProto.SourceType sourceType, SubscriptionProto.Subscription subscription) {
         this.source = source;
-        
+        this.sourceType = sourceType;
+
         if (subscription.hasDate()) {
             this.date = subscription.getDate().getValue();
             this.dateOperator = subscription.getDate().getOperator();
@@ -89,6 +92,14 @@ public class SubscriptionDto {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public AdminProto.SourceType getSourceType() {
+        return sourceType;
+    }
+
+    public void setSourceType(AdminProto.SourceType sourceType) {
+        this.sourceType = sourceType;
     }
 
     // Date
@@ -280,5 +291,59 @@ public class SubscriptionDto {
                 ", avgTemp=" + avgTemp +
                 ", avgTempOperator=" + avgTempOperator +
                 '}';
+    }
+
+    public static SubscriptionProto.Subscription toProto(SubscriptionDto dto) {
+        SubscriptionProto.Subscription.Builder builder = SubscriptionProto.Subscription.newBuilder();
+
+        if (dto.hasDate()) {
+            builder.setDate(SubscriptionProto.StringFieldCondition.newBuilder()
+                    .setValue(dto.getDate())
+                    .setOperator(dto.getDateOperator()));
+        }
+
+        if (dto.hasTemp()) {
+            builder.setTemp(SubscriptionProto.IntFieldCondition.newBuilder()
+                    .setValue(dto.getTemp())
+                    .setOperator(dto.getTempOperator()));
+        }
+
+        if (dto.hasDirection()) {
+            builder.setDirection(SubscriptionProto.StringFieldCondition.newBuilder()
+                    .setValue(dto.getDirection())
+                    .setOperator(dto.getDirectionOperator()));
+        }
+
+        if (dto.hasWind()) {
+            builder.setWind(SubscriptionProto.IntFieldCondition.newBuilder()
+                    .setValue(dto.getWind())
+                    .setOperator(dto.getWindOperator()));
+        }
+
+        if (dto.hasRain()) {
+            builder.setRain(SubscriptionProto.FloatFieldCondition.newBuilder()
+                    .setValue(dto.getRain())
+                    .setOperator(dto.getRainOperator()));
+        }
+
+        if (dto.hasStation()) {
+            builder.setStation(SubscriptionProto.IntFieldCondition.newBuilder()
+                    .setValue(dto.getStation())
+                    .setOperator(dto.getStationOperator()));
+        }
+
+        if (dto.hasCity()) {
+            builder.setCity(SubscriptionProto.StringFieldCondition.newBuilder()
+                    .setValue(dto.getCity())
+                    .setOperator(dto.getCityOperator()));
+        }
+
+        if (dto.hasAvgTemp()) {
+            builder.setAvgTemp(SubscriptionProto.FloatFieldCondition.newBuilder()
+                    .setValue(dto.getAvgTemp())
+                    .setOperator(dto.getAvgTempOperator()));
+        }
+
+        return builder.build();
     }
 }
