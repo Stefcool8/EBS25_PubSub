@@ -16,6 +16,6 @@ public class Main {
             System.arraycopy(args, 1, neighbors, 0, args.length - 1);
         }
 
-        BrokerTopology.run(brokerId, neighbors);
+        new BrokerTopology().run(brokerId, neighbors);
     }
 }

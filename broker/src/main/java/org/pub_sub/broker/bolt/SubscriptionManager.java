@@ -222,10 +222,10 @@ public class SubscriptionManager {
         }
     }
 
-    private static boolean matchesFloatField(float pubValue, float subValue, SubscriptionProto.Operator operator) {
+    private static boolean matchesFloatField(double pubValue, double subValue, SubscriptionProto.Operator operator) {
         switch (operator) {
-            case EQ: return Float.compare(pubValue, subValue) == 0;
-            case NE: return Float.compare(pubValue, subValue) != 0;
+            case EQ: return Double.compare(pubValue, subValue) == 0;
+            case NE: return Double.compare(pubValue, subValue) != 0;
             case GT: return pubValue > subValue;
             case GE: return pubValue >= subValue;
             case LT: return pubValue < subValue;

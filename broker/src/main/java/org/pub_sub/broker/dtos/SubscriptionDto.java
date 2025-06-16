@@ -24,7 +24,7 @@ public class SubscriptionDto {
     private SubscriptionProto.Operator windOperator;
     
     // Rain field
-    private Float rain;
+    private Double rain;
     private SubscriptionProto.Operator rainOperator;
     
     // Station field
@@ -36,7 +36,7 @@ public class SubscriptionDto {
     private SubscriptionProto.Operator cityOperator;
     
     // AvgTemp field
-    private Float avgTemp;
+    private Double avgTemp;
     private SubscriptionProto.Operator avgTempOperator;
 
     // Constructor
@@ -187,11 +187,11 @@ public class SubscriptionDto {
     }
 
     // Rain
-    public Float getRain() {
+    public Double getRain() {
         return rain;
     }
 
-    public void setRain(Float rain) {
+    public void setRain(Double rain) {
         this.rain = rain;
     }
 
@@ -250,11 +250,11 @@ public class SubscriptionDto {
     }
 
     // AvgTemp
-    public Float getAvgTemp() {
+    public Double getAvgTemp() {
         return avgTemp;
     }
 
-    public void setAvgTemp(Float avgTemp) {
+    public void setAvgTemp(Double avgTemp) {
         this.avgTemp = avgTemp;
     }
 
@@ -321,7 +321,7 @@ public class SubscriptionDto {
         }
 
         if (dto.hasRain()) {
-            builder.setRain(SubscriptionProto.FloatFieldCondition.newBuilder()
+            builder.setRain(SubscriptionProto.DoubleFieldCondition.newBuilder()
                     .setValue(dto.getRain())
                     .setOperator(dto.getRainOperator()));
         }
@@ -339,7 +339,7 @@ public class SubscriptionDto {
         }
 
         if (dto.hasAvgTemp()) {
-            builder.setAvgTemp(SubscriptionProto.FloatFieldCondition.newBuilder()
+            builder.setAvgTemp(SubscriptionProto.DoubleFieldCondition.newBuilder()
                     .setValue(dto.getAvgTemp())
                     .setOperator(dto.getAvgTempOperator()));
         }

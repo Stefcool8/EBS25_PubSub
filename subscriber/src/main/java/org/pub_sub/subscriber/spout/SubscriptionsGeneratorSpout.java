@@ -22,6 +22,12 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
 
     private String nextLine;
 
+    private final String source;
+
+    public SubscriptionsGeneratorSpout(String source) {
+        this.source = source;
+    }
+
     @Override
     public void open(Map<String, Object> conf, TopologyContext context, SpoutOutputCollector spoutOutputCollector) {
         this.collector = spoutOutputCollector;
@@ -61,17 +67,16 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
             if (subRecord.wind != null)
                 subscriptionBuilder.setWind(toIntCondition(subRecord.wind));
             if (subRecord.rain != null)
-                subscriptionBuilder.setRain(toFloatCondition(subRecord.rain));
+                subscriptionBuilder.setRain(toDoubleCondition(subRecord.rain));
             if (subRecord.station != null)
                 subscriptionBuilder.setStation(toIntCondition(subRecord.station));
             if (subRecord.city != null)
                 subscriptionBuilder.setCity(toStringCondition(subRecord.city));
             if (subRecord.avg_temp != null)
-                subscriptionBuilder.setAvgTemp(toFloatCondition(subRecord.avg_temp));
+                subscriptionBuilder.setAvgTemp(toDoubleCondition(subRecord.avg_temp));
 
-            // Creăm AdminMessage cu subscription-ul
             AdminProto.AdminMessage adminMessage = AdminProto.AdminMessage.newBuilder()
-                    .setSource("localhost:8082")
+                    .setSource(source)
                     .setSourceType(AdminProto.SourceType.SUBSCRIBER)
                     .addSubscriptions(subscriptionBuilder.build())
                     .build();
@@ -116,8 +121,8 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
                 .build();
     }
 
-    private SubscriptionProto.FloatFieldCondition toFloatCondition(SubRecord.FieldCondition cond) {
-        return SubscriptionProto.FloatFieldCondition.newBuilder()
+    private SubscriptionProto.DoubleFieldCondition toDoubleCondition(SubRecord.FieldCondition cond) {
+        return SubscriptionProto.DoubleFieldCondition.newBuilder()
                 .setOperator(toOperator(cond.operator))
                 .setValue(Float.parseFloat(cond.value))
                 .build();

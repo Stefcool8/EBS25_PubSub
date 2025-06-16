@@ -10,4 +10,5 @@ message Publication {
   double rain = 5;
   int32 station = 6;
   string city = 7;
+  string timestamp = 8;
 }

@@ -14,6 +14,7 @@ import org.pub_sub.generator.schema.SchemaBuilder;
 import org.pub_sub.generator.schema.SchemaFields;
 import org.pub_sub.generator.storage.PublicationSaver;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -89,6 +90,8 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
         if (windStr != null)      b.setWind(Integer.parseInt(windStr));
         if (directionStr != null) b.setDirection(directionStr);
         if (dateStr != null)      b.setDate(dateStr);
+
+        b.setTimestamp(String.valueOf(new Date().getTime()));
 
         return b.build();
     }

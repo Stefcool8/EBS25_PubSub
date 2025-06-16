@@ -1,9 +1,7 @@
 package org.pub_sub.broker.bolt;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.common.serialization.ByteArraySerializer;
 import org.pub_sub.broker.dtos.Pair;
 import org.pub_sub.broker.dtos.SubscriptionDto;
 import org.pub_sub.broker.notify.SubscriberNotifier;
@@ -17,17 +15,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class RoutingManager {
-    private static final KafkaProducer<byte[], byte[]> producer;
-
-    static {
-        Properties props = new Properties();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, ByteArraySerializer.class.getName());
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, ByteArraySerializer.class.getName());
-        producer = new KafkaProducer<>(props);
-    }
-
-    public static void handleNotification(String brokerId, ForwardProto.ForwardMessage forwardMessage, String[] neighboringBrokers)
+    public static void handleNotification(KafkaProducer<byte[], byte[]> producer, String brokerId, ForwardProto.ForwardMessage forwardMessage, String[] neighboringBrokers)
     {
         PublicationProto.Publication pub = forwardMessage.getPublication();
 
@@ -126,7 +114,7 @@ public class RoutingManager {
         return new Pair<>(subscriptions, unsubscriptions);
     }
 
-    public static void handleAdminMessage(String currentBrokerId, String source, Set<SubscriptionDto> subscriptions, Set<SubscriptionDto> unsubscriptions, String[] neighboringBrokers) {
+    public static void handleAdminMessage(KafkaProducer<byte[], byte[]> producer, String currentBrokerId, String source, Set<SubscriptionDto> subscriptions, Set<SubscriptionDto> unsubscriptions, String[] neighboringBrokers) {
         for (String neighbor : neighboringBrokers) {
             if (neighbor.equals(source)) {
                 continue;
