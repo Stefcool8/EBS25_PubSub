@@ -1,5 +1,4 @@
-D:\Master\Anul1Sem2\EBS\EBS25_PubSub\publisher\src\main\java\org\pub_sub\publisher\bolt\KafkaPublisherBolt.java
-D:\Master\Anul1Sem2\EBS\EBS25_PubSub\publisher\src\main\java\org\pub_sub\publisher\Main.java
-D:\Master\Anul1Sem2\EBS\EBS25_PubSub\publisher\src\main\java\org\pub_sub\publisher\spout\PublicationsGeneratorSpout.java
-D:\Master\Anul1Sem2\EBS\EBS25_PubSub\publisher\src\main\java\org\pub_sub\publisher\spout\PubRecord.java
-D:\Master\Anul1Sem2\EBS\EBS25_PubSub\publisher\src\main\java\org\pub_sub\publisher\topology\PublisherTopology.java
+D:\Facultate\MISS1\Sem2\EBS\EBS25_PubSub\publisher\src\main\java\org\pub_sub\publisher\bolt\KafkaPublisherBolt.java
+D:\Facultate\MISS1\Sem2\EBS\EBS25_PubSub\publisher\src\main\java\org\pub_sub\publisher\Main.java
+D:\Facultate\MISS1\Sem2\EBS\EBS25_PubSub\publisher\src\main\java\org\pub_sub\publisher\spout\PublicationsGeneratorSpout.java
+D:\Facultate\MISS1\Sem2\EBS\EBS25_PubSub\publisher\src\main\java\org\pub_sub\publisher\topology\PublisherTopology.java

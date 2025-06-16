@@ -11,6 +11,7 @@ org\pub_sub\common\generated\AdminProto$AdminMessage$Builder.class
 org\pub_sub\common\generated\AdminProto$AdminMessageOrBuilder.class
 org\pub_sub\common\generated\SubscriptionProto$IntFieldCondition$1.class
 org\pub_sub\common\deserializers\ForwardDeserializer.class
+org\pub_sub\common\Main.class
 org\pub_sub\common\generated\SubscriptionProto$StringFieldCondition$Builder.class
 org\pub_sub\common\generated\SubscriptionProto$StringFieldCondition$1.class
 org\pub_sub\common\generated\PublicationProto$PublicationOrBuilder.class
@@ -33,7 +34,6 @@ org\pub_sub\common\generated\AdminProto$SourceType$1.class
 org\pub_sub\common\generated\PublicationProto.class
 org\pub_sub\common\generated\SubscriptionProto$FloatFieldCondition$Builder.class
 org\pub_sub\common\generated\PublicationProto$Publication.class
-org\pub_sub\Main.class
 org\pub_sub\common\generated\ForwardProto$SourceType.class
 org\pub_sub\common\generated\PublicationProto$Publication$1.class
 org\pub_sub\common\generated\ForwardProto$ForwardMessage$1.class

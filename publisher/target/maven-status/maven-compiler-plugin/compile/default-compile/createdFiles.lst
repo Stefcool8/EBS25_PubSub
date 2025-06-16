@@ -2,4 +2,4 @@ org\pub_sub\publisher\bolt\KafkaPublisherBolt.class
 org\pub_sub\publisher\spout\PublicationsGeneratorSpout.class
 org\pub_sub\publisher\topology\PublisherTopology.class
 org\pub_sub\publisher\Main.class
-org\pub_sub\publisher\spout\PubRecord.class
+org\pub_sub\publisher\spout\PublicationsGeneratorSpout$1.class

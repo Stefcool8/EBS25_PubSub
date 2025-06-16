@@ -18,7 +18,6 @@ import java.util.Properties;
 public class KafkaPublisherBolt extends BaseBasicBolt {
     private transient KafkaProducer<byte[], byte[]> producer;
     private final String topic;
-    private final String publisherId = "publisher-1";
 
     public KafkaPublisherBolt(String topic) {
         this.topic = topic;
@@ -37,6 +36,7 @@ public class KafkaPublisherBolt extends BaseBasicBolt {
     public void execute(Tuple tuple, BasicOutputCollector basicOutputCollector) {
         PublicationProto.Publication publication = (PublicationProto.Publication) tuple.getValueByField("publication");
 
+        String publisherId = "publisher-1";
         ForwardProto.ForwardMessage forwardMessage = ForwardProto.ForwardMessage.newBuilder()
                 .setSource(publisherId)
                 .setSourceType(ForwardProto.SourceType.PUBLISHER)
