@@ -18,9 +18,9 @@ public class BrokerTopology {
         builder.setSpout("kafka-forward-spout", new KafkaForwardMessagesSpout(forwardTopic));
         builder.setSpout("kafka-admin-spout", new KafkaAdminMessagesSpout(adminTopic));
 
-        builder.setBolt("simple-publication-bolt", new ForwardMessageBolt(brokerId, neighbors))
+        builder.setBolt("forward-bolt", new ForwardMessageBolt(brokerId, neighbors))
                 .shuffleGrouping("kafka-forward-spout");
-        builder.setBolt("simple-subscription-bolt", new AdminMessageBolt(brokerId, neighbors))
+        builder.setBolt("admin-bolt", new AdminMessageBolt(brokerId, neighbors))
                 .shuffleGrouping("kafka-admin-spout");
 
         Config config = new Config();

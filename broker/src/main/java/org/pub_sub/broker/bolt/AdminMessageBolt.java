@@ -31,7 +31,6 @@ public class AdminMessageBolt extends BaseRichBolt {
     @Override
     public void execute(Tuple tuple) {
         AdminProto.AdminMessage adminMessage = (AdminProto.AdminMessage) tuple.getValueByField("adminMessage");
-
         System.out.println("Received admin message: " + adminMessage.toString());
         
         /*// Procesăm doar mesajele de la subscriberi

@@ -47,11 +47,11 @@ public class RoutingManager {
                     continue;
                 }
 
-                System.out.println("Notifying subscriber for matching subscription: " + subscription.toString());
-                System.out.println("subscription.hasAvgTemp() = " + subscription.hasAvgTemp());
-                System.out.println("subscription.getAvgTemp() = " + subscription.getAvgTemp());
-
                 if (subscription.getSourceType().equals(AdminProto.SourceType.SUBSCRIBER)) {
+                    System.out.println("Notifying subscriber for matching subscription: " + subscription.toString());
+                    System.out.println("subscription.hasAvgTemp() = " + subscription.hasAvgTemp());
+                    System.out.println("subscription.getAvgTemp() = " + subscription.getAvgTemp());
+
                     if (subscription.hasAvgTemp()) {
                         // Pentru subscription-uri cu avg_temp, trimitem întregul window
                         System.out.println("Sending window data because subscription has avg_temp");
@@ -86,7 +86,7 @@ public class RoutingManager {
                     producer.send(record);
                 }
             } catch (IOException e) {
-                System.err.println("Error notifying subscribers: " + e.getMessage());
+                System.err.println("Error forwarding notification: " + e.getMessage());
                 e.printStackTrace();
             }
         }

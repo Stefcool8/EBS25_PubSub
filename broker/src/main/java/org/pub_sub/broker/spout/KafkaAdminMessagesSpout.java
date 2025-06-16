@@ -46,7 +46,6 @@ public class KafkaAdminMessagesSpout extends BaseRichSpout {
         ConsumerRecords<String, AdminProto.AdminMessage> records = consumer.poll(Duration.ofMillis(100));
         for (ConsumerRecord<String, AdminProto.AdminMessage> record : records) {
             AdminProto.AdminMessage adminMessage = record.value();
-            // Emit the entire admin message
             collector.emit(new Values(record.key(), adminMessage));
         }
     }
