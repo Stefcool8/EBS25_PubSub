@@ -89,16 +89,10 @@ public final class PublicationProto {
         getCityBytes();
 
     /**
-     * <code>string timestamp = 8;</code>
+     * <code>int64 timestamp = 8;</code>
      * @return The timestamp.
      */
-    java.lang.String getTimestamp();
-    /**
-     * <code>string timestamp = 8;</code>
-     * @return The bytes for timestamp.
-     */
-    com.google.protobuf.ByteString
-        getTimestampBytes();
+    long getTimestamp();
   }
   /**
    * Protobuf type {@code Publication}
@@ -125,7 +119,6 @@ public final class PublicationProto {
       date_ = "";
       direction_ = "";
       city_ = "";
-      timestamp_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -303,42 +296,14 @@ public final class PublicationProto {
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 8;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object timestamp_ = "";
+    private long timestamp_ = 0L;
     /**
-     * <code>string timestamp = 8;</code>
+     * <code>int64 timestamp = 8;</code>
      * @return The timestamp.
      */
     @java.lang.Override
-    public java.lang.String getTimestamp() {
-      java.lang.Object ref = timestamp_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        timestamp_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string timestamp = 8;</code>
-     * @return The bytes for timestamp.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTimestampBytes() {
-      java.lang.Object ref = timestamp_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        timestamp_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getTimestamp() {
+      return timestamp_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -376,8 +341,8 @@ public final class PublicationProto {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(city_)) {
         com.google.protobuf.GeneratedMessage.writeString(output, 7, city_);
       }
-      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(timestamp_)) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 8, timestamp_);
+      if (timestamp_ != 0L) {
+        output.writeInt64(8, timestamp_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -413,8 +378,9 @@ public final class PublicationProto {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(city_)) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(7, city_);
       }
-      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(timestamp_)) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(8, timestamp_);
+      if (timestamp_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(8, timestamp_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -446,8 +412,8 @@ public final class PublicationProto {
           != other.getStation()) return false;
       if (!getCity()
           .equals(other.getCity())) return false;
-      if (!getTimestamp()
-          .equals(other.getTimestamp())) return false;
+      if (getTimestamp()
+          != other.getTimestamp()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -475,7 +441,8 @@ public final class PublicationProto {
       hash = (37 * hash) + CITY_FIELD_NUMBER;
       hash = (53 * hash) + getCity().hashCode();
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
-      hash = (53 * hash) + getTimestamp().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimestamp());
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -614,7 +581,7 @@ public final class PublicationProto {
         rain_ = 0D;
         station_ = 0;
         city_ = "";
-        timestamp_ = "";
+        timestamp_ = 0L;
         return this;
       }
 
@@ -713,10 +680,8 @@ public final class PublicationProto {
           bitField0_ |= 0x00000040;
           onChanged();
         }
-        if (!other.getTimestamp().isEmpty()) {
-          timestamp_ = other.timestamp_;
-          bitField0_ |= 0x00000080;
-          onChanged();
+        if (other.getTimestamp() != 0L) {
+          setTimestamp(other.getTimestamp());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -779,11 +744,11 @@ public final class PublicationProto {
                 bitField0_ |= 0x00000040;
                 break;
               } // case 58
-              case 66: {
-                timestamp_ = input.readStringRequireUtf8();
+              case 64: {
+                timestamp_ = input.readInt64();
                 bitField0_ |= 0x00000080;
                 break;
-              } // case 66
+              } // case 64
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1145,74 +1110,34 @@ public final class PublicationProto {
         return this;
       }
 
-      private java.lang.Object timestamp_ = "";
+      private long timestamp_ ;
       /**
-       * <code>string timestamp = 8;</code>
+       * <code>int64 timestamp = 8;</code>
        * @return The timestamp.
        */
-      public java.lang.String getTimestamp() {
-        java.lang.Object ref = timestamp_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          timestamp_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
       }
       /**
-       * <code>string timestamp = 8;</code>
-       * @return The bytes for timestamp.
-       */
-      public com.google.protobuf.ByteString
-          getTimestampBytes() {
-        java.lang.Object ref = timestamp_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          timestamp_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string timestamp = 8;</code>
+       * <code>int64 timestamp = 8;</code>
        * @param value The timestamp to set.
        * @return This builder for chaining.
        */
-      public Builder setTimestamp(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setTimestamp(long value) {
+
         timestamp_ = value;
         bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
       /**
-       * <code>string timestamp = 8;</code>
+       * <code>int64 timestamp = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
-        timestamp_ = getDefaultInstance().getTimestamp();
         bitField0_ = (bitField0_ & ~0x00000080);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string timestamp = 8;</code>
-       * @param value The bytes for timestamp to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTimestampBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        timestamp_ = value;
-        bitField0_ |= 0x00000080;
+        timestamp_ = 0L;
         onChanged();
         return this;
       }
@@ -1286,7 +1211,7 @@ public final class PublicationProto {
       "n\022\014\n\004date\030\001 \001(\t\022\014\n\004temp\030\002 \001(\005\022\021\n\tdirecti" +
       "on\030\003 \001(\t\022\014\n\004wind\030\004 \001(\005\022\014\n\004rain\030\005 \001(\001\022\017\n\007" +
       "station\030\006 \001(\005\022\014\n\004city\030\007 \001(\t\022\021\n\ttimestamp" +
-      "\030\010 \001(\tB\022B\020PublicationProtob\006proto3"
+      "\030\010 \001(\003B\022B\020PublicationProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
