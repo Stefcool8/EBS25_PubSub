@@ -48,7 +48,7 @@ public class RoutingManager {
                 }
 
                 if (subscription.getSourceType().equals(AdminProto.SourceType.SUBSCRIBER)) {
-                    System.out.println("Notifying subscriber for matching subscription: " + subscription.toString());
+                    System.out.println("Notifying subscriber for matching subscription: " + subscription);
                     System.out.println("subscription.hasAvgTemp() = " + subscription.hasAvgTemp());
                     System.out.println("subscription.getAvgTemp() = " + subscription.getAvgTemp());
 

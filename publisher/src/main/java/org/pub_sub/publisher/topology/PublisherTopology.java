@@ -17,7 +17,7 @@ public class PublisherTopology {
 
         Config config = new Config();
         config.setDebug(false);
-        config.put("pub.total", 10000);
+        config.put("pub.total", 10);
         config.put("pub.threads", 4);
 
         LocalCluster cluster = new LocalCluster();
