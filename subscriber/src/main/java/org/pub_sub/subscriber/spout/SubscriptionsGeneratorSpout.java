@@ -94,7 +94,6 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
         }
     }
 
-
     private SubscriptionProto.StringFieldCondition toStringCondition(SubRecord.FieldCondition cond) {
         return SubscriptionProto.StringFieldCondition.newBuilder()
                 .setOperator(toOperator(cond.operator))

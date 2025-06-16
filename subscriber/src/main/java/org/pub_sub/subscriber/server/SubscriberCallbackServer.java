@@ -11,6 +11,19 @@ public class SubscriberCallbackServer {
             String body = request.body();
             System.out.println("📩 Received notification from broker:\n" + body);
             response.status(200);
+
+            try {
+                java.nio.file.Files.writeString(
+                        java.nio.file.Paths.get("notifications.txt"),
+                        body + "\n",
+                        java.nio.charset.StandardCharsets.UTF_8,
+                        java.nio.file.StandardOpenOption.CREATE,
+                        java.nio.file.StandardOpenOption.APPEND
+                );
+            } catch (java.io.IOException e) {
+                System.err.println("Error writing to notifications.txt: " + e.getMessage());
+            }
+
             return "Received";
         });
     }

@@ -9,11 +9,14 @@ import org.pub_sub.broker.spout.KafkaPublicationSpout;
 import org.pub_sub.broker.spout.KafkaSubscriptionSpout;
 
 public class BrokerTopology {
-    public static void run() throws Exception {
+    public static void run(String brokerId) throws Exception {
         TopologyBuilder builder = new TopologyBuilder();
 
-        builder.setSpout("kafka-publication-spout", new KafkaPublicationSpout());
-        builder.setSpout("kafka-subscription-spout", new KafkaSubscriptionSpout());
+        String adminTopic = "broker-" + brokerId + "-admin";
+        String forwardTopic = "broker-" + brokerId + "-forward";
+
+        builder.setSpout("kafka-publication-spout", new KafkaPublicationSpout(forwardTopic));
+        builder.setSpout("kafka-subscription-spout", new KafkaSubscriptionSpout(adminTopic));
 
         builder.setBolt("simple-publication-bolt", new SimplePublicationBolt())
                 .shuffleGrouping("kafka-publication-spout");

@@ -1,0 +1,82 @@
+date: "08.08.2025"
+temp: 28
+direction: "NE"
+wind: 15
+rain: 2.5
+station: 2
+city: "Cluj"
+
+date: "09.08.2025"
+temp: 22
+direction: "S"
+wind: 8
+station: 1
+city: "Bucharest"
+
+date: "08.08.2025"
+temp: 28
+direction: "NE"
+wind: 15
+rain: 2.5
+station: 2
+city: "Cluj"
+
+date: "09.08.2025"
+temp: 22
+direction: "S"
+wind: 8
+station: 1
+city: "Bucharest"
+
+date: "08.08.2025"
+temp: 28
+direction: "NE"
+wind: 15
+rain: 2.5
+station: 2
+city: "Cluj"
+
+date: "09.08.2025"
+temp: 22
+direction: "S"
+wind: 8
+station: 1
+city: "Bucharest"
+
+date: "07.08.2025"
+temp: 25
+direction: "N"
+wind: 10
+station: 1
+city: "Bucharest"
+
+date: "08.08.2025"
+temp: 28
+direction: "NE"
+wind: 15
+rain: 2.5
+station: 2
+city: "Cluj"
+
+date: "09.08.2025"
+temp: 22
+direction: "S"
+wind: 8
+station: 1
+city: "Bucharest"
+
+date: "08.08.2025"
+temp: 28
+direction: "NE"
+wind: 15
+rain: 2.5
+station: 2
+city: "Cluj"
+
+date: "09.08.2025"
+temp: 22
+direction: "S"
+wind: 8
+station: 1
+city: "Bucharest"
+
