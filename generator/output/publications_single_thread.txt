@@ -1,0 +1,10 @@
+{ "station": "16", "city": "Iasi", "date": "18.08.2025", "direction": "NW", "rain": "4.04", "wind": "31", "temp": "29" }
+{ "station": "65", "city": "Cluj", "date": "05.02.2025", "direction": "N", "rain": "36.1", "wind": "7", "temp": "23" }
+{ "station": "79", "city": "Timisoara", "date": "25.07.2025", "direction": "NE", "rain": "56.85", "wind": "17", "temp": "-1" }
+{ "station": "99", "city": "Constanta", "date": "03.08.2025", "direction": "N", "rain": "4.8", "wind": "51", "temp": "7" }
+{ "station": "62", "city": "Timisoara", "date": "29.03.2025", "direction": "N", "rain": "57.79", "wind": "4", "temp": "49" }
+{ "station": "84", "city": "Bucharest", "date": "20.12.2025", "direction": "SW", "rain": "39.54", "wind": "80", "temp": "-25" }
+{ "station": "58", "city": "Bucharest", "date": "09.06.2025", "direction": "W", "rain": "23.94", "wind": "81", "temp": "-14" }
+{ "station": "84", "city": "Constanta", "date": "04.01.2025", "direction": "N", "rain": "81.84", "wind": "51", "temp": "1" }
+{ "station": "10", "city": "Iasi", "date": "02.11.2025", "direction": "NE", "rain": "17.87", "wind": "81", "temp": "-4" }
+{ "station": "2", "city": "Constanta", "date": "19.10.2025", "direction": "NW", "rain": "8.52", "wind": "66", "temp": "46" }

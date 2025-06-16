@@ -7,7 +7,7 @@ message Publication {
   int32 temp = 2;
   string direction = 3;
   int32 wind = 4;
-  float rain = 5;
+  double rain = 5;
   int32 station = 6;
   string city = 7;
 }

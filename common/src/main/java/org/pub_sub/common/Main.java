@@ -1,4 +1,4 @@
-package org.pub_sub;
+package org.pub_sub.common;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
