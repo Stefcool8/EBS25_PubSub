@@ -91,7 +91,7 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
         if (directionStr != null) b.setDirection(directionStr);
         if (dateStr != null)      b.setDate(dateStr);
 
-        b.setTimestamp(String.valueOf(new Date().getTime()));
+        b.setTimestamp(new Date().getTime());
 
         return b.build();
     }
