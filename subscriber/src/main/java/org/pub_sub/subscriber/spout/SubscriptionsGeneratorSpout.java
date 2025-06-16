@@ -7,6 +7,7 @@ import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseRichSpout;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
+import org.pub_sub.common.generated.AdminProto;
 import org.pub_sub.common.generated.SubscriptionProto;
 
 import java.io.BufferedReader;
@@ -68,7 +69,14 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
             if (subRecord.avg_temp != null)
                 subscriptionBuilder.setAvgTemp(toFloatCondition(subRecord.avg_temp));
 
-            collector.emit(new Values(subscriptionBuilder.build()));
+            // Creăm AdminMessage cu subscription-ul
+            AdminProto.AdminMessage adminMessage = AdminProto.AdminMessage.newBuilder()
+                    .setSource("localhost:8082")
+                    .setSourceType(AdminProto.SourceType.SUBSCRIBER)
+                    .addSubscriptions(subscriptionBuilder.build())
+                    .build();
+
+            collector.emit(new Values(adminMessage));
 
             nextLine = reader.readLine();
             Thread.sleep(200);
