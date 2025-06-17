@@ -36,4 +36,10 @@ message Subscription {
   StringFieldCondition city = 7;
 
   DoubleFieldCondition avg_temp = 8;
+  DoubleFieldCondition avg_wind = 9;
+  DoubleFieldCondition avg_rain = 10;
+  StringFieldCondition avg_direction = 11;
+  StringFieldCondition avg_city = 12;
+  StringFieldCondition avg_station = 13;
+  StringFieldCondition avg_date = 14;
 }

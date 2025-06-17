@@ -21,7 +21,11 @@ public class SubRecord {
         SubscriptionProto.Subscription.Builder subscriptionBuilder = SubscriptionProto.Subscription.newBuilder();
 
         if (date != null) {
-            subscriptionBuilder.setDate(toStringCondition(date));
+            if (date.isAverage) {
+                subscriptionBuilder.setAvgDate(toStringCondition(date));
+            } else {
+                subscriptionBuilder.setDate(toStringCondition(date));
+            }
         }
         if (temp != null) {
             if (temp.isAverage) {
@@ -31,19 +35,39 @@ public class SubRecord {
             }
         }
         if (direction != null) {
-            subscriptionBuilder.setDirection(toStringCondition(direction));
+            if (direction.isAverage) {
+                subscriptionBuilder.setAvgDirection(toStringCondition(direction));
+            } else {
+                subscriptionBuilder.setDirection(toStringCondition(direction));
+            }
         }
         if (wind != null) {
-            subscriptionBuilder.setWind(toIntCondition(wind));
+            if (wind.isAverage) {
+                subscriptionBuilder.setAvgWind(toDoubleCondition(wind));
+            } else {
+                subscriptionBuilder.setWind(toIntCondition(wind));
+            }
         }
         if (rain != null) {
-            subscriptionBuilder.setRain(toDoubleCondition(rain));
+            if (rain.isAverage) {
+                subscriptionBuilder.setAvgRain(toDoubleCondition(rain));
+            } else {
+                subscriptionBuilder.setRain(toDoubleCondition(rain));
+            }
         }
         if (station != null) {
-            subscriptionBuilder.setStation(toIntCondition(station));
+            if (station.isAverage) {
+                subscriptionBuilder.setAvgStation(toStringCondition(station));
+            } else {
+                subscriptionBuilder.setStation(toIntCondition(station));
+            }
         }
         if (city != null) {
-            subscriptionBuilder.setCity(toStringCondition(city));
+            if (city.isAverage) {
+                subscriptionBuilder.setAvgCity(toStringCondition(city));
+            } else {
+                subscriptionBuilder.setCity(toStringCondition(city));
+            }
         }
 
         return subscriptionBuilder.build();

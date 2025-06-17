@@ -2037,6 +2037,96 @@ public final class SubscriptionProto {
      * <code>.DoubleFieldCondition avg_temp = 8;</code>
      */
     SubscriptionProto.DoubleFieldConditionOrBuilder getAvgTempOrBuilder();
+
+    /**
+     * <code>.DoubleFieldCondition avg_wind = 9;</code>
+     * @return Whether the avgWind field is set.
+     */
+    boolean hasAvgWind();
+    /**
+     * <code>.DoubleFieldCondition avg_wind = 9;</code>
+     * @return The avgWind.
+     */
+    SubscriptionProto.DoubleFieldCondition getAvgWind();
+    /**
+     * <code>.DoubleFieldCondition avg_wind = 9;</code>
+     */
+    SubscriptionProto.DoubleFieldConditionOrBuilder getAvgWindOrBuilder();
+
+    /**
+     * <code>.DoubleFieldCondition avg_rain = 10;</code>
+     * @return Whether the avgRain field is set.
+     */
+    boolean hasAvgRain();
+    /**
+     * <code>.DoubleFieldCondition avg_rain = 10;</code>
+     * @return The avgRain.
+     */
+    SubscriptionProto.DoubleFieldCondition getAvgRain();
+    /**
+     * <code>.DoubleFieldCondition avg_rain = 10;</code>
+     */
+    SubscriptionProto.DoubleFieldConditionOrBuilder getAvgRainOrBuilder();
+
+    /**
+     * <code>.StringFieldCondition avg_direction = 11;</code>
+     * @return Whether the avgDirection field is set.
+     */
+    boolean hasAvgDirection();
+    /**
+     * <code>.StringFieldCondition avg_direction = 11;</code>
+     * @return The avgDirection.
+     */
+    SubscriptionProto.StringFieldCondition getAvgDirection();
+    /**
+     * <code>.StringFieldCondition avg_direction = 11;</code>
+     */
+    SubscriptionProto.StringFieldConditionOrBuilder getAvgDirectionOrBuilder();
+
+    /**
+     * <code>.StringFieldCondition avg_city = 12;</code>
+     * @return Whether the avgCity field is set.
+     */
+    boolean hasAvgCity();
+    /**
+     * <code>.StringFieldCondition avg_city = 12;</code>
+     * @return The avgCity.
+     */
+    SubscriptionProto.StringFieldCondition getAvgCity();
+    /**
+     * <code>.StringFieldCondition avg_city = 12;</code>
+     */
+    SubscriptionProto.StringFieldConditionOrBuilder getAvgCityOrBuilder();
+
+    /**
+     * <code>.StringFieldCondition avg_station = 13;</code>
+     * @return Whether the avgStation field is set.
+     */
+    boolean hasAvgStation();
+    /**
+     * <code>.StringFieldCondition avg_station = 13;</code>
+     * @return The avgStation.
+     */
+    SubscriptionProto.StringFieldCondition getAvgStation();
+    /**
+     * <code>.StringFieldCondition avg_station = 13;</code>
+     */
+    SubscriptionProto.StringFieldConditionOrBuilder getAvgStationOrBuilder();
+
+    /**
+     * <code>.StringFieldCondition avg_date = 14;</code>
+     * @return Whether the avgDate field is set.
+     */
+    boolean hasAvgDate();
+    /**
+     * <code>.StringFieldCondition avg_date = 14;</code>
+     * @return The avgDate.
+     */
+    SubscriptionProto.StringFieldCondition getAvgDate();
+    /**
+     * <code>.StringFieldCondition avg_date = 14;</code>
+     */
+    SubscriptionProto.StringFieldConditionOrBuilder getAvgDateOrBuilder();
   }
   /**
    * Protobuf type {@code Subscription}
@@ -2284,6 +2374,162 @@ public final class SubscriptionProto {
       return avgTemp_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgTemp_;
     }
 
+    public static final int AVG_WIND_FIELD_NUMBER = 9;
+    private SubscriptionProto.DoubleFieldCondition avgWind_;
+    /**
+     * <code>.DoubleFieldCondition avg_wind = 9;</code>
+     * @return Whether the avgWind field is set.
+     */
+    @java.lang.Override
+    public boolean hasAvgWind() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <code>.DoubleFieldCondition avg_wind = 9;</code>
+     * @return The avgWind.
+     */
+    @java.lang.Override
+    public SubscriptionProto.DoubleFieldCondition getAvgWind() {
+      return avgWind_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgWind_;
+    }
+    /**
+     * <code>.DoubleFieldCondition avg_wind = 9;</code>
+     */
+    @java.lang.Override
+    public SubscriptionProto.DoubleFieldConditionOrBuilder getAvgWindOrBuilder() {
+      return avgWind_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgWind_;
+    }
+
+    public static final int AVG_RAIN_FIELD_NUMBER = 10;
+    private SubscriptionProto.DoubleFieldCondition avgRain_;
+    /**
+     * <code>.DoubleFieldCondition avg_rain = 10;</code>
+     * @return Whether the avgRain field is set.
+     */
+    @java.lang.Override
+    public boolean hasAvgRain() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>.DoubleFieldCondition avg_rain = 10;</code>
+     * @return The avgRain.
+     */
+    @java.lang.Override
+    public SubscriptionProto.DoubleFieldCondition getAvgRain() {
+      return avgRain_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgRain_;
+    }
+    /**
+     * <code>.DoubleFieldCondition avg_rain = 10;</code>
+     */
+    @java.lang.Override
+    public SubscriptionProto.DoubleFieldConditionOrBuilder getAvgRainOrBuilder() {
+      return avgRain_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgRain_;
+    }
+
+    public static final int AVG_DIRECTION_FIELD_NUMBER = 11;
+    private SubscriptionProto.StringFieldCondition avgDirection_;
+    /**
+     * <code>.StringFieldCondition avg_direction = 11;</code>
+     * @return Whether the avgDirection field is set.
+     */
+    @java.lang.Override
+    public boolean hasAvgDirection() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <code>.StringFieldCondition avg_direction = 11;</code>
+     * @return The avgDirection.
+     */
+    @java.lang.Override
+    public SubscriptionProto.StringFieldCondition getAvgDirection() {
+      return avgDirection_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgDirection_;
+    }
+    /**
+     * <code>.StringFieldCondition avg_direction = 11;</code>
+     */
+    @java.lang.Override
+    public SubscriptionProto.StringFieldConditionOrBuilder getAvgDirectionOrBuilder() {
+      return avgDirection_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgDirection_;
+    }
+
+    public static final int AVG_CITY_FIELD_NUMBER = 12;
+    private SubscriptionProto.StringFieldCondition avgCity_;
+    /**
+     * <code>.StringFieldCondition avg_city = 12;</code>
+     * @return Whether the avgCity field is set.
+     */
+    @java.lang.Override
+    public boolean hasAvgCity() {
+      return ((bitField0_ & 0x00000800) != 0);
+    }
+    /**
+     * <code>.StringFieldCondition avg_city = 12;</code>
+     * @return The avgCity.
+     */
+    @java.lang.Override
+    public SubscriptionProto.StringFieldCondition getAvgCity() {
+      return avgCity_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgCity_;
+    }
+    /**
+     * <code>.StringFieldCondition avg_city = 12;</code>
+     */
+    @java.lang.Override
+    public SubscriptionProto.StringFieldConditionOrBuilder getAvgCityOrBuilder() {
+      return avgCity_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgCity_;
+    }
+
+    public static final int AVG_STATION_FIELD_NUMBER = 13;
+    private SubscriptionProto.StringFieldCondition avgStation_;
+    /**
+     * <code>.StringFieldCondition avg_station = 13;</code>
+     * @return Whether the avgStation field is set.
+     */
+    @java.lang.Override
+    public boolean hasAvgStation() {
+      return ((bitField0_ & 0x00001000) != 0);
+    }
+    /**
+     * <code>.StringFieldCondition avg_station = 13;</code>
+     * @return The avgStation.
+     */
+    @java.lang.Override
+    public SubscriptionProto.StringFieldCondition getAvgStation() {
+      return avgStation_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgStation_;
+    }
+    /**
+     * <code>.StringFieldCondition avg_station = 13;</code>
+     */
+    @java.lang.Override
+    public SubscriptionProto.StringFieldConditionOrBuilder getAvgStationOrBuilder() {
+      return avgStation_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgStation_;
+    }
+
+    public static final int AVG_DATE_FIELD_NUMBER = 14;
+    private SubscriptionProto.StringFieldCondition avgDate_;
+    /**
+     * <code>.StringFieldCondition avg_date = 14;</code>
+     * @return Whether the avgDate field is set.
+     */
+    @java.lang.Override
+    public boolean hasAvgDate() {
+      return ((bitField0_ & 0x00002000) != 0);
+    }
+    /**
+     * <code>.StringFieldCondition avg_date = 14;</code>
+     * @return The avgDate.
+     */
+    @java.lang.Override
+    public SubscriptionProto.StringFieldCondition getAvgDate() {
+      return avgDate_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgDate_;
+    }
+    /**
+     * <code>.StringFieldCondition avg_date = 14;</code>
+     */
+    @java.lang.Override
+    public SubscriptionProto.StringFieldConditionOrBuilder getAvgDateOrBuilder() {
+      return avgDate_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgDate_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2321,6 +2567,24 @@ public final class SubscriptionProto {
       }
       if (((bitField0_ & 0x00000080) != 0)) {
         output.writeMessage(8, getAvgTemp());
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        output.writeMessage(9, getAvgWind());
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        output.writeMessage(10, getAvgRain());
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        output.writeMessage(11, getAvgDirection());
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        output.writeMessage(12, getAvgCity());
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        output.writeMessage(13, getAvgStation());
+      }
+      if (((bitField0_ & 0x00002000) != 0)) {
+        output.writeMessage(14, getAvgDate());
       }
       getUnknownFields().writeTo(output);
     }
@@ -2362,6 +2626,30 @@ public final class SubscriptionProto {
       if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getAvgTemp());
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getAvgWind());
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getAvgRain());
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, getAvgDirection());
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, getAvgCity());
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, getAvgStation());
+      }
+      if (((bitField0_ & 0x00002000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(14, getAvgDate());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -2418,6 +2706,36 @@ public final class SubscriptionProto {
         if (!getAvgTemp()
             .equals(other.getAvgTemp())) return false;
       }
+      if (hasAvgWind() != other.hasAvgWind()) return false;
+      if (hasAvgWind()) {
+        if (!getAvgWind()
+            .equals(other.getAvgWind())) return false;
+      }
+      if (hasAvgRain() != other.hasAvgRain()) return false;
+      if (hasAvgRain()) {
+        if (!getAvgRain()
+            .equals(other.getAvgRain())) return false;
+      }
+      if (hasAvgDirection() != other.hasAvgDirection()) return false;
+      if (hasAvgDirection()) {
+        if (!getAvgDirection()
+            .equals(other.getAvgDirection())) return false;
+      }
+      if (hasAvgCity() != other.hasAvgCity()) return false;
+      if (hasAvgCity()) {
+        if (!getAvgCity()
+            .equals(other.getAvgCity())) return false;
+      }
+      if (hasAvgStation() != other.hasAvgStation()) return false;
+      if (hasAvgStation()) {
+        if (!getAvgStation()
+            .equals(other.getAvgStation())) return false;
+      }
+      if (hasAvgDate() != other.hasAvgDate()) return false;
+      if (hasAvgDate()) {
+        if (!getAvgDate()
+            .equals(other.getAvgDate())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -2460,6 +2778,30 @@ public final class SubscriptionProto {
       if (hasAvgTemp()) {
         hash = (37 * hash) + AVG_TEMP_FIELD_NUMBER;
         hash = (53 * hash) + getAvgTemp().hashCode();
+      }
+      if (hasAvgWind()) {
+        hash = (37 * hash) + AVG_WIND_FIELD_NUMBER;
+        hash = (53 * hash) + getAvgWind().hashCode();
+      }
+      if (hasAvgRain()) {
+        hash = (37 * hash) + AVG_RAIN_FIELD_NUMBER;
+        hash = (53 * hash) + getAvgRain().hashCode();
+      }
+      if (hasAvgDirection()) {
+        hash = (37 * hash) + AVG_DIRECTION_FIELD_NUMBER;
+        hash = (53 * hash) + getAvgDirection().hashCode();
+      }
+      if (hasAvgCity()) {
+        hash = (37 * hash) + AVG_CITY_FIELD_NUMBER;
+        hash = (53 * hash) + getAvgCity().hashCode();
+      }
+      if (hasAvgStation()) {
+        hash = (37 * hash) + AVG_STATION_FIELD_NUMBER;
+        hash = (53 * hash) + getAvgStation().hashCode();
+      }
+      if (hasAvgDate()) {
+        hash = (37 * hash) + AVG_DATE_FIELD_NUMBER;
+        hash = (53 * hash) + getAvgDate().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -2599,6 +2941,12 @@ public final class SubscriptionProto {
           internalGetStationFieldBuilder();
           internalGetCityFieldBuilder();
           internalGetAvgTempFieldBuilder();
+          internalGetAvgWindFieldBuilder();
+          internalGetAvgRainFieldBuilder();
+          internalGetAvgDirectionFieldBuilder();
+          internalGetAvgCityFieldBuilder();
+          internalGetAvgStationFieldBuilder();
+          internalGetAvgDateFieldBuilder();
         }
       }
       @java.lang.Override
@@ -2644,6 +2992,36 @@ public final class SubscriptionProto {
         if (avgTempBuilder_ != null) {
           avgTempBuilder_.dispose();
           avgTempBuilder_ = null;
+        }
+        avgWind_ = null;
+        if (avgWindBuilder_ != null) {
+          avgWindBuilder_.dispose();
+          avgWindBuilder_ = null;
+        }
+        avgRain_ = null;
+        if (avgRainBuilder_ != null) {
+          avgRainBuilder_.dispose();
+          avgRainBuilder_ = null;
+        }
+        avgDirection_ = null;
+        if (avgDirectionBuilder_ != null) {
+          avgDirectionBuilder_.dispose();
+          avgDirectionBuilder_ = null;
+        }
+        avgCity_ = null;
+        if (avgCityBuilder_ != null) {
+          avgCityBuilder_.dispose();
+          avgCityBuilder_ = null;
+        }
+        avgStation_ = null;
+        if (avgStationBuilder_ != null) {
+          avgStationBuilder_.dispose();
+          avgStationBuilder_ = null;
+        }
+        avgDate_ = null;
+        if (avgDateBuilder_ != null) {
+          avgDateBuilder_.dispose();
+          avgDateBuilder_ = null;
         }
         return this;
       }
@@ -2727,6 +3105,42 @@ public final class SubscriptionProto {
               : avgTempBuilder_.build();
           to_bitField0_ |= 0x00000080;
         }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.avgWind_ = avgWindBuilder_ == null
+              ? avgWind_
+              : avgWindBuilder_.build();
+          to_bitField0_ |= 0x00000100;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.avgRain_ = avgRainBuilder_ == null
+              ? avgRain_
+              : avgRainBuilder_.build();
+          to_bitField0_ |= 0x00000200;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.avgDirection_ = avgDirectionBuilder_ == null
+              ? avgDirection_
+              : avgDirectionBuilder_.build();
+          to_bitField0_ |= 0x00000400;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.avgCity_ = avgCityBuilder_ == null
+              ? avgCity_
+              : avgCityBuilder_.build();
+          to_bitField0_ |= 0x00000800;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.avgStation_ = avgStationBuilder_ == null
+              ? avgStation_
+              : avgStationBuilder_.build();
+          to_bitField0_ |= 0x00001000;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.avgDate_ = avgDateBuilder_ == null
+              ? avgDate_
+              : avgDateBuilder_.build();
+          to_bitField0_ |= 0x00002000;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -2765,6 +3179,24 @@ public final class SubscriptionProto {
         }
         if (other.hasAvgTemp()) {
           mergeAvgTemp(other.getAvgTemp());
+        }
+        if (other.hasAvgWind()) {
+          mergeAvgWind(other.getAvgWind());
+        }
+        if (other.hasAvgRain()) {
+          mergeAvgRain(other.getAvgRain());
+        }
+        if (other.hasAvgDirection()) {
+          mergeAvgDirection(other.getAvgDirection());
+        }
+        if (other.hasAvgCity()) {
+          mergeAvgCity(other.getAvgCity());
+        }
+        if (other.hasAvgStation()) {
+          mergeAvgStation(other.getAvgStation());
+        }
+        if (other.hasAvgDate()) {
+          mergeAvgDate(other.getAvgDate());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -2848,6 +3280,48 @@ public final class SubscriptionProto {
                 bitField0_ |= 0x00000080;
                 break;
               } // case 66
+              case 74: {
+                input.readMessage(
+                    internalGetAvgWindFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 82: {
+                input.readMessage(
+                    internalGetAvgRainFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 82
+              case 90: {
+                input.readMessage(
+                    internalGetAvgDirectionFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 98: {
+                input.readMessage(
+                    internalGetAvgCityFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 98
+              case 106: {
+                input.readMessage(
+                    internalGetAvgStationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 106
+              case 114: {
+                input.readMessage(
+                    internalGetAvgDateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 114
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -3833,6 +4307,732 @@ public final class SubscriptionProto {
         return avgTempBuilder_;
       }
 
+      private SubscriptionProto.DoubleFieldCondition avgWind_;
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder> avgWindBuilder_;
+      /**
+       * <code>.DoubleFieldCondition avg_wind = 9;</code>
+       * @return Whether the avgWind field is set.
+       */
+      public boolean hasAvgWind() {
+        return ((bitField0_ & 0x00000100) != 0);
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_wind = 9;</code>
+       * @return The avgWind.
+       */
+      public SubscriptionProto.DoubleFieldCondition getAvgWind() {
+        if (avgWindBuilder_ == null) {
+          return avgWind_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgWind_;
+        } else {
+          return avgWindBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_wind = 9;</code>
+       */
+      public Builder setAvgWind(SubscriptionProto.DoubleFieldCondition value) {
+        if (avgWindBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          avgWind_ = value;
+        } else {
+          avgWindBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_wind = 9;</code>
+       */
+      public Builder setAvgWind(
+          SubscriptionProto.DoubleFieldCondition.Builder builderForValue) {
+        if (avgWindBuilder_ == null) {
+          avgWind_ = builderForValue.build();
+        } else {
+          avgWindBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_wind = 9;</code>
+       */
+      public Builder mergeAvgWind(SubscriptionProto.DoubleFieldCondition value) {
+        if (avgWindBuilder_ == null) {
+          if (((bitField0_ & 0x00000100) != 0) &&
+            avgWind_ != null &&
+            avgWind_ != SubscriptionProto.DoubleFieldCondition.getDefaultInstance()) {
+            getAvgWindBuilder().mergeFrom(value);
+          } else {
+            avgWind_ = value;
+          }
+        } else {
+          avgWindBuilder_.mergeFrom(value);
+        }
+        if (avgWind_ != null) {
+          bitField0_ |= 0x00000100;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_wind = 9;</code>
+       */
+      public Builder clearAvgWind() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        avgWind_ = null;
+        if (avgWindBuilder_ != null) {
+          avgWindBuilder_.dispose();
+          avgWindBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_wind = 9;</code>
+       */
+      public SubscriptionProto.DoubleFieldCondition.Builder getAvgWindBuilder() {
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return internalGetAvgWindFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_wind = 9;</code>
+       */
+      public SubscriptionProto.DoubleFieldConditionOrBuilder getAvgWindOrBuilder() {
+        if (avgWindBuilder_ != null) {
+          return avgWindBuilder_.getMessageOrBuilder();
+        } else {
+          return avgWind_ == null ?
+              SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgWind_;
+        }
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_wind = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder> 
+          internalGetAvgWindFieldBuilder() {
+        if (avgWindBuilder_ == null) {
+          avgWindBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder>(
+                  getAvgWind(),
+                  getParentForChildren(),
+                  isClean());
+          avgWind_ = null;
+        }
+        return avgWindBuilder_;
+      }
+
+      private SubscriptionProto.DoubleFieldCondition avgRain_;
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder> avgRainBuilder_;
+      /**
+       * <code>.DoubleFieldCondition avg_rain = 10;</code>
+       * @return Whether the avgRain field is set.
+       */
+      public boolean hasAvgRain() {
+        return ((bitField0_ & 0x00000200) != 0);
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_rain = 10;</code>
+       * @return The avgRain.
+       */
+      public SubscriptionProto.DoubleFieldCondition getAvgRain() {
+        if (avgRainBuilder_ == null) {
+          return avgRain_ == null ? SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgRain_;
+        } else {
+          return avgRainBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_rain = 10;</code>
+       */
+      public Builder setAvgRain(SubscriptionProto.DoubleFieldCondition value) {
+        if (avgRainBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          avgRain_ = value;
+        } else {
+          avgRainBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_rain = 10;</code>
+       */
+      public Builder setAvgRain(
+          SubscriptionProto.DoubleFieldCondition.Builder builderForValue) {
+        if (avgRainBuilder_ == null) {
+          avgRain_ = builderForValue.build();
+        } else {
+          avgRainBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_rain = 10;</code>
+       */
+      public Builder mergeAvgRain(SubscriptionProto.DoubleFieldCondition value) {
+        if (avgRainBuilder_ == null) {
+          if (((bitField0_ & 0x00000200) != 0) &&
+            avgRain_ != null &&
+            avgRain_ != SubscriptionProto.DoubleFieldCondition.getDefaultInstance()) {
+            getAvgRainBuilder().mergeFrom(value);
+          } else {
+            avgRain_ = value;
+          }
+        } else {
+          avgRainBuilder_.mergeFrom(value);
+        }
+        if (avgRain_ != null) {
+          bitField0_ |= 0x00000200;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_rain = 10;</code>
+       */
+      public Builder clearAvgRain() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        avgRain_ = null;
+        if (avgRainBuilder_ != null) {
+          avgRainBuilder_.dispose();
+          avgRainBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_rain = 10;</code>
+       */
+      public SubscriptionProto.DoubleFieldCondition.Builder getAvgRainBuilder() {
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return internalGetAvgRainFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_rain = 10;</code>
+       */
+      public SubscriptionProto.DoubleFieldConditionOrBuilder getAvgRainOrBuilder() {
+        if (avgRainBuilder_ != null) {
+          return avgRainBuilder_.getMessageOrBuilder();
+        } else {
+          return avgRain_ == null ?
+              SubscriptionProto.DoubleFieldCondition.getDefaultInstance() : avgRain_;
+        }
+      }
+      /**
+       * <code>.DoubleFieldCondition avg_rain = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder> 
+          internalGetAvgRainFieldBuilder() {
+        if (avgRainBuilder_ == null) {
+          avgRainBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              SubscriptionProto.DoubleFieldCondition, SubscriptionProto.DoubleFieldCondition.Builder, SubscriptionProto.DoubleFieldConditionOrBuilder>(
+                  getAvgRain(),
+                  getParentForChildren(),
+                  isClean());
+          avgRain_ = null;
+        }
+        return avgRainBuilder_;
+      }
+
+      private SubscriptionProto.StringFieldCondition avgDirection_;
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder> avgDirectionBuilder_;
+      /**
+       * <code>.StringFieldCondition avg_direction = 11;</code>
+       * @return Whether the avgDirection field is set.
+       */
+      public boolean hasAvgDirection() {
+        return ((bitField0_ & 0x00000400) != 0);
+      }
+      /**
+       * <code>.StringFieldCondition avg_direction = 11;</code>
+       * @return The avgDirection.
+       */
+      public SubscriptionProto.StringFieldCondition getAvgDirection() {
+        if (avgDirectionBuilder_ == null) {
+          return avgDirection_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgDirection_;
+        } else {
+          return avgDirectionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.StringFieldCondition avg_direction = 11;</code>
+       */
+      public Builder setAvgDirection(SubscriptionProto.StringFieldCondition value) {
+        if (avgDirectionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          avgDirection_ = value;
+        } else {
+          avgDirectionBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_direction = 11;</code>
+       */
+      public Builder setAvgDirection(
+          SubscriptionProto.StringFieldCondition.Builder builderForValue) {
+        if (avgDirectionBuilder_ == null) {
+          avgDirection_ = builderForValue.build();
+        } else {
+          avgDirectionBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_direction = 11;</code>
+       */
+      public Builder mergeAvgDirection(SubscriptionProto.StringFieldCondition value) {
+        if (avgDirectionBuilder_ == null) {
+          if (((bitField0_ & 0x00000400) != 0) &&
+            avgDirection_ != null &&
+            avgDirection_ != SubscriptionProto.StringFieldCondition.getDefaultInstance()) {
+            getAvgDirectionBuilder().mergeFrom(value);
+          } else {
+            avgDirection_ = value;
+          }
+        } else {
+          avgDirectionBuilder_.mergeFrom(value);
+        }
+        if (avgDirection_ != null) {
+          bitField0_ |= 0x00000400;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_direction = 11;</code>
+       */
+      public Builder clearAvgDirection() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        avgDirection_ = null;
+        if (avgDirectionBuilder_ != null) {
+          avgDirectionBuilder_.dispose();
+          avgDirectionBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_direction = 11;</code>
+       */
+      public SubscriptionProto.StringFieldCondition.Builder getAvgDirectionBuilder() {
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return internalGetAvgDirectionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.StringFieldCondition avg_direction = 11;</code>
+       */
+      public SubscriptionProto.StringFieldConditionOrBuilder getAvgDirectionOrBuilder() {
+        if (avgDirectionBuilder_ != null) {
+          return avgDirectionBuilder_.getMessageOrBuilder();
+        } else {
+          return avgDirection_ == null ?
+              SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgDirection_;
+        }
+      }
+      /**
+       * <code>.StringFieldCondition avg_direction = 11;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder> 
+          internalGetAvgDirectionFieldBuilder() {
+        if (avgDirectionBuilder_ == null) {
+          avgDirectionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder>(
+                  getAvgDirection(),
+                  getParentForChildren(),
+                  isClean());
+          avgDirection_ = null;
+        }
+        return avgDirectionBuilder_;
+      }
+
+      private SubscriptionProto.StringFieldCondition avgCity_;
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder> avgCityBuilder_;
+      /**
+       * <code>.StringFieldCondition avg_city = 12;</code>
+       * @return Whether the avgCity field is set.
+       */
+      public boolean hasAvgCity() {
+        return ((bitField0_ & 0x00000800) != 0);
+      }
+      /**
+       * <code>.StringFieldCondition avg_city = 12;</code>
+       * @return The avgCity.
+       */
+      public SubscriptionProto.StringFieldCondition getAvgCity() {
+        if (avgCityBuilder_ == null) {
+          return avgCity_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgCity_;
+        } else {
+          return avgCityBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.StringFieldCondition avg_city = 12;</code>
+       */
+      public Builder setAvgCity(SubscriptionProto.StringFieldCondition value) {
+        if (avgCityBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          avgCity_ = value;
+        } else {
+          avgCityBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000800;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_city = 12;</code>
+       */
+      public Builder setAvgCity(
+          SubscriptionProto.StringFieldCondition.Builder builderForValue) {
+        if (avgCityBuilder_ == null) {
+          avgCity_ = builderForValue.build();
+        } else {
+          avgCityBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000800;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_city = 12;</code>
+       */
+      public Builder mergeAvgCity(SubscriptionProto.StringFieldCondition value) {
+        if (avgCityBuilder_ == null) {
+          if (((bitField0_ & 0x00000800) != 0) &&
+            avgCity_ != null &&
+            avgCity_ != SubscriptionProto.StringFieldCondition.getDefaultInstance()) {
+            getAvgCityBuilder().mergeFrom(value);
+          } else {
+            avgCity_ = value;
+          }
+        } else {
+          avgCityBuilder_.mergeFrom(value);
+        }
+        if (avgCity_ != null) {
+          bitField0_ |= 0x00000800;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_city = 12;</code>
+       */
+      public Builder clearAvgCity() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        avgCity_ = null;
+        if (avgCityBuilder_ != null) {
+          avgCityBuilder_.dispose();
+          avgCityBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_city = 12;</code>
+       */
+      public SubscriptionProto.StringFieldCondition.Builder getAvgCityBuilder() {
+        bitField0_ |= 0x00000800;
+        onChanged();
+        return internalGetAvgCityFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.StringFieldCondition avg_city = 12;</code>
+       */
+      public SubscriptionProto.StringFieldConditionOrBuilder getAvgCityOrBuilder() {
+        if (avgCityBuilder_ != null) {
+          return avgCityBuilder_.getMessageOrBuilder();
+        } else {
+          return avgCity_ == null ?
+              SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgCity_;
+        }
+      }
+      /**
+       * <code>.StringFieldCondition avg_city = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder> 
+          internalGetAvgCityFieldBuilder() {
+        if (avgCityBuilder_ == null) {
+          avgCityBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder>(
+                  getAvgCity(),
+                  getParentForChildren(),
+                  isClean());
+          avgCity_ = null;
+        }
+        return avgCityBuilder_;
+      }
+
+      private SubscriptionProto.StringFieldCondition avgStation_;
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder> avgStationBuilder_;
+      /**
+       * <code>.StringFieldCondition avg_station = 13;</code>
+       * @return Whether the avgStation field is set.
+       */
+      public boolean hasAvgStation() {
+        return ((bitField0_ & 0x00001000) != 0);
+      }
+      /**
+       * <code>.StringFieldCondition avg_station = 13;</code>
+       * @return The avgStation.
+       */
+      public SubscriptionProto.StringFieldCondition getAvgStation() {
+        if (avgStationBuilder_ == null) {
+          return avgStation_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgStation_;
+        } else {
+          return avgStationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.StringFieldCondition avg_station = 13;</code>
+       */
+      public Builder setAvgStation(SubscriptionProto.StringFieldCondition value) {
+        if (avgStationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          avgStation_ = value;
+        } else {
+          avgStationBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_station = 13;</code>
+       */
+      public Builder setAvgStation(
+          SubscriptionProto.StringFieldCondition.Builder builderForValue) {
+        if (avgStationBuilder_ == null) {
+          avgStation_ = builderForValue.build();
+        } else {
+          avgStationBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_station = 13;</code>
+       */
+      public Builder mergeAvgStation(SubscriptionProto.StringFieldCondition value) {
+        if (avgStationBuilder_ == null) {
+          if (((bitField0_ & 0x00001000) != 0) &&
+            avgStation_ != null &&
+            avgStation_ != SubscriptionProto.StringFieldCondition.getDefaultInstance()) {
+            getAvgStationBuilder().mergeFrom(value);
+          } else {
+            avgStation_ = value;
+          }
+        } else {
+          avgStationBuilder_.mergeFrom(value);
+        }
+        if (avgStation_ != null) {
+          bitField0_ |= 0x00001000;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_station = 13;</code>
+       */
+      public Builder clearAvgStation() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        avgStation_ = null;
+        if (avgStationBuilder_ != null) {
+          avgStationBuilder_.dispose();
+          avgStationBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_station = 13;</code>
+       */
+      public SubscriptionProto.StringFieldCondition.Builder getAvgStationBuilder() {
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return internalGetAvgStationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.StringFieldCondition avg_station = 13;</code>
+       */
+      public SubscriptionProto.StringFieldConditionOrBuilder getAvgStationOrBuilder() {
+        if (avgStationBuilder_ != null) {
+          return avgStationBuilder_.getMessageOrBuilder();
+        } else {
+          return avgStation_ == null ?
+              SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgStation_;
+        }
+      }
+      /**
+       * <code>.StringFieldCondition avg_station = 13;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder> 
+          internalGetAvgStationFieldBuilder() {
+        if (avgStationBuilder_ == null) {
+          avgStationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder>(
+                  getAvgStation(),
+                  getParentForChildren(),
+                  isClean());
+          avgStation_ = null;
+        }
+        return avgStationBuilder_;
+      }
+
+      private SubscriptionProto.StringFieldCondition avgDate_;
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder> avgDateBuilder_;
+      /**
+       * <code>.StringFieldCondition avg_date = 14;</code>
+       * @return Whether the avgDate field is set.
+       */
+      public boolean hasAvgDate() {
+        return ((bitField0_ & 0x00002000) != 0);
+      }
+      /**
+       * <code>.StringFieldCondition avg_date = 14;</code>
+       * @return The avgDate.
+       */
+      public SubscriptionProto.StringFieldCondition getAvgDate() {
+        if (avgDateBuilder_ == null) {
+          return avgDate_ == null ? SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgDate_;
+        } else {
+          return avgDateBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.StringFieldCondition avg_date = 14;</code>
+       */
+      public Builder setAvgDate(SubscriptionProto.StringFieldCondition value) {
+        if (avgDateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          avgDate_ = value;
+        } else {
+          avgDateBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00002000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_date = 14;</code>
+       */
+      public Builder setAvgDate(
+          SubscriptionProto.StringFieldCondition.Builder builderForValue) {
+        if (avgDateBuilder_ == null) {
+          avgDate_ = builderForValue.build();
+        } else {
+          avgDateBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00002000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_date = 14;</code>
+       */
+      public Builder mergeAvgDate(SubscriptionProto.StringFieldCondition value) {
+        if (avgDateBuilder_ == null) {
+          if (((bitField0_ & 0x00002000) != 0) &&
+            avgDate_ != null &&
+            avgDate_ != SubscriptionProto.StringFieldCondition.getDefaultInstance()) {
+            getAvgDateBuilder().mergeFrom(value);
+          } else {
+            avgDate_ = value;
+          }
+        } else {
+          avgDateBuilder_.mergeFrom(value);
+        }
+        if (avgDate_ != null) {
+          bitField0_ |= 0x00002000;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_date = 14;</code>
+       */
+      public Builder clearAvgDate() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        avgDate_ = null;
+        if (avgDateBuilder_ != null) {
+          avgDateBuilder_.dispose();
+          avgDateBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StringFieldCondition avg_date = 14;</code>
+       */
+      public SubscriptionProto.StringFieldCondition.Builder getAvgDateBuilder() {
+        bitField0_ |= 0x00002000;
+        onChanged();
+        return internalGetAvgDateFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.StringFieldCondition avg_date = 14;</code>
+       */
+      public SubscriptionProto.StringFieldConditionOrBuilder getAvgDateOrBuilder() {
+        if (avgDateBuilder_ != null) {
+          return avgDateBuilder_.getMessageOrBuilder();
+        } else {
+          return avgDate_ == null ?
+              SubscriptionProto.StringFieldCondition.getDefaultInstance() : avgDate_;
+        }
+      }
+      /**
+       * <code>.StringFieldCondition avg_date = 14;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder> 
+          internalGetAvgDateFieldBuilder() {
+        if (avgDateBuilder_ == null) {
+          avgDateBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              SubscriptionProto.StringFieldCondition, SubscriptionProto.StringFieldCondition.Builder, SubscriptionProto.StringFieldConditionOrBuilder>(
+                  getAvgDate(),
+                  getParentForChildren(),
+                  isClean());
+          avgDate_ = null;
+        }
+        return avgDateBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:Subscription)
     }
 
@@ -3918,7 +5118,7 @@ public final class SubscriptionProto {
       "\r\n\005value\030\002 \001(\t\"?\n\021IntFieldCondition\022\033\n\010o" +
       "perator\030\001 \001(\0162\t.Operator\022\r\n\005value\030\002 \001(\005\"" +
       "B\n\024DoubleFieldCondition\022\033\n\010operator\030\001 \001(" +
-      "\0162\t.Operator\022\r\n\005value\030\002 \001(\001\"\271\002\n\014Subscrip" +
+      "\0162\t.Operator\022\r\n\005value\030\002 \001(\001\"\267\004\n\014Subscrip" +
       "tion\022#\n\004date\030\001 \001(\0132\025.StringFieldConditio" +
       "n\022 \n\004temp\030\002 \001(\0132\022.IntFieldCondition\022(\n\td" +
       "irection\030\003 \001(\0132\025.StringFieldCondition\022 \n" +
@@ -3926,9 +5126,16 @@ public final class SubscriptionProto {
       "\005 \001(\0132\025.DoubleFieldCondition\022#\n\007station\030" +
       "\006 \001(\0132\022.IntFieldCondition\022#\n\004city\030\007 \001(\0132" +
       "\025.StringFieldCondition\022\'\n\010avg_temp\030\010 \001(\013" +
-      "2\025.DoubleFieldCondition*:\n\010Operator\022\006\n\002E" +
-      "Q\020\000\022\006\n\002NE\020\001\022\006\n\002LT\020\002\022\006\n\002LE\020\003\022\006\n\002GT\020\004\022\006\n\002G" +
-      "E\020\005B\023B\021SubscriptionProtob\006proto3"
+      "2\025.DoubleFieldCondition\022\'\n\010avg_wind\030\t \001(" +
+      "\0132\025.DoubleFieldCondition\022\'\n\010avg_rain\030\n \001" +
+      "(\0132\025.DoubleFieldCondition\022,\n\ravg_directi" +
+      "on\030\013 \001(\0132\025.StringFieldCondition\022\'\n\010avg_c" +
+      "ity\030\014 \001(\0132\025.StringFieldCondition\022*\n\013avg_" +
+      "station\030\r \001(\0132\025.StringFieldCondition\022\'\n\010" +
+      "avg_date\030\016 \001(\0132\025.StringFieldCondition*:\n" +
+      "\010Operator\022\006\n\002EQ\020\000\022\006\n\002NE\020\001\022\006\n\002LT\020\002\022\006\n\002LE\020" +
+      "\003\022\006\n\002GT\020\004\022\006\n\002GE\020\005B\023B\021SubscriptionProtob\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3957,7 +5164,7 @@ public final class SubscriptionProto {
     internal_static_Subscription_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Subscription_descriptor,
-        new java.lang.String[] { "Date", "Temp", "Direction", "Wind", "Rain", "Station", "City", "AvgTemp", });
+        new java.lang.String[] { "Date", "Temp", "Direction", "Wind", "Rain", "Station", "City", "AvgTemp", "AvgWind", "AvgRain", "AvgDirection", "AvgCity", "AvgStation", "AvgDate", });
     descriptor.resolveAllFeaturesImmutable();
   }
 
