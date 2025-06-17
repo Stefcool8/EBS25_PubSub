@@ -21,7 +21,6 @@ public class RoutingManager {
     {
         PublicationProto.Publication protoPub = forwardMessage.getPublication();
 
-        // Map the protobuf publication to PubRecord
         PubRecord pubRecord = new PubRecord(
                 protoPub.getStation(),
                 protoPub.getCity(),
@@ -33,13 +32,11 @@ public class RoutingManager {
                 protoPub.getTimestamp()
         );
 
-        // Get matching subscriptions
         List<SubscriptionDto> matchingSubscriptions = SubscriptionManager.getMatchingSubscriptions(protoPub);
 
         // Send a notification to a subscriber once. If there are multiple subscriptions for the same subscriber, we only send one notification.
         Set<String> notifiedNodes = new HashSet<>();
 
-        // Notify subscribers for each matching subscription
         for (SubscriptionDto subscription : matchingSubscriptions) {
             try {
                 if (
@@ -48,12 +45,10 @@ public class RoutingManager {
                         subscription.getSourceType().equals(AdminProto.SourceType.BROKER)
                     )
                 {
-                    // Skip notifications for the source of the publication
                     continue;
                 }
 
                 if (notifiedNodes.contains(subscription.getSource())) {
-                    // Skip if we already notified this subscriber
                     continue;
                 }
 
@@ -63,13 +58,12 @@ public class RoutingManager {
                     System.out.println("subscription.getAvgTemp() = " + subscription.getAvgTemp());
 
                     if (subscription.hasAvgTemp()) {
-                        // Pentru subscription-uri cu avg_temp, trimitem întregul window
                         System.out.println("Sending window data because subscription has avg_temp");
                         String windowData = SubscriptionManager.getWindowAsString();
                         System.out.println("Window data: " + windowData);
                         SubscriberNotifier.notify(subscription.getSource(), windowData);
                     } else {
-                        // Pentru subscription-uri normale, trimitem doar publicația curentă
+                        System.out.println("Sending publication data because subscription does NOT have avg_temp");
                         String json = new ObjectMapper().writeValueAsString(pubRecord);
                         SubscriberNotifier.notify(subscription.getSource(), json);
 
@@ -162,7 +156,6 @@ public class RoutingManager {
                         .addAllUnsubscriptions(neighborUnsubscriptions.stream().map(SubscriptionDto::toProto).collect(Collectors.toList()))
                         .build();
 
-                // Send the admin message to the neighboring broker
                 byte[] data = adminMessage.toByteArray();
                 ProducerRecord<byte[], byte[]> record = new ProducerRecord<>("broker-" + neighbor + "-admin", null, data);
                 producer.send(record);

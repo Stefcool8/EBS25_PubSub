@@ -21,11 +21,10 @@ public class GeneratorsParams {
     public final static DateFieldLimit dateLimit;
     static {
         Calendar cal = Calendar.getInstance();
-        // start date: January 1, 2025
         cal.set(2025, Calendar.JANUARY, 1, 0, 0, 0);
         cal.set(Calendar.MILLISECOND, 0);
         Date startDate = cal.getTime();
-        // end date: December 31, 2025
+
         cal.set(2025, Calendar.DECEMBER, 31, 23, 59, 59);
         Date endDate = cal.getTime();
 

@@ -3,12 +3,12 @@ syntax = "proto3";
 option java_outer_classname = "SubscriptionProto";
 
 enum Operator {
-  EQ = 0;  // ==
-  NE = 1;  // !=
-  LT = 2;  // <
-  LE = 3;  // <=
-  GT = 4;  // >
-  GE = 5;  // >=
+  EQ = 0;
+  NE = 1;
+  LT = 2;
+  LE = 3;
+  GT = 4;
+  GE = 5;
 }
 
 message StringFieldCondition {

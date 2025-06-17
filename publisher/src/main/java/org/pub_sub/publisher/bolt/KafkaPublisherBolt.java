@@ -45,7 +45,7 @@ public class KafkaPublisherBolt extends BaseBasicBolt {
 
         byte[] data = forwardMessage.toByteArray();
 
-        System.out.println("Publishing message to topic " + topic);// + ": " + publication.toString());
+        System.out.println("Publishing message to topic " + topic + ": " + publication.toString());
 
         ProducerRecord<byte[], byte[]> record = new ProducerRecord<>(topic, null, data);
         producer.send(record);

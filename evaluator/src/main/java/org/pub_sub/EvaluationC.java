@@ -19,18 +19,14 @@ public class EvaluationC {
     static final ObjectMapper mapper = new ObjectMapper();
 
     public static void main(String[] args) {
-        // 1) Load all publications
         List<PublicationProto.Publication> pubs = EvaluationA.loadPublications();
 
-        // 2) Load the two subscription sets
         List<SubscriptionDto> subsEq100 = loadSubscriptions("subscriptions_eq100.txt");
         List<SubscriptionDto> subsEq25  = loadSubscriptions("subscriptions_eq25.txt");
 
-        // 3) Compute matching rates
         double rate100 = computeMatchingRate(pubs, subsEq100);
         double rate25  = computeMatchingRate(pubs, subsEq25);
 
-        // 4) Report
         System.out.printf("Matching rate with 100%% equals on field: %.2f%%%n", rate100*100);
         System.out.printf("Matching rate with  25%% equals on field: %.2f%%%n", rate25*100);
     }
@@ -45,7 +41,6 @@ public class EvaluationC {
 
         for (PublicationProto.Publication pub : pubs) {
             for (SubscriptionDto sub : subs) {
-                // simple publication-only match
                 if (SubscriptionManager.matchesSubscription(pub, sub)) {
                     totalMatches++;
                 }

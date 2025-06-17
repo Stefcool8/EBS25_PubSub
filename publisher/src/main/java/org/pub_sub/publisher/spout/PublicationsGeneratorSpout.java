@@ -58,37 +58,47 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
         }
 
         new Thread(() -> {
-//            try {
-//                ParallelPublicationsGenerator.generatePublicationsMultithreaded(
-//                        SchemaBuilder.build(),
-//                        threads,
-//                        totalPubs,
-//                        new PublicationSaver() {
-//                            @Override public void save(Publication p) throws InterruptedException {
-//                                queue.put(p);
-//                            }
-//                            @Override public void close() {}
-//                        }
-//                );
-            PublicationsGenerator pubGen = new PublicationsGenerator(SchemaBuilder.build(), totalPubs);
-            pubGen.setPublicationSaver(new PublicationSaver() {
-                @Override
-                public void save(Publication p) throws InterruptedException {
-                    long elapsed = System.currentTimeMillis() - startMs;
-                    if (elapsed < durationMs) {
-                        queue.put(p);
-                    } else {
-                        throw new RuntimeException("Generation timeout");
-                    }
-                }
-
-                @Override
-                public void close() {
-                }
-            });
             try {
-                pubGen.generatePublications();
-            } catch (RuntimeException e) {
+                ParallelPublicationsGenerator.generatePublicationsMultithreaded(
+                        SchemaBuilder.build(),
+                        threads,
+                        totalPubs,
+                        new PublicationSaver() {
+                            @Override
+                            public void save(Publication p) throws InterruptedException {
+                                long elapsed = System.currentTimeMillis() - startMs;
+                                if (elapsed < durationMs) {
+                                    queue.put(p);
+                                } else {
+                                    throw new RuntimeException("Generation timeout");
+                                }
+                            }
+
+                            @Override
+                            public void close() {
+                            }
+                        }
+                );
+            }
+//            PublicationsGenerator pubGen = new PublicationsGenerator(SchemaBuilder.build(), totalPubs);
+//            pubGen.setPublicationSaver(new PublicationSaver() {
+//                @Override
+//                public void save(Publication p) throws InterruptedException {
+//                    long elapsed = System.currentTimeMillis() - startMs;
+//                    if (elapsed < durationMs) {
+//                        queue.put(p);
+//                    } else {
+//                        throw new RuntimeException("Generation timeout");
+//                    }
+//                }
+//
+//                @Override
+//                public void close() {
+//                }
+//            });
+//            try {
+//                pubGen.generatePublications();
+            catch (RuntimeException e) {
                 // we expect our timeout exception here
             } finally {
                 done = true;
@@ -108,7 +118,6 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
             if (p != null) {
                 PublicationProto.Publication protoPub = toProto(p);
 
-                // Map the protobuf publication to PubRecord
                 PubRecord pubRecord = new PubRecord(
                         protoPub.getStation(),
                         protoPub.getCity(),
@@ -120,18 +129,14 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
                         protoPub.getTimestamp()
                 );
 
-                // Save the publication to file
                 savePublication(pubRecord);
 
-                // Emit the publication as a protobuf message
                 collector.emit(new Values(protoPub));
 
-                Utils.sleep(50); // Sleep to decrease the emission rate
+                Utils.sleep(100);
             } else if (done && queue.isEmpty()) {
-                // queue drained after generation finished
                 Utils.sleep(1000);
             } else {
-                // If no publication is available, wait a bit before checking again
                 Utils.sleep(50);
             }
         } catch (InterruptedException e) {
@@ -142,7 +147,6 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
     private PublicationProto.Publication toProto(Publication p) {
         PublicationProto.Publication.Builder b = PublicationProto.Publication.newBuilder();
 
-        // Extract raw string values
         String stationStr   = p.fields.get(SchemaFields.STATION);
         String cityStr      = p.fields.get(SchemaFields.CITY);
         String tempStr      = p.fields.get(SchemaFields.TEMP);
@@ -151,7 +155,6 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
         String directionStr = p.fields.get(SchemaFields.DIRECTION);
         String dateStr      = p.fields.get(SchemaFields.DATE);
 
-        // Parse and set fields
         if (stationStr != null)   b.setStation(Integer.parseInt(stationStr));
         if (cityStr != null)      b.setCity(cityStr);
         if (tempStr != null)      b.setTemp(Integer.parseInt(tempStr));
@@ -171,7 +174,6 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
     }
 
     private void savePublication(PubRecord pubRecord) {
-        // Save the publication to a file
         try {
             Files.writeString(
                     this.filePath,

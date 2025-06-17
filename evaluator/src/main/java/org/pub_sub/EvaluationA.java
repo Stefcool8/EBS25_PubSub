@@ -22,7 +22,6 @@ public class EvaluationA {
     static final ObjectMapper mapper = new ObjectMapper();
 
     public static void main(String[] args) {
-        // Load publications
         List<PublicationProto.Publication> publications = loadPublications();
 
         String[] ports = {"8082", "8083", "8084"};
@@ -31,7 +30,6 @@ public class EvaluationA {
             List<SubscriptionDto> subs = loadSubscriptions("subscriber/src/main/java/org/pub_sub/subscriber/spout/subscriptions-" + port + ".txt");
             Set<String> deliveredPublicationTimestamps = loadNotifications("notifications-" + port + ".txt");
 
-            // Check which publications were delivered to at least one matching subscription
             int deliveredCount = 0;
             int expectedCount = 0;
 
@@ -42,7 +40,7 @@ public class EvaluationA {
                 for (SubscriptionDto subscription : SubscriptionManager.subscriptions) {
                     if (SubscriptionManager.matchesSubscription(pub, subscription)) {
                         shouldBeDelivered = true;
-                        break; // No need to check further subscriptions for this publication
+                        break;
                     }
                 }
                 if (shouldBeDelivered) {

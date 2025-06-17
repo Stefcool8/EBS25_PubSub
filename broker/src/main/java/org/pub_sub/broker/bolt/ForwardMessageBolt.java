@@ -40,7 +40,7 @@ public class ForwardMessageBolt extends BaseRichBolt {
     public void execute(Tuple tuple) {
         ForwardProto.ForwardMessage forwardMessage = (ForwardProto.ForwardMessage) tuple.getValueByField("forwardMessage");
 
-        // System.out.println("Received publication: " + forwardMessage.getPublication());
+        System.out.println("Received publication: " + forwardMessage.getPublication());
         
         RoutingManager.handleNotification(producer, brokerId, forwardMessage, neighboringBrokers);
 

@@ -13,7 +13,6 @@ public class PubRecord {
     public long timestamp;
 
     public PubRecord() {
-        // Default constructor
     }
 
     public PubRecord(int station, String city, String date, String direction, double rain, int wind, int temp, long timestamp) {

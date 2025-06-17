@@ -10,10 +10,7 @@ import java.util.List;
 public class EvaluationB {
 
     public static void main(String[] args) {
-        // The notification files per subscriber port
         String[] ports = {"8082", "8083", "8084"};
-
-        // Collect all latencies across all subscribers
         List<Long> latencies = new ArrayList<>();
 
         for (String port : ports) {
@@ -25,7 +22,7 @@ public class EvaluationB {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    // Expected format: "<emittedTs>, <receivedTs>"
+                    // "<emittedTs>, <receivedTs>"
                     String[] parts = line.split(",");
                     if (parts.length >= 2) {
                         long emitted  = Long.parseLong(parts[0].trim());

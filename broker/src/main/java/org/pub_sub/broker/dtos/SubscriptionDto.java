@@ -6,40 +6,31 @@ import org.pub_sub.common.generated.SubscriptionProto;
 public class SubscriptionDto {
     private String source;
     private AdminProto.SourceType sourceType;
-    
-    // Date field
+
     private String date;
     private SubscriptionProto.Operator dateOperator;
-    
-    // Temp field
+
     private Integer temp;
     private SubscriptionProto.Operator tempOperator;
-    
-    // Direction field
+
     private String direction;
     private SubscriptionProto.Operator directionOperator;
-    
-    // Wind field
+
     private Integer wind;
     private SubscriptionProto.Operator windOperator;
-    
-    // Rain field
+
     private Double rain;
     private SubscriptionProto.Operator rainOperator;
-    
-    // Station field
+
     private Integer station;
     private SubscriptionProto.Operator stationOperator;
-    
-    // City field
+
     private String city;
     private SubscriptionProto.Operator cityOperator;
-    
-    // AvgTemp field
+
     private Double avgTemp;
     private SubscriptionProto.Operator avgTempOperator;
 
-    // Constructor
     public SubscriptionDto(String source, AdminProto.SourceType sourceType, SubscriptionProto.Subscription subscription) {
         this.source = source;
         this.sourceType = sourceType;
@@ -85,7 +76,6 @@ public class SubscriptionDto {
         }
     }
 
-    // Getters and Setters
     public String getSource() {
         return source;
     }
@@ -102,7 +92,6 @@ public class SubscriptionDto {
         this.sourceType = sourceType;
     }
 
-    // Date
     public String getDate() {
         return date;
     }
@@ -123,7 +112,6 @@ public class SubscriptionDto {
         return date != null;
     }
 
-    // Temp
     public Integer getTemp() {
         return temp;
     }
@@ -144,7 +132,6 @@ public class SubscriptionDto {
         return temp != null;
     }
 
-    // Direction
     public String getDirection() {
         return direction;
     }
@@ -165,7 +152,6 @@ public class SubscriptionDto {
         return direction != null;
     }
 
-    // Wind
     public Integer getWind() {
         return wind;
     }
@@ -186,7 +172,6 @@ public class SubscriptionDto {
         return wind != null;
     }
 
-    // Rain
     public Double getRain() {
         return rain;
     }
@@ -207,7 +192,6 @@ public class SubscriptionDto {
         return rain != null;
     }
 
-    // Station
     public Integer getStation() {
         return station;
     }
@@ -228,7 +212,6 @@ public class SubscriptionDto {
         return station != null;
     }
 
-    // City
     public String getCity() {
         return city;
     }
@@ -249,7 +232,6 @@ public class SubscriptionDto {
         return city != null;
     }
 
-    // AvgTemp
     public Double getAvgTemp() {
         return avgTemp;
     }

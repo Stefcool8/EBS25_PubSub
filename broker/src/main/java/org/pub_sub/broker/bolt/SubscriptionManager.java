@@ -7,7 +7,11 @@ import org.pub_sub.common.generated.SubscriptionProto;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class SubscriptionManager {
     public static List<SubscriptionDto> subscriptions = Collections.synchronizedList(new ArrayList<>());
@@ -17,7 +21,7 @@ public class SubscriptionManager {
 
     public static void addSubscription(SubscriptionDto subscription) {
         subscriptions.add(subscription);
-        // System.out.println("Added subscription: " + subscription.toString());
+        System.out.println("Added subscription: " + subscription.toString());
         System.out.println("Total subscriptions: " + subscriptions.size());
     }
 
@@ -29,8 +33,7 @@ public class SubscriptionManager {
 
     public static List<SubscriptionDto> getMatchingSubscriptions(PublicationProto.Publication publication) {
         List<SubscriptionDto> matchingSubscriptions = new ArrayList<>();
-        
-        // Adăugăm publicația în fereastră
+
         synchronized (window) {
             window.add(publication);
             if (window.size() > WINDOW_SIZE) {
@@ -39,14 +42,13 @@ public class SubscriptionManager {
             }
             System.out.println("Window updated. Size: " + window.size() + "/" + WINDOW_SIZE);
         }
-        
-        // Verificăm fiecare subscription
+
         synchronized (subscriptions) {
             System.out.println("Checking " + subscriptions.size() + " subscriptions for publication: " + publication.toString());
             for (SubscriptionDto subscription : subscriptions) {
                 if (matchesSubscription(publication, subscription)) {
-                    // First check if the source is already notified
                     matchingSubscriptions.add(subscription);
+                    System.out.println("Found matching subscription!");
                 }
             }
         }
@@ -68,8 +70,7 @@ public class SubscriptionManager {
             for (PublicationProto.Publication pub : window) {
                 sb.append("Publication ").append(index++).append(": ").append(pub.toString()).append("\n");
             }
-            
-            // Calculăm și adăugăm temperatura medie
+
             float sum = 0.0f;
             for (PublicationProto.Publication pub : window) {
                 sum += pub.getTemp();
@@ -82,30 +83,26 @@ public class SubscriptionManager {
     }
 
     public static boolean matchesSubscription(PublicationProto.Publication publication, SubscriptionDto subscription) {
-        // Dacă subscription-ul are avg_temp, verificăm pe întregul window
         if (subscription.hasAvgTemp()) {
             synchronized (window) {
                 if (window.size() < WINDOW_SIZE) {
-                    return false; // nu avem suficiente elemente încă
+                    return false;
                 }
                 
                 return matchesSubscriptionOnWindow(subscription);
             }
         } else {
-            // Pentru subscription-uri fără avg_temp, verificăm doar pe publicația curentă
             return matchesSubscriptionOnPublication(publication, subscription);
         }
     }
 
     private static boolean matchesSubscriptionOnWindow(SubscriptionDto subscription) {
-        // Verificăm că toate publicațiile din window se potrivesc cu condițiile
         for (PublicationProto.Publication pub : window) {
             if (!matchesSubscriptionOnPublication(pub, subscription)) {
                 return false;
             }
         }
-        
-        // Verificăm condiția avg_temp
+
         if (subscription.hasAvgTemp()) {
             float sum = 0.0f;
             for (PublicationProto.Publication pub : window) {
@@ -122,49 +119,42 @@ public class SubscriptionManager {
     }
 
     private static boolean matchesSubscriptionOnPublication(PublicationProto.Publication publication, SubscriptionDto subscription) {
-        // Check date field
         if (subscription.hasDate()) {
             if (!matchesDateField(publication.getDate(), subscription.getDate(), subscription.getDateOperator())) {
                 return false;
             }
         }
 
-        // Check temp field
         if (subscription.hasTemp()) {
             if (!matchesIntField(publication.getTemp(), subscription.getTemp(), subscription.getTempOperator())) {
                 return false;
             }
         }
 
-        // Check direction field
         if (subscription.hasDirection()) {
             if (!matchesStringField(publication.getDirection(), subscription.getDirection(), subscription.getDirectionOperator())) {
                 return false;
             }
         }
 
-        // Check wind field
         if (subscription.hasWind()) {
             if (!matchesIntField(publication.getWind(), subscription.getWind(), subscription.getWindOperator())) {
                 return false;
             }
         }
 
-        // Check rain field
         if (subscription.hasRain()) {
             if (!matchesFloatField(publication.getRain(), subscription.getRain(), subscription.getRainOperator())) {
                 return false;
             }
         }
 
-        // Check station field
         if (subscription.hasStation()) {
             if (!matchesIntField(publication.getStation(), subscription.getStation(), subscription.getStationOperator())) {
                 return false;
             }
         }
 
-        // Check city field
         if (subscription.hasCity()) {
             if (!matchesStringField(publication.getCity(), subscription.getCity(), subscription.getCityOperator())) {
                 return false;

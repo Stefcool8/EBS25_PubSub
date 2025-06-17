@@ -137,7 +137,7 @@ public class SubRecord {
               .append(" \"isAverage\": ").append(temp.isAverage)
               .append(" } ");
         }
-        // Remove the last comma if it exists
+        // Remove the last comma
         if (sb.lastIndexOf(", ") == sb.length() - 2) {
             sb.delete(sb.length() - 2, sb.length());
         }
