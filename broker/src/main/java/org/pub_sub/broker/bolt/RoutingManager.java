@@ -1,5 +1,6 @@
 package org.pub_sub.broker.bolt;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.pub_sub.broker.dtos.Pair;
@@ -9,6 +10,7 @@ import org.pub_sub.common.generated.AdminProto;
 import org.pub_sub.common.generated.ForwardProto;
 import org.pub_sub.common.generated.PublicationProto;
 import org.pub_sub.common.generated.SubscriptionProto;
+import org.pub_sub.common.records.PubRecord;
 
 import java.io.IOException;
 import java.util.*;
@@ -17,10 +19,25 @@ import java.util.stream.Collectors;
 public class RoutingManager {
     public static void handleNotification(KafkaProducer<byte[], byte[]> producer, String brokerId, ForwardProto.ForwardMessage forwardMessage, String[] neighboringBrokers)
     {
-        PublicationProto.Publication pub = forwardMessage.getPublication();
+        PublicationProto.Publication protoPub = forwardMessage.getPublication();
+
+        // Map the protobuf publication to PubRecord
+        PubRecord pubRecord = new PubRecord(
+                protoPub.getStation(),
+                protoPub.getCity(),
+                protoPub.getDate(),
+                protoPub.getDirection(),
+                protoPub.getRain(),
+                protoPub.getWind(),
+                protoPub.getTemp(),
+                protoPub.getTimestamp()
+        );
 
         // Get matching subscriptions
-        List<SubscriptionDto> matchingSubscriptions = SubscriptionManager.getMatchingSubscriptions(pub);
+        List<SubscriptionDto> matchingSubscriptions = SubscriptionManager.getMatchingSubscriptions(protoPub);
+
+        // Send a notification to a subscriber once. If there are multiple subscriptions for the same subscriber, we only send one notification.
+        Set<String> notifiedSubscribers = new HashSet<>();
 
         // Notify subscribers for each matching subscription
         for (SubscriptionDto subscription : matchingSubscriptions) {
@@ -36,6 +53,10 @@ public class RoutingManager {
                 }
 
                 if (subscription.getSourceType().equals(AdminProto.SourceType.SUBSCRIBER)) {
+                    if (notifiedSubscribers.contains(subscription.getSource())) {
+                        // Skip if we already notified this subscriber
+                        continue;
+                    }
                     System.out.println("Notifying subscriber for matching subscription: " + subscription);
                     System.out.println("subscription.hasAvgTemp() = " + subscription.hasAvgTemp());
                     System.out.println("subscription.getAvgTemp() = " + subscription.getAvgTemp());
@@ -49,7 +70,11 @@ public class RoutingManager {
                     } else {
                         // Pentru subscription-uri normale, trimitem doar publicația curentă
                         System.out.println("Sending publication data because subscription does NOT have avg_temp");
-                        SubscriberNotifier.notify(subscription.getSource(), pub.toString());
+                        String json = new ObjectMapper().writeValueAsString(pubRecord);
+                        SubscriberNotifier.notify(subscription.getSource(), json);
+
+                        // Add to notified subscribers to avoid duplicate notifications
+                        notifiedSubscribers.add(subscription.getSource());
                     }
                 }
                 else
@@ -58,7 +83,7 @@ public class RoutingManager {
                     ForwardProto.ForwardMessage message = ForwardProto.ForwardMessage.newBuilder()
                             .setSource(brokerId)
                             .setSourceType(ForwardProto.SourceType.BROKER)
-                            .setPublication(pub)
+                            .setPublication(protoPub)
                             .build();
 
                     byte[] data = message.toByteArray();

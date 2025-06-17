@@ -19,7 +19,7 @@ public class PublicationsGenerator {
         this.publicationSaver = saver;
     }
 
-    private void generatePublication() {
+    private void generatePublication() throws RuntimeException {
         Publication publication = new Publication();
 
         for (SchemaField field : schema.fields) {
@@ -31,6 +31,9 @@ public class PublicationsGenerator {
             try {
                 publicationSaver.save(publication);
             } catch (Exception e) {
+                if (e instanceof RuntimeException) {
+                    throw (RuntimeException) e;
+                }
                 System.err.println("Error saving publication: " + e.getMessage());
             }
         } else {
@@ -38,7 +41,7 @@ public class PublicationsGenerator {
         }
     }
 
-    public long generatePublications() {
+    public long generatePublications() throws RuntimeException {
         long start = System.nanoTime();
 
         for (int i = 0; i < this.numberOfPublications; i++) {

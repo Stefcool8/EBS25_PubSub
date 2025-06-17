@@ -164,7 +164,7 @@ public class Main {
     }
 
     private static void getPublications(Schema schema, Properties props,
-                                        int numberOfPublications) throws IOException {
+                                        int numberOfPublications) throws Exception {
         PublicationSaver pubSaverSingle = new TextFilePublicationSaver(
                 props.getProperty("output.publications.single", "output/publications_single_thread.json")
         );

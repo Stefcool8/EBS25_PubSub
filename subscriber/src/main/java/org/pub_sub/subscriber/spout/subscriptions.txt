@@ -1,2 +1,2 @@
-{"date": {"operator": ">=", "value": "08.08.2025"}, "avg_temp": {"operator": ">=", "value": 15}}
+{"date": {"operator": ">=", "value": "08.08.2025"}, "temp": {"operator": ">=", "value": 15}}
 {"temp": {"operator": "<", "value": 25}}

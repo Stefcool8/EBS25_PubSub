@@ -13,7 +13,7 @@ public class SubscriberTopology {
 
         TopologyBuilder builder = new TopologyBuilder();
 
-        builder.setSpout("subscriptions-spout", new SubscriptionsGeneratorSpout(subscriberId));
+        builder.setSpout("subscriptions-spout", new SubscriptionsGeneratorSpout(subscriberId, port));
         builder.setBolt("kafka-subscriber", new KafkaSubscriberBolt(topic, subscriberId))
                 .shuffleGrouping("subscriptions-spout");
 

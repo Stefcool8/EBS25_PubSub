@@ -3,12 +3,12 @@ syntax = "proto3";
 option java_outer_classname = "PublicationProto";
 
 message Publication {
-  string date = 1;
-  int32 temp = 2;
-  string direction = 3;
-  int32 wind = 4;
-  double rain = 5;
-  int32 station = 6;
-  string city = 7;
+  int32 station = 1;
+  string city = 2;
+  int32 temp = 3;
+  double rain = 4;
+  int32 wind = 5;
+  string direction = 6;
+  string date = 7;
   int64 timestamp = 8;
 }

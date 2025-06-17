@@ -8,6 +8,8 @@ import org.pub_sub.broker.bolt.AdminMessageBolt;
 import org.pub_sub.broker.spout.KafkaForwardMessagesSpout;
 import org.pub_sub.broker.spout.KafkaAdminMessagesSpout;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class BrokerTopology {
     public static void run(String brokerId, String[] neighbors) throws Exception {
@@ -27,10 +29,19 @@ public class BrokerTopology {
         Config config = new Config();
         config.setDebug(false);
 
-        try (LocalCluster cluster = new LocalCluster()) {
-            cluster.submitTopology("broker-topology", config, builder.createTopology());
-            Thread.sleep(180_000);
-            cluster.shutdown();
-        }
+        LocalCluster cluster = new LocalCluster();
+        cluster.submitTopology("broker-topology", config, builder.createTopology());
+
+        Thread.sleep(TimeUnit.MINUTES.toMillis(120)); // Run for 120 minutes
+
+        // Shutdown the cluster after the specified time
+        cluster.killTopology("broker-topology");
+        cluster.shutdown();
+
+//        try (LocalCluster cluster = new LocalCluster()) {
+//            cluster.submitTopology("broker-topology", config, builder.createTopology());
+//            Thread.sleep(180_000);
+//            cluster.shutdown();
+//        }
     }
 }

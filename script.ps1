@@ -1,5 +1,5 @@
-# docker-compose down
-# docker-compose up -d
+docker-compose down
+docker-compose up -d
 
 # Pornește Brokerul într-o nouă fereastră
 $broker1 = Start-Process powershell -ArgumentList '-NoExit', '-Command', 'java -jar broker/target/broker-1.0-SNAPSHOT.jar 1 2' -PassThru
@@ -15,8 +15,8 @@ $subscriber3 = Start-Process powershell -ArgumentList '-NoExit', '-Command', 'ja
 
 Start-Sleep -Seconds 2
 
-# Pornește Publisherul
-$publisher = Start-Process powershell -ArgumentList '-NoExit', '-Command', 'java -jar publisher/target/publisher-1.0-SNAPSHOT.jar 1' -PassThru
+# # Pornește Publisherul
+# $publisher = Start-Process powershell -ArgumentList '-NoExit', '-Command', 'java -jar publisher/target/publisher-1.0-SNAPSHOT.jar 1' -PassThru
 
 Write-Host "Toate procesele au fost lansate. Apasa ENTER pentru a opri."
 Read-Host

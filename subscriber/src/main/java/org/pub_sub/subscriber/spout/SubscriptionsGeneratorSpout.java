@@ -9,6 +9,7 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 import org.pub_sub.common.generated.AdminProto;
 import org.pub_sub.common.generated.SubscriptionProto;
+import org.pub_sub.common.records.SubRecord;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,13 +20,13 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
     private SpoutOutputCollector collector;
     private BufferedReader reader;
     private ObjectMapper mapper;
-
     private String nextLine;
-
     private final String source;
+    private final String port;
 
-    public SubscriptionsGeneratorSpout(String source) {
+    public SubscriptionsGeneratorSpout(String source, String port) {
         this.source = source;
+        this.port = port;
     }
 
     @Override
@@ -33,14 +34,14 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
         this.collector = spoutOutputCollector;
         this.mapper = new ObjectMapper();
         try {
-            var inputStream = getClass().getResourceAsStream("subscriptions.txt");
+            var inputStream = getClass().getResourceAsStream("subscriptions-" + port + ".txt");
             if (inputStream == null) {
-                throw new RuntimeException("Could not find subscriptions.txt in the same directory as " + getClass().getName());
+                throw new RuntimeException("Could not find subscriptions-" + port + ".txt in the same directory as " + getClass().getName());
             }
             this.reader = new BufferedReader(new InputStreamReader(inputStream));
             this.nextLine = reader.readLine();
         } catch (IOException e) {
-            throw new RuntimeException("Could not open subscriptions.txt", e);
+            throw new RuntimeException("Could not open subscriptions file", e);
         }
     }
 
@@ -60,8 +61,12 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
 
             if (subRecord.date != null)
                 subscriptionBuilder.setDate(toStringCondition(subRecord.date));
-            if (subRecord.temp != null)
-                subscriptionBuilder.setTemp(toIntCondition(subRecord.temp));
+            if (subRecord.temp != null) {
+                if (subRecord.temp.isAverage)
+                    subscriptionBuilder.setAvgTemp(toDoubleCondition(subRecord.temp));
+                else
+                    subscriptionBuilder.setTemp(toIntCondition(subRecord.temp));
+            }
             if (subRecord.direction != null)
                 subscriptionBuilder.setDirection(toStringCondition(subRecord.direction));
             if (subRecord.wind != null)
@@ -72,8 +77,6 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
                 subscriptionBuilder.setStation(toIntCondition(subRecord.station));
             if (subRecord.city != null)
                 subscriptionBuilder.setCity(toStringCondition(subRecord.city));
-            if (subRecord.avg_temp != null)
-                subscriptionBuilder.setAvgTemp(toDoubleCondition(subRecord.avg_temp));
 
             AdminProto.AdminMessage adminMessage = AdminProto.AdminMessage.newBuilder()
                     .setSource(source)
