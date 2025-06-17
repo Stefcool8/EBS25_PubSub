@@ -23,7 +23,7 @@ public class SubscriberCallbackServer {
 
             try {
                 java.nio.file.Files.writeString(
-                        java.nio.file.Paths.get("notifications-" + port + ".txt"),
+                        java.nio.file.Paths.get("evaluator/src/main/java/org/pub_sub/notifications-" + port + ".txt"),
                         pub.timestamp + ", " + receivedTime + "\n",
                         java.nio.charset.StandardCharsets.UTF_8,
                         java.nio.file.StandardOpenOption.CREATE,

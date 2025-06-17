@@ -1,5 +1,7 @@
 package org.pub_sub.common.records;
 
+import org.pub_sub.common.generated.SubscriptionProto;
+
 public class SubRecord {
     public FieldCondition date;
     public FieldCondition temp;
@@ -13,6 +15,71 @@ public class SubRecord {
         public String operator;
         public String value;
         public boolean isAverage;
+    }
+
+    public SubscriptionProto.Subscription toSubscriptionProto() {
+        SubscriptionProto.Subscription.Builder subscriptionBuilder = SubscriptionProto.Subscription.newBuilder();
+
+        if (date != null) {
+            subscriptionBuilder.setDate(toStringCondition(date));
+        }
+        if (temp != null) {
+            if (temp.isAverage) {
+                subscriptionBuilder.setAvgTemp(toDoubleCondition(temp));
+            } else {
+                subscriptionBuilder.setTemp(toIntCondition(temp));
+            }
+        }
+        if (direction != null) {
+            subscriptionBuilder.setDirection(toStringCondition(direction));
+        }
+        if (wind != null) {
+            subscriptionBuilder.setWind(toIntCondition(wind));
+        }
+        if (rain != null) {
+            subscriptionBuilder.setRain(toDoubleCondition(rain));
+        }
+        if (station != null) {
+            subscriptionBuilder.setStation(toIntCondition(station));
+        }
+        if (city != null) {
+            subscriptionBuilder.setCity(toStringCondition(city));
+        }
+
+        return subscriptionBuilder.build();
+    }
+
+    private SubscriptionProto.StringFieldCondition toStringCondition(SubRecord.FieldCondition cond) {
+        return SubscriptionProto.StringFieldCondition.newBuilder()
+                .setOperator(toOperator(cond.operator))
+                .setValue(cond.value)
+                .build();
+    }
+
+    private SubscriptionProto.IntFieldCondition toIntCondition(SubRecord.FieldCondition cond) {
+        return SubscriptionProto.IntFieldCondition.newBuilder()
+                .setOperator(toOperator(cond.operator))
+                .setValue(Integer.parseInt(cond.value))
+                .build();
+    }
+
+    private SubscriptionProto.DoubleFieldCondition toDoubleCondition(SubRecord.FieldCondition cond) {
+        return SubscriptionProto.DoubleFieldCondition.newBuilder()
+                .setOperator(toOperator(cond.operator))
+                .setValue(Float.parseFloat(cond.value))
+                .build();
+    }
+
+    private SubscriptionProto.Operator toOperator(String op) {
+        return switch (op) {
+            case "==" -> SubscriptionProto.Operator.EQ;
+            case "!=" -> SubscriptionProto.Operator.NE;
+            case "<"  -> SubscriptionProto.Operator.LT;
+            case "<=" -> SubscriptionProto.Operator.LE;
+            case ">"  -> SubscriptionProto.Operator.GT;
+            case ">=" -> SubscriptionProto.Operator.GE;
+            default   -> throw new IllegalArgumentException("Invalid operator: " + op);
+        };
     }
 
     @Override

@@ -155,7 +155,7 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
         // Save the publication to a file
         try {
             java.nio.file.Files.writeString(
-                    java.nio.file.Paths.get("publications.txt"),
+                    java.nio.file.Paths.get("evaluator/src/main/java/org/pub_sub/publications.txt"),
                     pubRecord + "\n",
                     java.nio.charset.StandardCharsets.UTF_8,
                     java.nio.file.StandardOpenOption.CREATE,

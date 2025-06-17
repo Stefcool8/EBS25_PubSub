@@ -1,5 +1,7 @@
 package org.pub_sub.common.records;
 
+import org.pub_sub.common.generated.PublicationProto;
+
 public class PubRecord {
     public int station;
     public String city;
@@ -23,6 +25,19 @@ public class PubRecord {
         this.wind = wind;
         this.temp = temp;
         this.timestamp = timestamp;
+    }
+
+    public PublicationProto.Publication toPublicationProto() {
+        return PublicationProto.Publication.newBuilder()
+                .setStation(station)
+                .setCity(city)
+                .setDate(date)
+                .setDirection(direction)
+                .setRain(rain)
+                .setWind(wind)
+                .setTemp(temp)
+                .setTimestamp(timestamp)
+                .build();
     }
 
     public int getStation() {

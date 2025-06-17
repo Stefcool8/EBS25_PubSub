@@ -14,7 +14,7 @@ import java.util.Queue;
 import java.util.LinkedList;
 
 public class SubscriptionManager {
-    private static final List<SubscriptionDto> subscriptions = Collections.synchronizedList(new ArrayList<>());
+    public static List<SubscriptionDto> subscriptions = Collections.synchronizedList(new ArrayList<>());
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     private static final int WINDOW_SIZE = 3; 
     private static final Queue<PublicationProto.Publication> window = new LinkedList<>();
@@ -85,7 +85,7 @@ public class SubscriptionManager {
         }
     }
 
-    private static boolean matchesSubscription(PublicationProto.Publication publication, SubscriptionDto subscription) {
+    public static boolean matchesSubscription(PublicationProto.Publication publication, SubscriptionDto subscription) {
         // Dacă subscription-ul are avg_temp, verificăm pe întregul window
         if (subscription.hasAvgTemp()) {
             synchronized (window) {

@@ -38,8 +38,8 @@ Thumbs.db
 # IntelliJ run/debug configs (optional)
 .idea/runConfigurations/
 
-/notifications.txt
-/publications.txt
-/notifications-8082.txt
-/notifications-8083.txt
-/notifications-8084.txt
+notifications.txt
+publications.txt
+notifications-8082.txt
+notifications-8083.txt
+notifications-8084.txt
