@@ -56,32 +56,12 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
 
         try {
             SubRecord subRecord = mapper.readValue(nextLine, SubRecord.class);
-
-            SubscriptionProto.Subscription.Builder subscriptionBuilder = SubscriptionProto.Subscription.newBuilder();
-
-            if (subRecord.date != null)
-                subscriptionBuilder.setDate(toStringCondition(subRecord.date));
-            if (subRecord.temp != null) {
-                if (subRecord.temp.isAverage)
-                    subscriptionBuilder.setAvgTemp(toDoubleCondition(subRecord.temp));
-                else
-                    subscriptionBuilder.setTemp(toIntCondition(subRecord.temp));
-            }
-            if (subRecord.direction != null)
-                subscriptionBuilder.setDirection(toStringCondition(subRecord.direction));
-            if (subRecord.wind != null)
-                subscriptionBuilder.setWind(toIntCondition(subRecord.wind));
-            if (subRecord.rain != null)
-                subscriptionBuilder.setRain(toDoubleCondition(subRecord.rain));
-            if (subRecord.station != null)
-                subscriptionBuilder.setStation(toIntCondition(subRecord.station));
-            if (subRecord.city != null)
-                subscriptionBuilder.setCity(toStringCondition(subRecord.city));
+            SubscriptionProto.Subscription subProto = subRecord.toSubscriptionProto();
 
             AdminProto.AdminMessage adminMessage = AdminProto.AdminMessage.newBuilder()
                     .setSource(source)
                     .setSourceType(AdminProto.SourceType.SUBSCRIBER)
-                    .addSubscriptions(subscriptionBuilder.build())
+                    .addSubscriptions(subProto)
                     .build();
 
             collector.emit(new Values(adminMessage));
@@ -108,38 +88,5 @@ public class SubscriptionsGeneratorSpout extends BaseRichSpout {
                 throw new RuntimeException(e);
             }
         }
-    }
-
-    private SubscriptionProto.StringFieldCondition toStringCondition(SubRecord.FieldCondition cond) {
-        return SubscriptionProto.StringFieldCondition.newBuilder()
-                .setOperator(toOperator(cond.operator))
-                .setValue(cond.value)
-                .build();
-    }
-
-    private SubscriptionProto.IntFieldCondition toIntCondition(SubRecord.FieldCondition cond) {
-        return SubscriptionProto.IntFieldCondition.newBuilder()
-                .setOperator(toOperator(cond.operator))
-                .setValue(Integer.parseInt(cond.value))
-                .build();
-    }
-
-    private SubscriptionProto.DoubleFieldCondition toDoubleCondition(SubRecord.FieldCondition cond) {
-        return SubscriptionProto.DoubleFieldCondition.newBuilder()
-                .setOperator(toOperator(cond.operator))
-                .setValue(Float.parseFloat(cond.value))
-                .build();
-    }
-
-    private SubscriptionProto.Operator toOperator(String op) {
-        return switch (op) {
-            case "==" -> SubscriptionProto.Operator.EQ;
-            case "!=" -> SubscriptionProto.Operator.NE;
-            case "<"  -> SubscriptionProto.Operator.LT;
-            case "<=" -> SubscriptionProto.Operator.LE;
-            case ">"  -> SubscriptionProto.Operator.GT;
-            case ">=" -> SubscriptionProto.Operator.GE;
-            default   -> throw new IllegalArgumentException("Invalid operator: " + op);
-        };
     }
 }
