@@ -7,11 +7,7 @@ import org.pub_sub.common.generated.SubscriptionProto;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.*;
 
 public class SubscriptionManager {
     public static List<SubscriptionDto> subscriptions = Collections.synchronizedList(new ArrayList<>());
@@ -21,7 +17,7 @@ public class SubscriptionManager {
 
     public static void addSubscription(SubscriptionDto subscription) {
         subscriptions.add(subscription);
-        System.out.println("Added subscription: " + subscription.toString());
+        // System.out.println("Added subscription: " + subscription.toString());
         System.out.println("Total subscriptions: " + subscriptions.size());
     }
 
@@ -49,8 +45,8 @@ public class SubscriptionManager {
             System.out.println("Checking " + subscriptions.size() + " subscriptions for publication: " + publication.toString());
             for (SubscriptionDto subscription : subscriptions) {
                 if (matchesSubscription(publication, subscription)) {
+                    // First check if the source is already notified
                     matchingSubscriptions.add(subscription);
-                    System.out.println("Found matching subscription!");
                 }
             }
         }

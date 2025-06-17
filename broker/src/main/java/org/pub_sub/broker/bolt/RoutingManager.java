@@ -70,7 +70,6 @@ public class RoutingManager {
                         SubscriberNotifier.notify(subscription.getSource(), windowData);
                     } else {
                         // Pentru subscription-uri normale, trimitem doar publicația curentă
-                        System.out.println("Sending publication data because subscription does NOT have avg_temp");
                         String json = new ObjectMapper().writeValueAsString(pubRecord);
                         SubscriberNotifier.notify(subscription.getSource(), json);
 

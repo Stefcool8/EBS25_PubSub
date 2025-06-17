@@ -38,7 +38,7 @@ public class KafkaSubscriberBolt extends BaseBasicBolt {
         AdminProto.AdminMessage adminMessage = (AdminProto.AdminMessage) tuple.getValueByField("subscription");
         byte[] data = adminMessage.toByteArray();
 
-        System.out.println("Publishing subscription message to topic " + topic + ": " + adminMessage);
+        System.out.println("Publishing subscription message to topic " + topic); // + ": " + adminMessage);
 
         ProducerRecord<byte[], byte[]> record = new ProducerRecord<>(topic, null, data);
         producer.send(record);

@@ -1,13 +1,14 @@
 # Pornește Publisherul
 $publisher = Start-Process powershell -ArgumentList '-NoExit', '-Command', 'java -jar publisher/target/publisher-1.0-SNAPSHOT.jar 1' -PassThru
 
-Write-Host "Publisherul a fost lansat. Apasa ENTER pentru a opri."
-Read-Host
+Write-Host "The Publisher has been started.  Press 'q' to stop it"
+do {
+    $key = [Console]::ReadKey($true).KeyChar
+} while ($key -ne 'q')
 
-# Oprește Publisherul
-$publisher | Stop-Process
+# Stop the Publisher
+if (-not $publisher.HasExited) {
+    Stop-Process -Id $publisher.Id -Force
+}
 
-# Închide terminalul
-$publisher.CloseMainWindow()
-
-Write-Host "Publisherul a fost oprit si terminalul inchis."
+Write-Host "The Publisher has been stopped and its window closed."
