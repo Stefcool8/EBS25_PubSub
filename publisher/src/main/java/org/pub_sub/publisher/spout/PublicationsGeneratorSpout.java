@@ -36,7 +36,7 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
         int threads    = (Integer) conf.getOrDefault("pub.threads", 4);
         queue = new LinkedBlockingQueue<>(totalPubs);
         this.startMs    = System.currentTimeMillis();
-        this.durationMs = TimeUnit.MINUTES.toMillis(3);
+        this.durationMs = TimeUnit.MINUTES.toMillis(1);
 
         new Thread(() -> {
 //            try {
@@ -107,7 +107,7 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
                 // Emit the publication as a protobuf message
                 collector.emit(new Values(protoPub));
 
-                Utils.sleep(100); // Sleep to decrease the emission rate
+                Utils.sleep(1000); // Sleep to decrease the emission rate
             } else if (done && queue.isEmpty()) {
                 // queue drained after generation finished
                 Utils.sleep(1000);

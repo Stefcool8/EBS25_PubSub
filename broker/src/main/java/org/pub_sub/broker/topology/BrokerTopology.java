@@ -1,5 +1,6 @@
 package org.pub_sub.broker.topology;
 
+import org.apache.logging.log4j.core.config.Configurator;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.topology.TopologyBuilder;
@@ -13,6 +14,10 @@ import java.util.concurrent.TimeUnit;
 
 public class BrokerTopology {
     public static void run(String brokerId, String[] neighbors) throws Exception {
+        Configurator.setLevel("org.apache.storm",     org.apache.logging.log4j.Level.WARN);
+        Configurator.setLevel("org.apache.zookeeper", org.apache.logging.log4j.Level.ERROR);
+        Configurator.setLevel("io.netty",             org.apache.logging.log4j.Level.ERROR);
+
         TopologyBuilder builder = new TopologyBuilder();
 
         String adminTopic = "broker-" + brokerId + "-admin";
