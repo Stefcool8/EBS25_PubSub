@@ -15,6 +15,34 @@ Fiecare subscriber avea ~3 333 subscrieri. Pentru fiecare subscriber s-a calcula
 - **Expected publications delivered** = numărul de publicații care se potriveau cu cel puțin o subscriere
 - **Actual publications delivered** = numărul de confirmații primite de la subscriber
 
+**Update**: S-au obținut rezultate mai bune la o a doua rulare, după mici ajustări!
+
+Rezultatele noi:
+```text
+Port: 8082
+Expected publications delivered: 2961
+Actual publications delivered: 2961
+Percentage of publications delivered: 100.00%
+-----------------------------
+Port: 8083
+Expected publications delivered: 2969
+Actual publications delivered: 2969
+Percentage of publications delivered: 100.00%
+-----------------------------
+Port: 8084
+Expected publications delivered: 2836
+Actual publications delivered: 2836
+Percentage of publications delivered: 100.00%
+-----------------------------
+Total:
+Expected publications delivered: 8766
+Actual publications delivered: 8766
+Percentage of publications delivered: 100.00%
+```
+
+<details>
+<summary>Rezultatele vechi:</summary>
+
 ```text
 Subscriber 1:
   Expected publications delivered: 1710
@@ -37,8 +65,26 @@ Total:
   Percentage of publications delivered: 100.00%
 ```
 
+</details>
+
 ## b) Latența medie de livrare
 S-au colectat perechi (emittedAt, receivedAt) și s-au calculat:
+
+**Update**: S-au obținut rezultate mai bune la o a doua rulare, după mici ajustări!
+
+Rezultatele noi:
+```text
+Evaluated 8916 deliveries across 3 subscribers.
+Average delivery latency: 430.05 ms
+Min latency: 11 ms, Max latency: 10384 ms
+```
+- Număr total livrări evaluate: 8 916
+- Latența medie: 430.05 ms
+- Latența minimă: 11 ms
+- Latența maximă: 10 384 ms
+
+<details>
+<summary>Rezultatele vechi:</summary>
 
 ```text
 Evaluated 5130 deliveries across 3 subscribers.
@@ -50,6 +96,8 @@ Min latency: 3813 ms, Max latency: 118841 ms
 - Latența medie: 65 351.58 ms 
 - Latența minimă: 3 813 ms 
 - Latența maximă: 118 841 ms
+</details>
+
 
 ## c) Rata de potrivire a subscrierilor (matching rate)
 S-au generat două seturi de 10 000 subscrieri simple pe câmpul city:
