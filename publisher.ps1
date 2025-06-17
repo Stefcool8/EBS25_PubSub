@@ -3,4 +3,11 @@ $publisher = Start-Process powershell -ArgumentList '-NoExit', '-Command', 'java
 
 Write-Host "Publisherul a fost lansat. Apasa ENTER pentru a opri."
 Read-Host
+
+# Oprește Publisherul
+$publisher | Stop-Process
+
+# Închide terminalul
+$publisher.CloseMainWindow()
+
 Write-Host "Publisherul a fost oprit si terminalul inchis."

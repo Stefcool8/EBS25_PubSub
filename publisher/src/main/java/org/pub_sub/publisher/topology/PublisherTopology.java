@@ -1,5 +1,6 @@
 package org.pub_sub.publisher.topology;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.config.Configurator;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
@@ -9,9 +10,11 @@ import org.pub_sub.publisher.spout.PublicationsGeneratorSpout;
 
 public class PublisherTopology {
     public static void run(String brokerId) throws Exception {
-        Configurator.setLevel("org.apache.storm",     org.apache.logging.log4j.Level.WARN);
-        Configurator.setLevel("org.apache.zookeeper", org.apache.logging.log4j.Level.ERROR);
-        Configurator.setLevel("io.netty",             org.apache.logging.log4j.Level.ERROR);
+        Configurator.setLevel("org.apache.storm",     Level.WARN);
+        Configurator.setLevel("org.apache.zookeeper", Level.ERROR);
+        Configurator.setLevel("io.netty",             Level.ERROR);
+        Configurator.setLevel("org.apache.kafka",     Level.WARN);
+        Configurator.setLevel("kafka",                Level.WARN);
 
         String topic = "broker-" + brokerId + "-forward";
 

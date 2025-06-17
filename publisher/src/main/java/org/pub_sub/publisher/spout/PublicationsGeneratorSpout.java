@@ -36,7 +36,7 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
         int threads    = (Integer) conf.getOrDefault("pub.threads", 4);
         queue = new LinkedBlockingQueue<>(totalPubs);
         this.startMs    = System.currentTimeMillis();
-        this.durationMs = TimeUnit.MINUTES.toMillis(1);
+        this.durationMs = TimeUnit.MINUTES.toMillis(2);
 
         new Thread(() -> {
 //            try {
