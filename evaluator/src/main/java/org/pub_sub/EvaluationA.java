@@ -86,7 +86,12 @@ public class EvaluationA {
 
     private static Set<String> loadNotifications(String file) {
         Set<String> timestamps = new HashSet<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        try {
+            InputStream inputStream = EvaluationA.class.getResourceAsStream(file);
+            if (inputStream == null) {
+                throw new RuntimeException("Could not find " + file + " in the same directory as " + EvaluationA.class.getName());
+            }
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(", ");

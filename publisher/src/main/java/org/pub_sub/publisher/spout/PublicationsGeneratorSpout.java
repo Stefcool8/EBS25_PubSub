@@ -16,6 +16,12 @@ import org.pub_sub.generator.schema.SchemaFields;
 import org.pub_sub.generator.storage.PublicationSaver;
 import org.pub_sub.common.records.PubRecord;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
@@ -28,15 +34,28 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
     private volatile boolean done = false;
     private long startMs;
     private long durationMs;
+    private Path filePath;
 
     @Override
     public void open(Map<String, Object> conf, TopologyContext ctx, SpoutOutputCollector coll) {
         this.collector = coll;
         int totalPubs  = (Integer) conf.getOrDefault("pub.total", 10000);
         int threads    = (Integer) conf.getOrDefault("pub.threads", 4);
-        queue = new LinkedBlockingQueue<>(totalPubs);
+        this.queue = new LinkedBlockingQueue<>(totalPubs);
         this.startMs    = System.currentTimeMillis();
         this.durationMs = TimeUnit.MINUTES.toMillis(2);
+
+        this.filePath = Paths.get("evaluator/src/main/java/org/pub_sub/publications.txt");
+        // ensure file is cleared on startup
+        try {
+            if (Files.exists(filePath)) {
+                Files.delete(filePath);
+                System.out.println("Cleared existing file: " + filePath);
+            }
+        } catch (IOException e) {
+            System.err.println("Error clearing existing publication file " + filePath + ": " + e.getMessage());
+            return;
+        }
 
         new Thread(() -> {
 //            try {
@@ -154,12 +173,12 @@ public class PublicationsGeneratorSpout extends BaseRichSpout {
     private void savePublication(PubRecord pubRecord) {
         // Save the publication to a file
         try {
-            java.nio.file.Files.writeString(
-                    java.nio.file.Paths.get("evaluator/src/main/java/org/pub_sub/publications.txt"),
+            Files.writeString(
+                    this.filePath,
                     pubRecord + "\n",
-                    java.nio.charset.StandardCharsets.UTF_8,
-                    java.nio.file.StandardOpenOption.CREATE,
-                    java.nio.file.StandardOpenOption.APPEND
+                    StandardCharsets.UTF_8,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND
             );
         } catch (java.io.IOException e) {
             System.err.println("Error writing to publications.txt: " + e.getMessage());
