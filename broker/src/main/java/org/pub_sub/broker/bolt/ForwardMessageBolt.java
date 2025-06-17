@@ -42,7 +42,7 @@ public class ForwardMessageBolt extends BaseRichBolt {
 
         System.out.println("Received publication: " + forwardMessage.getPublication());
         
-        RoutingManager.handleNotification(producer, brokerId, forwardMessage, neighboringBrokers);
+        RoutingManager.handleNotification01(producer, brokerId, forwardMessage, neighboringBrokers);
 
         collector.emit(new Values(forwardMessage));
         collector.ack(tuple);

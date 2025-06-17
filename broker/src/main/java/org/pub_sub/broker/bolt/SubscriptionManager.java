@@ -1,23 +1,42 @@
 package org.pub_sub.broker.bolt;
 
+import org.pub_sub.broker.dtos.Pair;
 import org.pub_sub.broker.dtos.SubscriptionDto;
+import org.pub_sub.common.generated.AdminProto;
+import org.pub_sub.common.generated.ForwardProto;
 import org.pub_sub.common.generated.PublicationProto;
 import org.pub_sub.common.generated.SubscriptionProto;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.*;
 
 public class SubscriptionManager {
     public static List<SubscriptionDto> subscriptions = Collections.synchronizedList(new ArrayList<>());
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     private static final int WINDOW_SIZE = 3; 
-    private static final Queue<PublicationProto.Publication> window = new LinkedList<>();
+    private static final Queue<ForwardProto.ForwardMessage> window = new LinkedList<>();
+
+
+    public static Queue<PublicationProto.Publication> getWindow() {
+        return window;
+    }
+
+    public static void clearWindow() {
+        synchronized (window) {
+            window.clear();
+            System.out.println("Window cleared.");
+        }
+    }
+
+    public static int getWindowCurrentSize() {
+        return window.size();
+    }
+
+    public static int getWindowSize() {
+        return WINDOW_SIZE;
+    }
 
     public static void addSubscription(SubscriptionDto subscription) {
         subscriptions.add(subscription);
@@ -31,9 +50,46 @@ public class SubscriptionManager {
         System.out.println("Total subscriptions: " + subscriptions.size());
     }
 
+    public static Map<PublicationProto.Publication, Set<Pair<String, AdminProto.SourceType>>> getPublicationsToSend()
+    {
+        Map<PublicationProto.Publication, Set<Pair<String, AdminProto.SourceType>>> neighbors = new HashMap<>();
+
+        synchronized (subscriptions) {
+            for (SubscriptionDto subscription : subscriptions) {
+                if (subscription.hasAvg())
+                {
+                    var match = matchesSubscriptionOnWindow(subscription);
+                    if (match)
+                    {
+                        for (PublicationProto.Publication pub : window.stream().map(a -> a.getP)) {
+                            if (!neighbors.containsKey(pub)) {
+                                neighbors.put(pub, new HashSet<>());
+                            }
+                            neighbors.get(pub).add(new Pair<>(subscription.getSource(), subscription.getSourceType()));
+                        }
+                    }
+                }
+                else
+                {
+                    for (PublicationProto.Publication pub : window) {
+                        boolean match = matchesSubscriptionOnPublication(pub, subscription);
+                        if (match) {
+                            if (!neighbors.containsKey(pub)) {
+                                neighbors.put(pub, new HashSet<>());
+                            }
+                            neighbors.get(pub).add(new Pair<>(subscription.getSource(), subscription.getSourceType()));
+                        }
+                    }
+                }
+            }
+
+            return neighbors;
+        }
+    }
+
     public static List<SubscriptionDto> getMatchingSubscriptions(PublicationProto.Publication publication) {
         List<SubscriptionDto> matchingSubscriptions = new ArrayList<>();
-        
+
         // Adăugăm publicația în fereastră
         synchronized (window) {
             window.add(publication);
@@ -87,7 +143,7 @@ public class SubscriptionManager {
 
     public static boolean matchesSubscription(PublicationProto.Publication publication, SubscriptionDto subscription) {
         // Dacă subscription-ul are avg_temp, verificăm pe întregul window
-        if (subscription.hasAvgTemp()) {
+        if (subscription.hasAvg()) {
             synchronized (window) {
                 if (window.size() < WINDOW_SIZE) {
                     return false; // nu avem suficiente elemente încă
@@ -110,7 +166,7 @@ public class SubscriptionManager {
         }
         
         // Verificăm condiția avg_temp
-        if (subscription.hasAvgTemp()) {
+        if (subscription.hasAvg()) {
             float sum = 0.0f;
             for (PublicationProto.Publication pub : window) {
                 sum += pub.getTemp();
@@ -231,6 +287,13 @@ public class SubscriptionManager {
             case LT: return pubValue < subValue;
             case LE: return pubValue <= subValue;
             default: return false;
+        }
+    }
+
+    public static void addToWindow(PublicationProto.Publication publication) {
+        synchronized (window) {
+            window.offer(publication); // add new publication
+            System.out.println("Publication added to window: " + publication.toString());
         }
     }
 } 

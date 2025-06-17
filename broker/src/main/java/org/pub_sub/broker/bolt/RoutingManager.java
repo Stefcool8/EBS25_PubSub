@@ -17,7 +17,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class RoutingManager {
-    public static void handleNotification(KafkaProducer<byte[], byte[]> producer, String brokerId, ForwardProto.ForwardMessage forwardMessage, String[] neighboringBrokers)
+    public static void handleNotification01(KafkaProducer<byte[], byte[]> producer, String brokerId, ForwardProto.ForwardMessage forwardMessage, String[] neighboringBrokers)
     {
         PublicationProto.Publication protoPub = forwardMessage.getPublication();
 
@@ -59,10 +59,10 @@ public class RoutingManager {
 
                 if (subscription.getSourceType().equals(AdminProto.SourceType.SUBSCRIBER)) {
                     System.out.println("Notifying subscriber for matching subscription: " + subscription);
-                    System.out.println("subscription.hasAvgTemp() = " + subscription.hasAvgTemp());
+                    System.out.println("subscription.hasAvg() = " + subscription.hasAvg());
                     System.out.println("subscription.getAvgTemp() = " + subscription.getAvgTemp());
 
-                    if (subscription.hasAvgTemp()) {
+                    if (subscription.hasAvg()) {
                         // Pentru subscription-uri cu avg_temp, trimitem întregul window
                         System.out.println("Sending window data because subscription has avg_temp");
                         String windowData = SubscriptionManager.getWindowAsString();
@@ -167,6 +167,108 @@ public class RoutingManager {
                 byte[] data = adminMessage.toByteArray();
                 ProducerRecord<byte[], byte[]> record = new ProducerRecord<>("broker-" + neighbor + "-admin", null, data);
                 producer.send(record);
+            }
+        }
+    }
+
+    public static void handleNotification(KafkaProducer<byte[], byte[]> producer, String brokerId, ForwardProto.ForwardMessage forwardMessage, String[] neighboringBrokers)
+    {
+        PublicationProto.Publication protoPub = forwardMessage.getPublication();
+
+        // Map the protobuf publication to PubRecord
+        PubRecord pubRecord = new PubRecord(
+                protoPub.getStation(),
+                protoPub.getCity(),
+                protoPub.getDate(),
+                protoPub.getDirection(),
+                protoPub.getRain(),
+                protoPub.getWind(),
+                protoPub.getTemp(),
+                protoPub.getTimestamp()
+        );
+
+        if (SubscriptionManager.getWindowCurrentSize() >= SubscriptionManager.getWindowSize()) {
+            for (PublicationProto.Publication pub : SubscriptionManager.getWindow()) {
+                List<SubscriptionDto> matchingSubscriptions = SubscriptionManager.getMatchingSubscriptions(protoPub);
+            }
+
+            var publicationsToSend = SubscriptionManager.getPublicationsToSend();
+
+
+            SubscriptionManager.clearWindow();
+        }
+
+        // Get matching subscriptions
+        List<SubscriptionDto> matchingSubscriptions = SubscriptionManager.getMatchingSubscriptions(protoPub);
+
+        // Send a notification to a subscriber once. If there are multiple subscriptions for the same subscriber, we only send one notification.
+        Set<String> notifiedNodes = new HashSet<>();
+
+        // Notify subscribers for each matching subscription
+        for (SubscriptionDto subscription : matchingSubscriptions) {
+            try {
+                if (
+                        subscription.getSource().equals(forwardMessage.getSource()) &&
+                                forwardMessage.getSourceType().equals(ForwardProto.SourceType.BROKER) &&
+                                subscription.getSourceType().equals(AdminProto.SourceType.BROKER)
+                )
+                {
+                    // Skip notifications for the source of the publication
+                    continue;
+                }
+
+                if (notifiedNodes.contains(subscription.getSource())) {
+                    // Skip if we already notified this subscriber
+                    continue;
+                }
+
+                if (subscription.getSourceType().equals(AdminProto.SourceType.SUBSCRIBER)) {
+                    System.out.println("Notifying subscriber for matching subscription: " + subscription);
+                    System.out.println("subscription.hasAvg() = " + subscription.hasAvg());
+                    System.out.println("subscription.getAvgTemp() = " + subscription.getAvgTemp());
+
+                    if (subscription.hasAvg()) {
+                        // Pentru subscription-uri cu avg_temp, trimitem întregul window
+                        System.out.println("Sending window data because subscription has avg_temp");
+                        String windowData = SubscriptionManager.getWindowAsString();
+                        System.out.println("Window data: " + windowData);
+                        SubscriberNotifier.notify(subscription.getSource(), windowData);
+                    } else {
+                        // Pentru subscription-uri normale, trimitem doar publicația curentă
+                        System.out.println("Sending publication data because subscription does NOT have avg_temp");
+                        String json = new ObjectMapper().writeValueAsString(pubRecord);
+                        SubscriberNotifier.notify(subscription.getSource(), json);
+
+                        // Add to notified subscribers to avoid duplicate notifications
+                        notifiedNodes.add(subscription.getSource());
+                    }
+                }
+                else
+                {
+                    // send to neighboring brokers
+                    ForwardProto.ForwardMessage message = ForwardProto.ForwardMessage.newBuilder()
+                            .setSource(brokerId)
+                            .setSourceType(ForwardProto.SourceType.BROKER)
+                            .setPublication(protoPub)
+                            .build();
+
+                    byte[] data = message.toByteArray();
+
+                    if (Arrays.stream(neighboringBrokers).anyMatch(n -> n.equals(subscription.getSource()))) {
+                        System.out.println("Sending forward message to broker: " + subscription.getSource());
+                    } else {
+                        System.out.println("Skipping forward message for non-neighboring broker: " + subscription.getSource());
+                        continue;
+                    }
+
+                    ProducerRecord<byte[], byte[]> record = new ProducerRecord<>("broker-"+subscription.getSource()+"-forward", null, data);
+                    producer.send(record);
+
+                    notifiedNodes.add(subscription.getSource());
+                }
+            } catch (IOException e) {
+                System.err.println("Error forwarding notification: " + e.getMessage());
+                e.printStackTrace();
             }
         }
     }

@@ -39,6 +39,12 @@ public class SubscriptionDto {
     private Double avgTemp;
     private SubscriptionProto.Operator avgTempOperator;
 
+    private Double avgRain;
+    private SubscriptionProto.Operator avgRainOperator;
+
+    private Double avgWind;
+    private SubscriptionProto.Operator avgWindOperator;
+
     // Constructor
     public SubscriptionDto(String source, AdminProto.SourceType sourceType, SubscriptionProto.Subscription subscription) {
         this.source = source;
@@ -266,8 +272,8 @@ public class SubscriptionDto {
         this.avgTempOperator = avgTempOperator;
     }
 
-    public boolean hasAvgTemp() {
-        return avgTemp != null;
+    public boolean hasAvg() {
+        return avgTemp != null || avgRain != null || avgWind != null;
     }
 
     @Override
@@ -338,7 +344,7 @@ public class SubscriptionDto {
                     .setOperator(dto.getCityOperator()));
         }
 
-        if (dto.hasAvgTemp()) {
+        if (dto.hasAvg()) {
             builder.setAvgTemp(SubscriptionProto.DoubleFieldCondition.newBuilder()
                     .setValue(dto.getAvgTemp())
                     .setOperator(dto.getAvgTempOperator()));
