@@ -37,7 +37,7 @@ public class RoutingManager {
         List<SubscriptionDto> matchingSubscriptions = SubscriptionManager.getMatchingSubscriptions(protoPub);
 
         // Send a notification to a subscriber once. If there are multiple subscriptions for the same subscriber, we only send one notification.
-        Set<String> notifiedSubscribers = new HashSet<>();
+        Set<String> notifiedNodes = new HashSet<>();
 
         // Notify subscribers for each matching subscription
         for (SubscriptionDto subscription : matchingSubscriptions) {
@@ -52,11 +52,12 @@ public class RoutingManager {
                     continue;
                 }
 
+                if (notifiedNodes.contains(subscription.getSource())) {
+                    // Skip if we already notified this subscriber
+                    continue;
+                }
+
                 if (subscription.getSourceType().equals(AdminProto.SourceType.SUBSCRIBER)) {
-                    if (notifiedSubscribers.contains(subscription.getSource())) {
-                        // Skip if we already notified this subscriber
-                        continue;
-                    }
                     System.out.println("Notifying subscriber for matching subscription: " + subscription);
                     System.out.println("subscription.hasAvgTemp() = " + subscription.hasAvgTemp());
                     System.out.println("subscription.getAvgTemp() = " + subscription.getAvgTemp());
@@ -74,7 +75,7 @@ public class RoutingManager {
                         SubscriberNotifier.notify(subscription.getSource(), json);
 
                         // Add to notified subscribers to avoid duplicate notifications
-                        notifiedSubscribers.add(subscription.getSource());
+                        notifiedNodes.add(subscription.getSource());
                     }
                 }
                 else
@@ -97,6 +98,8 @@ public class RoutingManager {
 
                     ProducerRecord<byte[], byte[]> record = new ProducerRecord<>("broker-"+subscription.getSource()+"-forward", null, data);
                     producer.send(record);
+
+                    notifiedNodes.add(subscription.getSource());
                 }
             } catch (IOException e) {
                 System.err.println("Error forwarding notification: " + e.getMessage());
