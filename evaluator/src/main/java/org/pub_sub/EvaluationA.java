@@ -66,7 +66,7 @@ public class EvaluationA {
         }
     }
 
-    private static List<SubscriptionDto> loadSubscriptions(String file) {
+    public static List<SubscriptionDto> loadSubscriptions(String file) {
         Path subFile = Path.of(file);
         try (BufferedReader reader = Files.newBufferedReader(subFile, StandardCharsets.UTF_8)) {
             List<SubscriptionDto> subscriptions = new ArrayList<>();
@@ -84,7 +84,7 @@ public class EvaluationA {
         }
     }
 
-    private static Set<String> loadNotifications(String file) {
+    public static Set<String> loadNotifications(String file) {
         Set<String> timestamps = new HashSet<>();
         try {
             InputStream inputStream = EvaluationA.class.getResourceAsStream(file);
@@ -105,7 +105,7 @@ public class EvaluationA {
         return timestamps;
     }
 
-    private static List<PublicationProto.Publication> loadPublications() {
+    public static List<PublicationProto.Publication> loadPublications() {
         try {
             InputStream inputStream = EvaluationA.class.getResourceAsStream("publications.txt");
             if (inputStream == null) {
